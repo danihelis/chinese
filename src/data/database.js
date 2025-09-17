@@ -2,7 +2,6 @@ import entries from './entries.json5';
 import frequencyRaw from './frequency.txt?raw';
 import hsk1Raw from './hsk3-b1.txt?raw';
 
-
 function loadHsk(content, level, base) {
   const hsk = content
     .split('\n')
@@ -109,3 +108,29 @@ export function whichNextToInput() {
   console.log("Next character: %s (frequency == %d)", next, freq);
   return next;
 }
+
+const tones = {
+  'a': 'āáǎà',
+  'e': 'ēéěè',
+  'i': 'īíǐì',
+  'o': 'ōóǒò',
+  'u': 'ūúǔù',
+  'ü': 'ǖǘǚǜ',
+}
+const pattern = '([^aeiouü]*[iuü]?)([aeiouü]+)([1-4])?';
+
+export function correctPinyinAccent(pinyin) {
+  const match = pinyin.match(new RegExp(pattern));
+  if (!match[3]) return pinyin;
+  let nucleus = tones[match[2].charAt(0)].charAt(match[3] - 1);
+  return match[1] + nucleus + match[2].substr(1);
+}
+
+export function intoPhoneticCharacters(pinyin) {
+  return '//';
+}
+
+database.values().forEach(data => {
+  data.phonetic = intoPhoneticCharacters(data.pinyin);
+  data.pinyin = correctPinyinAccent(data.pinyin);
+});
