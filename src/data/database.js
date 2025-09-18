@@ -116,18 +116,90 @@ const tones = {
   'o': 'ōóǒò',
   'u': 'ūúǔù',
   'ü': 'ǖǘǚǜ',
-}
-const pattern = '([^aeiouü]*[iuü]?)([aeiouü]+)([1-4])?';
+};
+const pattern = '([^aeiouü]*)([iuü]?)([aeiouüø]+[ngr]*)([1-4])?';
 
 export function correctPinyinAccent(pinyin) {
   const match = pinyin.match(new RegExp(pattern));
-  if (!match[3]) return pinyin;
-  let nucleus = tones[match[2].charAt(0)].charAt(match[3] - 1);
-  return match[1] + nucleus + match[2].substr(1);
+  if (!match[4]) return pinyin;
+  let nucleus = tones[match[3].charAt(0)].charAt(match[4] - 1);
+  return match[1] + match[2] + nucleus + match[3].substr(1);
 }
 
+const consonants = {
+  'b': 'p',
+  'p': 'pʰ',
+  'm': 'm',
+  'f': 'f',
+  'd': 't',
+  't': 'tʰ',
+  'n': 'n',
+  'l': 'l',
+  'g': 'k',
+  'k': 'kʰ',
+  'h': 'h',
+  'z': 'ts',
+  'c': 'tsʰ',
+  's': 's',
+  'zh': 'tʃ',
+  'ch': 'tʃʰ',
+  'sh': 'ʃ',
+  'j': 'tɕ',
+  'q': 'tɕʰ',
+  'x': 'ɕ',
+  'r': 'ɹ',
+  'w': 'w',
+  'y': 'j',
+  'ng': 'ŋ',
+};
+const semivowels = {
+  'i': 'j',
+  'u': 'w',
+  'ü': 'ɥ',
+}
+const vowels = {
+  'ø': 'ɨ',
+  'e': 'ə',
+  'ao': 'au',
+  'o': 'ʊ',
+  'ü': 'y',
+};
+const iVowels = {
+  'ao': 'au',
+  'u': 'ou',
+  'an': 'ɛn',
+  'o': 'ʊ',
+  'ü': 'y',
+};
+const uVowels = {
+  'i': 'ei',
+  'e': 'ə',
+};
+
 export function intoPhoneticCharacters(pinyin) {
-  return '//';
+  pinyin = pinyin
+    .replace(/([pbmf])o(?![a-z])/, '$1uo')
+    .replace(/([zcsr]h?)i(?![a-z])/, '$1ø')
+    .replace(/([jqxy])u/, '$1ü');
+
+  const match = pinyin.match(new RegExp(pattern));
+  let vowelTable = vowels;
+  let phonetic = (consonants[match[1]] ?? '') + (semivowels[match[2]] ?? '');
+  if (match[2] || match[1] === 'y' || match[1] === 'w') {
+    vowelTable = match[2] === 'u' || match[1] === 'w' ? uVowels : iVowels;
+  }
+  if (match[3] in vowelTable) {
+    phonetic += vowelTable[match[3]];
+  } else {
+    const coda = match[3].match('([aeiouü]+)(n|ng|r)?');
+    phonetic += (vowelTable[coda[1]] ?? coda[1]) + (consonants[coda[2]] ?? '');
+  }
+  phonetic = phonetic
+    .replace(/ji/, 'i')
+    .replace(/wu/, 'u')
+    .replace(/jy/, 'y')
+    .replace(/jw/, 'ɥ');
+  return phonetic;
 }
 
 database.values().forEach(data => {
