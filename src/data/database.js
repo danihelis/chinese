@@ -57,12 +57,14 @@ export const frequency = frequencyRaw
   .split('\n')
   .map(line => line.split('\t'))
   .filter(row => row.length >= 5)
-  .reduce((map, row) => {
+  .reduce((map, row, index, array) => {
     map.set(row[1], {
       value: parseInt(row[2]),
+      percentile: Math.floor(100 * (1 - index / array.length)),
       pinyin: row[4],
       meaning: row[5].replace(/\//g, '; '),
     });
+
     return map;
   }, new Map());
 console.log("Loaded frequency data with %d entries", frequency.size);

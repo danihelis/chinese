@@ -25,6 +25,30 @@ function CharacterSequence({sequence, entry, handlePage}) {
 }
 
 
+function MixedCharacterText({text, entry, handlePage}) {
+  let chunks = [];
+  let currentChunk = '';
+
+  const pushChunk = () => {
+    if (currentChunk.length === 0) return;
+    chunks.push(<span key={['span', chunks.length]}>{currentChunk}</span>);
+    currentChunk = '';
+  };
+
+  for (const character of [...text]) {
+    if (database.has(character)) {
+      pushChunk();
+      chunks.push(<Character key={[character, chunks.length]} character={character} entry={entry} handlePage={handlePage} />);
+    } else {
+      currentChunk += character;
+    }
+  }
+  pushChunk();
+
+  return chunks;
+}
+
+
 function Attribute({name, tooltip, children}) {
   return (
     <div className="relative inline-block">
@@ -92,7 +116,7 @@ export function CharacterDetail({entry, handlePage}) {
   const bgHeavyColor = entry.frequency ? 'bg-green-200' : 'bg-red-200';
 
   return (
-    <div className="flex flex-col gap-6 items-center justify-center mt-5 self-stretch">
+    <div className="flex flex-col gap-6 items-center justify-center mt-5 max-w-sm justify-self-center">
       <div className="grid grid-cols-2 gap-4">
         <h1 className={`${textColor} ${bgLightColor} text-9xl rounded-xl p-2`}>
           {entry.key}
@@ -115,22 +139,36 @@ export function CharacterDetail({entry, handlePage}) {
       <div className={`${textColor} text-xl`}>
         {entry.hsk?.[0].meaning ?? entry.frequency?.meaning ?? entry.radical}
       </div>
-      <div className={`${bgHeavyColor} text-sm self-stretch p-2 rounded-md text-center`}>
-        <span className="text-xs font-semibold uppercase">Origin</span> {entry.origin}
+      <div className="text-sm self-stretch">
+        <div className={`${bgHeavyColor} ${entry.hasDefinition ? 'rounded-t-md' : 'rounded-md'} p-4 text-center`}>
+          <span className="text-xs font-semibold uppercase">Origin </span>
+          <MixedCharacterText text={entry.origin} entry={entry} handlePage={handlePage} />
+        </div>
+        {entry.hasDefinition ? (
+          <div className="bg-green-800 text-white rounded-b-md flex p-2 px-4">
+            <div className="flex-auto">
+              <span className="text-xs font-semibold uppercase mr-2">Freq Perc</span>
+              {entry.frequency.percentile}%
+            </div>
+            <div className="flex-auto text-right">
+              <span className="text-xs font-semibold uppercase mr-2">HSK Level</span>
+              {entry.hsk?.[0].level ?? <span>&ndash;</span>}
+            </div>
+          </div>
+        ) : null}
       </div>
       {entry.hasDefinition ? (
         <Block title={`Definition${entry.definitions.length > 1 ? 's' : ''}`}>
           {entry.definitions.map((d, i) => <Definition key={`definition-${i}`} definition={d} index={i} />)}
         </Block>
       ) : (
-        <p className="text-center italic">This component is not a character on its own</p>
+        <p className="text-center italic">Not a character on its own</p>
       )}
       {entry.words ? (
         <Block title={`Derived word${entry.words.size > 1 ? 's' : ''}`}>
           <WordList entry={entry} handlePage={handlePage} />
         </Block>
       ) : null}
-      <p className="">{entry.frequency?.value}</p>
     </div>
   )
 }

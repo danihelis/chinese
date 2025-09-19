@@ -141,6 +141,11 @@ export default {
     origin: 'variant form of 正',
     radical: 'straight; upright',
   },
+
+  // ^ Old entries
+  // ^------------------------------------------------------------------------
+
+
 };
 
 /*

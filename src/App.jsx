@@ -1,11 +1,48 @@
 import { useState, useEffect } from 'react';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { database } from './data/database.js';
 import { CharacterList } from './list/CharacterList.jsx';
 import { CharacterDetail } from './list/CharacterDetail.jsx';
 
-
 const defaultPage = 'list';
 const entryPages = new Set(['detail']);
+
+
+function NavBar({handlePage}) {
+  const menu = [
+    ['Home', defaultPage],
+    ['List of characters', 'list'],
+  ];
+
+  // 学习中文
+  return (
+    <div className="bg-black text-white w-full p-2 px-4 flex items-center sticky top-0">
+      <span className="font-mashan text-2xl">学</span>
+      <span className="font-bold ml-2">Learning Chinese</span>
+      <span className="flex-1" />
+      <div className="flow-auto text-right">
+        <Menu>
+          <MenuButton className="cursor-pointer bg-gray-600 rounded-md p-2 px-3">
+            ☰
+          </MenuButton>
+          <MenuItems transition anchor="bottom end" className="bg-gray-600 p-2 rounded-sm flex flex-col mt-1 transition duration-100 ease-out data-closed:scale-95 data-closed:opacity-0">
+            {menu.map(([label, page]) => (
+              <MenuItem key={label}>
+                <button
+                  className="text-left text-white cursor-pointer rounded-sm hover:bg-gray-400 hover:text-black p-1 px-2"
+                  onClick={() => handlePage(page)}
+                >
+                  {label}
+                </button>
+              </MenuItem>
+            ))}
+          </MenuItems>
+        </Menu>
+      </div>
+    </div>
+  );
+}
+
 
 export default function App() {
   const [page, setPage] = useState(null);
@@ -53,9 +90,12 @@ export default function App() {
   }
 
   return (
-    <div className="flex flex-col gap-10 items-center justify-center m-5">
-      <h1 className="text-3xl font-bold">{renderTitle()}</h1>
-      {renderComponent()}
+    <div>
+      <NavBar handlePage={handlePage} />
+      <div className="flex flex-col gap-10 items-center justify-center m-5 mt-10">
+        <h1 className="text-3xl font-bold">{renderTitle()}</h1>
+        {renderComponent()}
+      </div>
     </div>
   )
 }

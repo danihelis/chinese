@@ -5,6 +5,7 @@
 @theme {
   --font-noto: "Noto Serif SC", serif;
   --font-mashan: "Ma Shan Zheng", "Noto Serif SC", serif;
+  --breakpoint-xs: 32rem;
 }
 
 /*
