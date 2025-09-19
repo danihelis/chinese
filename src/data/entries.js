@@ -1,4 +1,4 @@
-{
+export default {
   '啊': {
     index: '口+8',
     strokes: 11,
@@ -141,7 +141,8 @@
     origin: 'variant form of 正',
     radical: 'straight; upright',
   },
-}
+};
+
 /*
   '': {
     index: '',

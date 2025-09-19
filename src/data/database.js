@@ -1,4 +1,4 @@
-import entries from './entries.json5';
+import entries from './entries.js';
 import frequencyRaw from './frequency.txt?raw';
 import hsk1Raw from './hsk3-b1.txt?raw';
 
