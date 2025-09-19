@@ -72,6 +72,7 @@ frequency.entries()
   .map(([key, entry]) => [key, entry, database.get(key)])
   .forEach(([key, entry, data]) => {
     data.frequency = entry;
+    data.hasDefinition = true;
     if (data.pinyin !== entry.pinyin &&
         !(entry.pinyin.split('/').includes(data.pinyin))) {
       console.log("warning: different pinyin: %s %s != %s", key, data.pinyin,
@@ -191,7 +192,7 @@ export function intoPhoneticCharacters(pinyin) {
   if (match[3] in vowelTable) {
     phonetic += vowelTable[match[3]];
   } else {
-    const coda = match[3].match('([aeiouü]+)(n|ng|r)?');
+    const coda = match[3].match('([aeiouü]+)(ng|n|r)?');
     phonetic += (vowelTable[coda[1]] ?? coda[1]) + (consonants[coda[2]] ?? '');
   }
   phonetic = phonetic
