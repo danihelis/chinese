@@ -11,7 +11,7 @@ function Character({character, entry, handlePage}) {
   if (!cEntry) return <span>{character}</span>;
   return (
     <span
-      className={`${cEntry.hasDefinition ? characterColor : componentColor} cursor-pointer`}
+      className={`${cEntry.ethym ? characterColor : componentColor} cursor-pointer`}
       onClick={() => handlePage('detail', cEntry)}
     >{cEntry.key}</span>
   );
@@ -67,10 +67,11 @@ function Attribute({name, tooltip, children}) {
 
 
 function Block({title, children}) {
+
   return (
     <div className="self-stretch flex flex-col gap-4">
       <p className="text-sm font-semibold uppercase">{title}</p>
-      <div className="flex flex-col gap-1 pl-6">
+      <div className="pl-6">
         {children}
       </div>
     </div>
@@ -92,9 +93,26 @@ function Word({word, entry, handlePage}) {
 
 
 function WordList({entry, handlePage}) {
+  const collapsable = entry.words.size > 3;
+  const [collapse, setCollapse] = useState(collapsable);
+
+  let list = [...entry.words];
+  list.sort((a, b) => {
+    if (a.level !== b.level) a.level - b.level;
+    return a.pinyin.localeCompare(b.pinyin);
+  });
+  if (collapse) list = list.slice(0, 2);
+
   return (
-    <div className="grid grid-cols-[auto_auto_1fr] gap-x-4 gap-y-1 items-center">
-      {[...entry.words].map(w => <Word key={w.entry }word={w} entry={entry} handlePage={handlePage} />)}
+    <div className="flex flex-col gap-1">
+      <div className="grid grid-cols-[auto_auto_1fr] gap-x-4 gap-y-1 items-center">
+        {list.map(w => <Word key={w.entry} word={w} entry={entry} handlePage={handlePage} />)}
+      </div>
+      {collapsable ? (
+        <div className="text-green-800 cursor-pointer" onClick={() => setCollapse(!collapse)}>
+          <span className="underline text-sm">show {collapse ? 'more' : 'less'} words</span>
+        </div>
+      ) : null}
     </div>
   );
 }
@@ -110,10 +128,44 @@ function Definition({definition, index}) {
 }
 
 
+function DefinitionList({ethym}) {
+  const collapsable = ethym.definitions.length > 3;
+  const [collapse, setCollapse] = useState(collapsable);
+
+  const list = collapse ? ethym.definitions.slice(0, 2) : ethym.definitions;
+
+  return (
+    <div className="flex flex-col gap-1">
+      {list.map((d, i) => (
+        <Definition key={`definition-${i}`} definition={d} index={i} />
+      ))}
+      {collapsable ? (
+        <div className="text-green-800 cursor-pointer" onClick={() => setCollapse(!collapse)}>
+          <span className="underline text-sm">show {collapse ? 'more' : 'less'} definitions</span>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+
 export function CharacterDetail({entry, handlePage}) {
+  const [ethymIndex, setEthymIndex] = useState(0);
+  const [collapseDefinitions, setCollapseDefinitions] = useState(true);
+  const [collapseWords, setCollapseWords] = useState(true);
+
+  const ethym = entry.ethym?.[ethymIndex];
+  const hsk = entry.hsk?.[ethymIndex];
+
   const textColor = entry.frequency ? characterColor : componentColor;
   const bgLightColor = entry.frequency ? 'bg-green-100' : 'bg-red-100';
   const bgHeavyColor = entry.frequency ? 'bg-green-200' : 'bg-red-200';
+
+  const changeEthym = (index) => {
+    if (index === ethymIndex) return;
+    setCollapseDefinitions(true);
+    setEthymIndex(index);
+  };
 
   return (
     <div className="flex flex-col gap-6 items-center justify-center mt-5 max-w-sm justify-self-center">
@@ -122,8 +174,19 @@ export function CharacterDetail({entry, handlePage}) {
           {entry.key}
         </h1>
         <div className="flex flex-col gap-1">
-          <p className="text-3xl">{entry.pinyin}</p>
-          <p className="text-gray-800">/{entry.phonetic}/</p>
+          <div className="flex">
+            <p className="flex-1 text-3xl">{ethym.pinyin}</p>
+            {entry.ethym?.length > 1 ? (
+              <div className="flex gap-1 items-center">
+                {entry.ethym.map((e, i) => (
+                  <div key={e.pinyin} className={`${i === ethymIndex ? 'inset-ring-1 inset-ring-green-800 text-green-800' : 'bg-green-800 text-white cursor-pointer'} w-5 h-5 text-xs flex items-center justify-center select-none`} onClick={() => changeEthym(i)}>
+                    {i + 1}
+                  </div>
+                ))}
+              </div>
+            ) : null}
+          </div>
+          <p className="text-gray-800">/{ethym.phonetic}/</p>
           <Attribute name="IDX" tooltip="Index">
             <Character character={entry.index.charAt(0)} entry={entry} handlePage={handlePage} />
             <span>{entry.index.substr(1)}</span>
@@ -136,15 +199,15 @@ export function CharacterDetail({entry, handlePage}) {
           )}
         </div>
       </div>
-      <div className={`${textColor} text-xl`}>
-        {entry.hsk?.[0].meaning ?? entry.frequency?.meaning ?? entry.radical}
+      <div className={`${textColor} text-xl text-center`}>
+        {hsk?.meaningx ?? entry.frequency?.meaning ?? entry.radical}
       </div>
       <div className="text-sm self-stretch">
-        <div className={`${bgHeavyColor} ${entry.hasDefinition ? 'rounded-t-md' : 'rounded-md'} p-4 text-center`}>
+        <div className={`${bgHeavyColor} ${ethym ? 'rounded-t-md' : 'rounded-md'} p-4 text-center`}>
           <span className="text-xs font-semibold uppercase">Origin </span>
           <MixedCharacterText text={entry.origin} entry={entry} handlePage={handlePage} />
         </div>
-        {entry.hasDefinition ? (
+        {ethym ? (
           <div className="bg-green-800 text-white rounded-b-md flex p-2 px-4">
             <div className="flex-auto">
               <span className="text-xs font-semibold uppercase mr-2">Freq Perc</span>
@@ -152,20 +215,20 @@ export function CharacterDetail({entry, handlePage}) {
             </div>
             <div className="flex-auto text-right">
               <span className="text-xs font-semibold uppercase mr-2">HSK Level</span>
-              {entry.hsk?.[0].level ?? <span>&ndash;</span>}
+              {hsk?.level ?? <span>&ndash;</span>}
             </div>
           </div>
         ) : null}
       </div>
-      {entry.hasDefinition ? (
-        <Block title={`Definition${entry.definitions.length > 1 ? 's' : ''}`}>
-          {entry.definitions.map((d, i) => <Definition key={`definition-${i}`} definition={d} index={i} />)}
+      {ethym ? (
+        <Block title="Definitions">
+          <DefinitionList ethym={ethym} />
         </Block>
       ) : (
         <p className="text-center italic">Not a character on its own</p>
       )}
       {entry.words ? (
-        <Block title={`Derived word${entry.words.size > 1 ? 's' : ''}`}>
+        <Block title="Derived words">
           <WordList entry={entry} handlePage={handlePage} />
         </Block>
       ) : null}

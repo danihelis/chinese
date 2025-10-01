@@ -62,7 +62,7 @@ export const frequency = frequencyRaw
       value: parseInt(row[2]),
       percentile: Math.floor(100 * (1 - index / array.length)),
       pinyin: row[4],
-      meaning: row[5].replace(/\//g, '; '),
+      meaning: row[5].replace(/,/g, ';').replace(/\//g, ', '),
     });
 
     return map;
@@ -75,10 +75,11 @@ frequency.entries()
   .forEach(([key, entry, data]) => {
     data.frequency = entry;
     data.hasDefinition = true;
-    if (data.pinyin !== entry.pinyin &&
-        !(entry.pinyin.split('/').includes(data.pinyin))) {
-      console.log("warning: different pinyin: %s %s != %s", key, data.pinyin,
-          entry.pinyin);
+    for (const e of data.ethym) {
+      if (!entry.pinyin.split('/').includes(e.pinyin)) {
+        console.log("warning: different pinyin: %s %s != %s", key, e.pinyin,
+            entry.pinyin);
+      }
     }
   });
 
@@ -205,7 +206,7 @@ export function intoPhoneticCharacters(pinyin) {
   return phonetic;
 }
 
-database.values().forEach(data => {
-  data.phonetic = intoPhoneticCharacters(data.pinyin);
-  data.pinyin = correctPinyinAccent(data.pinyin);
-});
+database.values().forEach(data => data.ethym?.forEach(ethym => {
+  ethym.phonetic = intoPhoneticCharacters(ethym.pinyin);
+  ethym.pinyin = correctPinyinAccent(ethym.pinyin);
+}));

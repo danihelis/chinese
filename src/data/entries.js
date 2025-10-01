@@ -1,4 +1,5 @@
 export default {
+  /*
   '啊': {
     index: '口+8',
     strokes: 11,
@@ -59,18 +60,6 @@ export default {
     origin: 'phono-semantic: phonetic 又 + phonetic 又; two hands, therefore friendship',
     definitions: [
       'friend; companion',
-    ],
-  },
-  '的': {
-    index: '白+3',
-    strokes: 8,
-    composition: '⿰白勺',
-    pinyin: 'de',
-    origin: 'phono-semantic: semantic 白 (“white”) + phonetic 勺',
-    definitions: [
-      'genitive case marker',
-      'bright; clear; distinct',
-      'white; white-coloured',
     ],
   },
   '白': {
@@ -141,10 +130,36 @@ export default {
     origin: 'variant form of 正',
     radical: 'straight; upright',
   },
+  */
 
-  // ^ Old entries
-  // ^------------------------------------------------------------------------
-
+  '的': {
+    index: '白+3',
+    strokes: 8,
+    composition: '⿰白勺',
+    origin: 'phono-semantic: semantic 白 (“white”) + phonetic 勺',
+    ethym: [{
+      pinyin: 'de',
+      definitions: [
+        'used after an attribute to indicate possession; of',
+        'used to link a noun, an adjective or a phrase to a noun to describe it; that, who',
+        'used to express “of that kind”',
+        'used to form a noun phrase or nominal expression',
+        'used at the end of a declarative sentence for emphasis',
+        'used after a verb or between a verb and its object to stress an element of the sentence',
+      ],
+    }, {
+      pinyin: 'di2',
+      definitions: [
+        'bright; clear; distinct',
+        'white; white-coloured',
+        'white forehead of horses; white-foreheaded horse',
+        'centre of target for archery',
+        'aim; standard; criterion',
+        'target; objective',
+        'really; truly; certainly',
+      ],
+    }],
+  },
 
 };
 
@@ -153,9 +168,11 @@ export default {
     index: '',
     strokes: 0,
     composition: '',
-    pinyin: '',
     origin: '',
-    definitions: [
-    ],
+    ethym: [{
+      pinyin: '',
+      definitions: [
+      ],
+    }],
   },
 */
