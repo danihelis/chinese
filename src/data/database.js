@@ -206,7 +206,13 @@ export function intoPhoneticCharacters(pinyin) {
   return phonetic;
 }
 
-database.values().forEach(data => data.ethym?.forEach(ethym => {
-  ethym.phonetic = intoPhoneticCharacters(ethym.pinyin);
-  ethym.pinyin = correctPinyinAccent(ethym.pinyin);
-}));
+function setPhoneticInfo(data) {
+  if (!data.pinyin) return;
+  data.phonetic = intoPhoneticCharacters(data.pinyin);
+  data.pinyin = correctPinyinAccent(data.pinyin);
+}
+
+database.values().forEach(data => {
+  setPhoneticInfo(data);
+  data.ethym?.forEach(ethym => setPhoneticInfo(ethym));
+});

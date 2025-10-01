@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, Fragment } from 'react';
 import { database } from '../data/database.js';
+import { Panel } from './Panel.jsx';
 
 
 const characterColor = 'text-green-800';
@@ -66,12 +67,12 @@ function Attribute({name, tooltip, children}) {
 }
 
 
-function Block({title, children}) {
+function Block({title, children, padding = true}) {
 
   return (
     <div className="self-stretch flex flex-col gap-4">
       <p className="text-sm font-semibold uppercase">{title}</p>
-      <div className="pl-6">
+      <div className={padding ? 'pl-6' : ''}>
         {children}
       </div>
     </div>
@@ -156,6 +157,7 @@ export function CharacterDetail({entry, handlePage}) {
 
   const ethym = entry.ethym?.[ethymIndex];
   const hsk = entry.hsk?.[ethymIndex];
+  const pronouncing = ethym ?? (entry.pinyin ? entry : null);
 
   const textColor = entry.frequency ? characterColor : componentColor;
   const bgLightColor = entry.frequency ? 'bg-green-100' : 'bg-red-100';
@@ -170,23 +172,28 @@ export function CharacterDetail({entry, handlePage}) {
   return (
     <div className="flex flex-col gap-6 items-center justify-center mt-5 max-w-sm justify-self-center">
       <div className="grid grid-cols-2 gap-4">
-        <h1 className={`${textColor} ${bgLightColor} text-9xl rounded-xl p-2`}>
+        <div className={`${textColor} ${bgLightColor} text-9xl rounded-xl p-2 h-40 flex justify-center items-center`}>
           {entry.key}
-        </h1>
+        </div>
         <div className="flex flex-col gap-1">
-          <div className="flex">
-            <p className="flex-1 text-3xl">{ethym.pinyin}</p>
-            {entry.ethym?.length > 1 ? (
-              <div className="flex gap-1 items-center">
-                {entry.ethym.map((e, i) => (
-                  <div key={e.pinyin} className={`${i === ethymIndex ? 'inset-ring-1 inset-ring-green-800 text-green-800' : 'bg-green-800 text-white cursor-pointer'} w-5 h-5 text-xs flex items-center justify-center select-none`} onClick={() => changeEthym(i)}>
-                    {i + 1}
+          {pronouncing ? (
+            <>
+              <div className="flex">
+                <p className="flex-1 text-3xl">{pronouncing.pinyin}</p>
+                {entry.ethym?.length > 1 ? (
+                  <div className="flex gap-1 items-center">
+                    {entry.ethym.map((e, i) => (
+                      <div key={e.pinyin} className={`${i === ethymIndex ? 'inset-ring-1 inset-ring-green-800 text-green-800' : 'bg-green-800 text-white cursor-pointer'} w-5 h-5 text-xs flex items-center justify-center select-none`} onClick={() => changeEthym(i)}>
+                        {i + 1}
+                      </div>
+                    ))}
                   </div>
-                ))}
+                ) : null}
               </div>
-            ) : null}
-          </div>
-          <p className="text-gray-800">/{ethym.phonetic}/</p>
+              <p className="text-gray-800">/{pronouncing.phonetic}/</p>
+            </>
+          ) : null}
+          <span className="flex-1" />
           <Attribute name="IDX" tooltip="Index">
             <Character character={entry.index.charAt(0)} entry={entry} handlePage={handlePage} />
             <span>{entry.index.substr(1)}</span>
@@ -228,10 +235,13 @@ export function CharacterDetail({entry, handlePage}) {
         <p className="text-center italic">Not a character on its own</p>
       )}
       {entry.words ? (
-        <Block title="Derived words">
+        <Block title="Compounded words">
           <WordList entry={entry} handlePage={handlePage} />
         </Block>
       ) : null}
+      <Block title="Pratice writing" padding={false}>
+        <Panel entry={entry} />
+      </Block>
     </div>
   )
 }

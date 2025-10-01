@@ -98,7 +98,7 @@
 98	从	369958	41.38929869663	cong1/cong2/zong4	lax/yielding/unhurried, from/obey/observe/follow, second cousin
 99	想	368819	41.579898873211	xiang3	to think/to believe/to suppose/to wish/to want/to miss
 100	实	368494	41.770331094624	shi2	real/true/honest/really/solid
-101	日	363763	41.958318405564	ri4	Japan/day/sun/date/day of the month
+101	日	363763	41.958318405564	ri4	day/sun/date/day of the month/Japan
 102	军	362526	42.145666453293	jun1	army/military/arms
 103	者	360974	42.332212450493	zhe3	-ist, -er (person)/person (who does sth)
 104	意	360232	42.518374993123	yi4	idea/meaning/wish/desire/(abbr.) Italy

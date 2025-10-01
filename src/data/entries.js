@@ -62,19 +62,6 @@ export default {
       'friend; companion',
     ],
   },
-  '白': {
-    index: '白+0',
-    root: 106,
-    strokes: 5,
-    composition: '⿱丿日',
-    pinyin: 'bai2',
-    origin: 'probably a pictogram: represents a thumb and is original form of 拇 ("thumb")',
-    definitions: [
-      'white',
-      'clear; easy to understand',
-      'clear; pure; plain; blank',
-    ],
-  },
   '勺': {
     index: '勹+1',
     strokes: 3,
@@ -107,19 +94,6 @@ export default {
       '(copulative) to be',
       '(in affirmative answers) yes; right',
       'true; correct',
-    ],
-  },
-  '日': {
-    index: '日+0',
-    root: 72,
-    strokes: 4,
-    composition: '⿴囗一',
-    pinyin: 'ri4',
-    origin: 'pictogram: the Sun; a dot or line was added in the centre to distinguish it from visually similar characters, e.g. 囗 ',
-    definitions: [
-      '(astronomy) Sun',
-      'daytime; time between sunrise and sunset',
-      'day; twenty-four hours',
     ],
   },
   '𤴓': {
@@ -161,6 +135,85 @@ export default {
     }],
   },
 
+  '白': {
+    index: '白+0',
+    root: 106,
+    strokes: 5,
+    composition: '⿱丿日',
+    origin: 'probably a pictogram: represents a thumb and is original form of 拇 ("thumb")',
+    ethym: [{
+      pinyin: 'bai2',
+      definitions: [
+        'white',
+        'clear; easy to understand',
+        'clear; pure; plain; blank',
+        'bright; well-lit',
+        'eminent; prominent',
+        'vernacular; dialect',
+        'in vain; for nothing',
+        'free of charge; gratuitous; gratis',
+        'to stare coldly; to stare at someone with the white of the eyes',
+        'to explain; to present; to state',
+        'to mispronounce or wrongly write a character',
+        'spoken lines',
+      ],
+    }],
+  },
+
+  '丿': {
+    index: '丿+0',
+    root: 4,
+    strokes: 1,
+    origin: 'ideogram: the stroke itself',
+    pinyin:  'pie3',
+    radical: 'left-falling stroke',
+  },
+
+  '日': {
+    index: '日+0',
+    root: 72,
+    strokes: 4,
+    composition: '⿴囗一',
+    origin: 'pictogram: the Sun; a dot or line was added in the centre to distinguish it from visually similar characters, e.g. 囗',
+    ethym: [{
+      pinyin: 'ri4',
+      definitions: [
+        '(astronomy) Sun',
+        'daytime; time between sunrise and sunset',
+        'day; twenty-four hours',
+        'everyday; daily; day-to-day',
+        'day of the month',
+        'some day; some other time',
+        'former times; previous times; the past',
+        'time; period; age',
+        'short for 日本, “Japan”',
+      ],
+    }],
+  },
+
+  '勺': {
+    index: '勹+1',
+    strokes: 3,
+    composition: '⿹勹丶',
+    origin: 'ideogram: something (丶) in the ladle or spoon (勹)',
+    ethym: [{
+      pinyin: 'shao2',
+      definitions: [
+        'spoon; ladle',
+        'ladle-like object',
+      ],
+    }],
+  },
+
+  '勹': {
+    index: '勹+0',
+    root: 20,
+    strokes: 2,
+    composition: '⿰丿𠃌',
+    origin: 'pictogram: a person bending over',
+    radical: 'wrap',
+  },
+
 };
 
 /*
@@ -174,5 +227,15 @@ export default {
       definitions: [
       ],
     }],
+  },
+
+  '': {
+    index: '',
+    root: 0,
+    strokes: 0,
+    composition: '',
+    origin: '',
+    pinyin:  '',
+    radical: '',
   },
 */
