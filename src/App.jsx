@@ -10,7 +10,7 @@ const entryPages = new Set(['detail']);
 
 function NavBar({handlePage}) {
   const menu = [
-    ['Home', defaultPage],
+    // ['Home', defaultPage],
     ['List of characters', 'list'],
   ];
 

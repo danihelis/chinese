@@ -3,14 +3,16 @@ import { database } from '../data/database.js';
 
 
 function Link({entry, onClick}) {
+  const hsk = entry.hsk[0];
+
   return (
     <div
-      className="flex flex-col p-4 items-center bg-green-100 rounded-xl hover:bg-green-200 cursor-pointer"
+      className="w-25 flex flex-col p-4 px-2 items-center bg-green-100 rounded-xl hover:bg-green-200 cursor-pointer"
       onClick={onClick}
     >
       <h1 className="text-5xl text-green-800">{entry.key}</h1>
-      <h2 className="text-gray-700 mt-2">{entry.ethym[0].pinyin}</h2>
-      <p className="text-gray-500 text-sm">{entry.hsk?.[0].meaning}</p>
+      <h2 className="text-gray-700 mt-2">{hsk.pinyin}</h2>
+      <div className="text-gray-500 text-sm truncate w-full text-center">{hsk.meaning}</div>
     </div>
   );
 }

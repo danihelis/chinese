@@ -63,8 +63,8 @@
 63	大学生	dà xué shēng	university student
 64	到	dào	reach
 65	得到	dé dào	get
-66	地	de	auxiliary word
-67	的	de	(aux.)
+66	地	de	(auxiliary word)
+67	的	de	(auxiliary word)
 68	等（动）	děng	wait
 69	地	dì	ground
 70	地点	dìdiǎn	location

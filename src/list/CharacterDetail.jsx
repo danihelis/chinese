@@ -156,7 +156,7 @@ export function CharacterDetail({entry, handlePage}) {
   const [collapseWords, setCollapseWords] = useState(true);
 
   const ethym = entry.ethym?.[ethymIndex];
-  const hsk = entry.hsk?.[ethymIndex];
+  const hsk = entry.hsk?.[ethymIndex] ?? entry.hsk?.[0];
   const pronouncing = ethym ?? (entry.pinyin ? entry : null);
 
   const textColor = entry.frequency ? characterColor : componentColor;
@@ -211,8 +211,15 @@ export function CharacterDetail({entry, handlePage}) {
       </div>
       <div className="text-sm self-stretch">
         <div className={`${bgHeavyColor} ${ethym ? 'rounded-t-md' : 'rounded-md'} p-4 text-center`}>
-          <span className="text-xs font-semibold uppercase">Origin </span>
-          <MixedCharacterText text={entry.origin} entry={entry} handlePage={handlePage} />
+          <div className="flex gap-2 items-center">
+            <span className="font-mashan text-4xl">
+              {entry.key}
+            </span>
+            <div className="flex-1">
+              <span className="text-xs font-semibold uppercase">Origin </span>
+              <MixedCharacterText text={entry.origin} entry={entry} handlePage={handlePage} />
+            </div>
+          </div>
         </div>
         {ethym ? (
           <div className="bg-green-800 text-white rounded-b-md flex p-2 px-4">

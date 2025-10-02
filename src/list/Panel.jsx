@@ -2,7 +2,21 @@ import { useState, useRef, useEffect } from 'react';
 
 const size = 300;
 const padding = 10;
-const opacityLevels = ['opacity-100', 'opacity-30', 'opacity-10', 'opacity-0'];
+const opacityLevels = ['opacity-35', 'opacity-10', 'opacity-0'];
+
+
+function Button({children, onClick, toggled}) {
+  const style = toggled ? 'bg-gray-500 text-white' : 'bg-gray-300 text-black';
+  return (
+    <button
+      className={`${style} p-2 cursor-pointer active:bg-gray-400 active:text-white rounded`}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+}
+
 
 export function Panel({entry}) {
   const selfRef = useRef(null);
@@ -23,7 +37,7 @@ export function Panel({entry}) {
   };
 
   const startDrawing = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     e.stopPropagation();
     isDrawing = true;
     const coords = getCoords(e);
@@ -37,7 +51,7 @@ export function Panel({entry}) {
 
   const draw = (e) => {
     if (!isDrawing) return;
-    e.preventDefault();
+    // e.preventDefault();
     e.stopPropagation();
     const coords = getCoords(e);
     const ctx = getContext();
@@ -49,7 +63,7 @@ export function Panel({entry}) {
   };
 
   const stopDrawing = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     e.stopPropagation();
     isDrawing = false;
   };
@@ -59,7 +73,7 @@ export function Panel({entry}) {
 
     ctx.clearRect(0, 0, size, size);
 
-    let [tone, alpha] = [200, 0.8];
+    let [tone, alpha] = [220, 0.8];
     ctx.fillStyle = `rgb(${tone} ${tone} ${tone} / ${alpha.toPrecision(2)})`;
     ctx.fillRect(0, 0, size, size);
 
@@ -85,8 +99,8 @@ export function Panel({entry}) {
   }, [entry]);
 
   return (
-    <div className="flex flex-col gap-2 items-center">
-      <div className="relative h-[300px] w-[300px]" ref={selfRef}>
+    <div className="flex flex-col gap-2 items-center touch-none">
+      <div className="relative h-[300px] w-[300px] touch-none" ref={selfRef}>
         <div className={`${opacityLevels[level]} absolute top-0 left-0 w-full h-full flex items-center justify-center -z-1`}>
           <span className="no-select font-noto font-extralight text-[250px]">{entry.key}</span>
         </div>
@@ -105,14 +119,11 @@ export function Panel({entry}) {
         />
       </div>
       <div className="grid grid-cols-4 gap-2 text-sm w-[300px]">
+        <Button key="clear" onClick={() => reset()}>Clear</Button>
         {opacityLevels.map((v, i) => (
-          <button
-            key={`level-${i}`}
-            className="bg-gray-300 text-black p-2 cursor-pointer active:bg-gray-400 active:text-white rounded"
-            onClick={() => reset(i)}
-          >
+          <Button key={`level-${i}`} onClick={() => reset(i)} toggled={level === i}>
             Level {i+1}
-          </button>
+          </Button>
         ))}
       </div>
     </div>

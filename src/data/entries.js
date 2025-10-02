@@ -62,48 +62,6 @@ export default {
       'friend; companion',
     ],
   },
-  '勺': {
-    index: '勹+1',
-    strokes: 3,
-    composition: '⿹勹丶',
-    pinyin: 'shao2',
-    origin: 'ideogram: something (丶) in the ladle or spoon (勹)',
-    definitions: [
-      'spoon; ladle',
-    ],
-  },
-  '一': {
-    index: '一+0',
-    root: 1,
-    strokes: 1,
-    pinyin: 'yi1',
-    origin: 'ideogram: a horizontal stroke, indicating the number “one”',
-    definitions: [
-      'one',
-      'each; every',
-      'single; alone',
-    ],
-  },
-  '是': {
-    index: '日+5',
-    strokes: 9,
-    composition: '⿱日𤴓',
-    pinyin: 'shi4',
-    origin: 'originally a unclear phono-semantic; a compound of 日 (“sun”) + 正 (“upright; right”) (i.e. as the upright sun)',
-    definitions: [
-      '(copulative) to be',
-      '(in affirmative answers) yes; right',
-      'true; correct',
-    ],
-  },
-  '𤴓': {
-    index: '疋+0',
-    strokes: 5,
-    composition: '⿱一龰',
-    pinyin: 'zheng4',
-    origin: 'variant form of 正',
-    radical: 'straight; upright',
-  },
   */
 
   '的': {
@@ -140,7 +98,7 @@ export default {
     root: 106,
     strokes: 5,
     composition: '⿱丿日',
-    origin: 'probably a pictogram: represents a thumb and is original form of 拇 ("thumb")',
+    origin: 'probably a pictogram: may represent a thumb and be the original form of 拇 ("thumb")',
     ethym: [{
       pinyin: 'bai2',
       definitions: [
@@ -214,6 +172,140 @@ export default {
     radical: 'wrap',
   },
 
+  '一': {
+    index: '一+0',
+    root: 1,
+    strokes: 1,
+    origin: 'ideogram: a horizontal stroke, indicating the number “one”',
+    ethym: [{
+      pinyin: 'yi1',
+      definitions: [
+        'one',
+        'each; every',
+        'single; alone',
+        'whole; entire; all: throughout',
+        'same; identical; uniform',
+        'once; as soon as; upon',
+      ],
+    }],
+  },
+
+  '是': {
+    index: '日+5',
+    strokes: 9,
+    composition: '⿱日𤴓',
+    origin: 'phono-semantic of unclear origin; maybe a compound of 日 (“sun”) + 正 (“upright; right”) (i.e. as the upright sun)',
+    ethym: [{
+      pinyin: 'shi4',
+      definitions: [
+        '(copulative) to be (used only to link two nouns or nominal expressions)',
+        'a particle emphasizing the word following it',
+        'a particle showing agreement; truly, indeed',
+        'a particle used in an alternative or a negative question',
+        '(in affirmative answers) yes; right',
+        'true; correct',
+      ],
+    }],
+  },
+
+  '𤴓': {
+    index: '疋+0',
+    strokes: 5,
+    composition: '⿱一龰',
+    origin: 'variant form of 正',
+    radical: 'straight; upright',
+  },
+
+  '不': {
+    index: '一+3',
+    strokes: 4,
+    composition: '⿸丆⿰丨丶',
+    origin: 'pictogram: originally the calyx of a flower; it was composed into phono-semantic 否 (“no”) and became its synonym',
+    ethym: [{
+      pinyin: 'bu4',
+      definitions: [
+        '(preceding verbs and adjectives) not',
+        '(between a verb and a complement) cannot',
+        'used as an answer of refutation to a polar question: no (is it?), yes (isn’t it?)',
+        'used with 就 to indicate the first of two alternatives; either',
+      ],
+    }],
+  },
+
+  '了': {
+    index: '亅+1',
+    strokes: 2,
+    composition: '⿱乛亅',
+    origin: 'pictogram: a baby without arms; or maybe entangled legs',
+    ethym: [{
+      pinyin: 'le',
+      definitions: [
+        'used after a verb to indicate perfective aspect (action completion)',
+        'used at the end of a sentence to indicate a change of state',
+        'used at the end of a sentence to inform the beginning of an action',
+        'used at the end of a sentence to demand',
+      ],
+    }, {
+      pinyin: 'liao3',
+      definitions: [
+        'to be finished; to be completed',
+        'to end; to finish',
+        'to understand; to comprehend',
+        'clear; plain; understandable',
+        'bright; intelligent; smart',
+        '(in negative sentences) completely; utterly; entirely',
+        'Used with 不 or 得 after verbs to express possibility',
+      ],
+    }],
+  },
+
+  '亅': {
+    index: '亅+0',
+    root: 6,
+    strokes: 1,
+    origin: 'ideogram: the stroke itself',
+    pinyin:  'jue2',
+    radical: 'a backward hook',
+  },
+
+  '在': {
+    index: '土+3',
+    strokes: 6,
+    composition: '⿸𠂇⿰丨土',
+    origin: 'phono-semantic: phonetic 才 + semantic 土 (“earth”)',
+    ethym: [{
+      pinyin: 'zai4',
+      definitions: [
+        'to exist; to be present; to be alive',
+        'to be at; to be in; to be located',
+        'in the middle of doing something (indicating an action in progress); be ...-ing',
+        '(located) in; at',
+        'during; in',
+        'to lie in; to rest with',
+        'to be at the post',
+      ],
+    }],
+  },
+
+  '土': {
+    index: '土+0',
+    root: 32,
+    strokes: 3,
+    composition: '⿱十一',
+    origin: 'pictogram: a lump of clay either on the ground or on a potter’s wheel',
+    ethym: [{
+      pinyin: 'tu3',
+      definitions: [
+        'earth; soil',
+        'land',
+        'hometown; native place',
+        'local; native; indigenous',
+        'rustic; unsophisticated; uncouth; vulgar; tasteless; uncultured',
+        'indigenous; traditional and used by the common people',
+        'crude opium',
+      ],
+    }],
+  },
 };
 
 /*
