@@ -53,6 +53,13 @@ export const database = Object.entries(entries)
   }, new Map());
 console.log("Loaded database with %d entries", database.size);
 
+database.values().forEach(data => {
+  if (data.root) data.index = [data.key, 0];
+  const index = data.root ? data : database.get(data.index[0]);
+  if (!index) console.log('index not found for %s: %s', data.key, data.index[0]);
+  else data.strokes = index.root[1] + (data.index?.[1] ?? 0);
+});
+
 export const frequency = frequencyRaw
   .split('\n')
   .map(line => line.split('\t'))
@@ -202,7 +209,7 @@ export function intoPhoneticCharacters(pinyin) {
     .replace(/ji/, 'i')
     .replace(/wu/, 'u')
     .replace(/jy/, 'y')
-    .replace(/jw/, 'ɥ');
+    .replace(/(jw|jɥ)/, 'ɥ');
   return phonetic;
 }
 

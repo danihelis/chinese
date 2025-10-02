@@ -9,7 +9,7 @@ const componentColor = 'text-red-800';
 
 function Character({character, entry, handlePage}) {
   let cEntry = entry.key === character ? null : database.get(character);
-  if (!cEntry) return <span>{character}</span>;
+  if (!cEntry) return <span className="">{character}</span>;
   return (
     <span
       className={`${cEntry.ethym ? characterColor : componentColor} cursor-pointer`}
@@ -52,14 +52,16 @@ function MixedCharacterText({text, entry, handlePage}) {
 
 function Attribute({name, tooltip, children}) {
   return (
-    <div className="relative inline-block">
-      <span className="text-xs text-center text-gray-600 cursor-help peer border-b border-dashed inline-block w-8">
-        {name}:
-      </span>
-      <span className="absolute right-full -top-1 px-3 py-1.5 mr-2 bg-gray-700 text-white text-sm rounded-md whitespace-nowrap opacity-0 peer-hover:opacity-100 transition-opacity duration-300">
-        {tooltip}
-      </span>
-      <div className="ml-2 inline-flex gap-1">
+    <div className="inline-flex">
+      <div className="relative">
+        <span className="text-xs text-center text-gray-600 cursor-help peer border-b border-dashed inline-block w-8">
+          {name}:
+        </span>
+        <span className="absolute right-full -top-1 px-3 py-1.5 mr-2 bg-gray-700 text-white text-sm rounded-md whitespace-nowrap opacity-0 peer-hover:opacity-100 transition-opacity duration-300">
+          {tooltip}
+        </span>
+      </div>
+      <div className="ml-2 inline-flex gap-1 flex-wrap">
         {children}
       </div>
     </div>
@@ -195,8 +197,8 @@ export function CharacterDetail({entry, handlePage}) {
           ) : null}
           <span className="flex-1" />
           <Attribute name="IDX" tooltip="Index">
-            <Character character={entry.index.charAt(0)} entry={entry} handlePage={handlePage} />
-            <span>{entry.index.substr(1)}</span>
+            <Character character={entry.index[0]} entry={entry} handlePage={handlePage} />
+            <span>{`${entry.index < 0 ? '-' : '+'}${entry.index[1]}`}</span>
           </Attribute>
           <Attribute name="STR" tooltip="Strokes">{entry.strokes}</Attribute>
           {!entry.composition ? null : (

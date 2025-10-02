@@ -65,8 +65,7 @@ export default {
   */
 
   '的': {
-    index: '白+3',
-    strokes: 8,
+    index: ['白', 3],
     composition: '⿰白勺',
     origin: 'phono-semantic: semantic 白 (“white”) + phonetic 勺',
     ethym: [{
@@ -94,9 +93,7 @@ export default {
   },
 
   '白': {
-    index: '白+0',
-    root: 106,
-    strokes: 5,
+    root: [106, 5],
     composition: '⿱丿日',
     origin: 'probably a pictogram: may represent a thumb and be the original form of 拇 ("thumb")',
     ethym: [{
@@ -119,18 +116,14 @@ export default {
   },
 
   '丿': {
-    index: '丿+0',
-    root: 4,
-    strokes: 1,
+    root: [4, 1],
     origin: 'ideogram: the stroke itself',
     pinyin:  'pie3',
     radical: 'left-falling stroke',
   },
 
   '日': {
-    index: '日+0',
-    root: 72,
-    strokes: 4,
+    root: [72, 4],
     composition: '⿴囗一',
     origin: 'pictogram: the Sun; a dot or line was added in the centre to distinguish it from visually similar characters, e.g. 囗',
     ethym: [{
@@ -150,8 +143,7 @@ export default {
   },
 
   '勺': {
-    index: '勹+1',
-    strokes: 3,
+    index: ['勹', 1],
     composition: '⿹勹丶',
     origin: 'ideogram: something (丶) in the ladle or spoon (勹)',
     ethym: [{
@@ -164,18 +156,14 @@ export default {
   },
 
   '勹': {
-    index: '勹+0',
-    root: 20,
-    strokes: 2,
+    root: [20, 2],
     composition: '⿰丿𠃌',
     origin: 'pictogram: a person bending over',
     radical: 'wrap',
   },
 
   '一': {
-    index: '一+0',
-    root: 1,
-    strokes: 1,
+    root: [1, 1],
     origin: 'ideogram: a horizontal stroke, indicating the number “one”',
     ethym: [{
       pinyin: 'yi1',
@@ -191,8 +179,7 @@ export default {
   },
 
   '是': {
-    index: '日+5',
-    strokes: 9,
+    index: ['日', 5],
     composition: '⿱日𤴓',
     origin: 'phono-semantic of unclear origin; maybe a compound of 日 (“sun”) + 正 (“upright; right”) (i.e. as the upright sun)',
     ethym: [{
@@ -209,16 +196,14 @@ export default {
   },
 
   '𤴓': {
-    index: '疋+0',
-    strokes: 5,
+    index: ['疋', 0],
     composition: '⿱一龰',
     origin: 'variant form of 正',
     radical: 'straight; upright',
   },
 
   '不': {
-    index: '一+3',
-    strokes: 4,
+    index: ['一', 3],
     composition: '⿸丆⿰丨丶',
     origin: 'pictogram: originally the calyx of a flower; it was composed into phono-semantic 否 (“no”) and became its synonym',
     ethym: [{
@@ -233,8 +218,7 @@ export default {
   },
 
   '了': {
-    index: '亅+1',
-    strokes: 2,
+    index: ['亅', 1],
     composition: '⿱乛亅',
     origin: 'pictogram: a baby without arms; or maybe entangled legs',
     ethym: [{
@@ -260,17 +244,14 @@ export default {
   },
 
   '亅': {
-    index: '亅+0',
-    root: 6,
-    strokes: 1,
+    root: [6, 1],
     origin: 'ideogram: the stroke itself',
     pinyin:  'jue2',
     radical: 'a backward hook',
   },
 
   '在': {
-    index: '土+3',
-    strokes: 6,
+    index: ['土', 3],
     composition: '⿸𠂇⿰丨土',
     origin: 'phono-semantic: phonetic 才 + semantic 土 (“earth”)',
     ethym: [{
@@ -288,9 +269,7 @@ export default {
   },
 
   '土': {
-    index: '土+0',
-    root: 32,
-    strokes: 3,
+    root: [32, 3],
     composition: '⿱十一',
     origin: 'pictogram: a lump of clay either on the ground or on a potter’s wheel',
     ethym: [{
@@ -306,12 +285,88 @@ export default {
       ],
     }],
   },
+
+  '人': {
+    root: [9, 2],
+    composition: '⿸丿㇏',
+    origin: 'pictogram: side view of a standing man, highlighting an arm and a leg',
+    ethym: [{
+      pinyin: 'ren2',
+      definitions: [
+        'man; person; people (classifier: 个)',
+        'a person associated with a particular identity or trait; -er',
+        'body',
+        'everybody; everyone',
+        'other people; others',
+        'physical, psychological or moral quality or condition; character; personality',
+        'manpower; worker; employee ',
+        'talent; person of talent',
+        'adult; grown-up ',
+        'artificial; man-made ',
+      ],
+    }],
+  },
+
+  '有': {
+    index: ['月', 2],
+    composition: '⿸𠂇月',
+    origin: 'phono-semantic: phonetic 又 + semantic 肉 (“meat”); 又 has been abstracted to 𠂇, and 肉 to 月',
+    ethym: [{
+      pinyin: 'you3',
+      definitions: [
+        'to have; to possess (when a subject is present)',
+        'there is; to exist (when a subject is absent)',
+        'abundant; affluent',
+        'many; much; (of time) long; (of age) old',
+        'some (indefinite pronoun)',
+      ],
+    }],
+  },
+
+  '月': {
+    root: [74, 4],
+    composition: '⿵⺆⿱一一',
+    origin: 'pictogram: pictographic representation of a crescent moon; related to 夕',
+    ethym: [{
+      pinyin: 'yue4',
+      definitions: [
+        'moon-shaped; round like a moon',
+        'month (classifier: 个)',
+        'monthly',
+        'classifier for months',
+      ],
+    }],
+  },
+
+  '我': {
+    index: ['戈', 3],
+    composition: '⿻⿱丿⿻一亅戈',
+    origin: 'pictogram: a trident-like weapon or tool; folk ethymology imagines a hand (手) holding a weapon (戈) to protect oneself',
+    ethym: [{
+      pinyin: 'wo3',
+      definitions: [
+        'I; me; my',
+      ],
+    }],
+  },
+
+  '戈': {
+    root: [62, 4],
+    composition: '⿻弋丿',
+    origin: 'pictogram: an ancient weapon with a single blade',
+    ethym: [{
+      pinyin: 'ge1',
+      definitions: [
+        '(historical) dagger-axe',
+      ],
+    }],
+  },
 };
 
 /*
   '': {
     index: '',
-    strokes: 0,
+    root: [0, 0],
     composition: '',
     origin: '',
     ethym: [{
@@ -323,8 +378,7 @@ export default {
 
   '': {
     index: '',
-    root: 0,
-    strokes: 0,
+    root: [0, 0],
     composition: '',
     origin: '',
     pinyin:  '',

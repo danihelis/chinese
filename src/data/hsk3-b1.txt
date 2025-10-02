@@ -377,7 +377,7 @@
 377	忘	wàng	forget
 378	忘记	wàngjì	forget
 379	问	wèn	ask
-380	我	wǒ	i
+380	我	wǒ	I
 381	我们	wǒmen	we
 382	五	wǔ	five
 383	午饭	wǔ fàn	lunch
@@ -441,7 +441,7 @@
 441	有	yǒu	have
 442	有的	yǒu de	some
 443	有名	yǒumíng	famous
-444	有时候｜有时	yǒu shí hòu ｜ yǒu shí	sometimes
+444	有时候	yǒu shí hòu	sometimes
 445	有（一）些	yǒu （ yì ） xiē	some
 446	有用	yǒu yòng	useful
 447	右	yòu	right

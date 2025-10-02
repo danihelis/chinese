@@ -100,9 +100,17 @@ export function Panel({entry}) {
 
   return (
     <div className="flex flex-col gap-2 items-center touch-none">
+      <div className="grid grid-cols-4 gap-2 text-sm w-[300px]">
+        <Button key="clear" onClick={() => reset()}>Clear</Button>
+        {opacityLevels.map((v, i) => (
+          <Button key={`level-${i}`} onClick={() => reset(i)} toggled={level === i}>
+            Level {i+1}
+          </Button>
+        ))}
+      </div>
       <div className="relative h-[300px] w-[300px] touch-none" ref={selfRef}>
         <div className={`${opacityLevels[level]} absolute top-0 left-0 w-full h-full flex items-center justify-center -z-1`}>
-          <span className="no-select font-noto font-extralight text-[250px]">{entry.key}</span>
+          <span className="no-select font-light text-[250px]">{entry.key}</span>
         </div>
         <canvas
           className="absolute top-0 left-0 cursor-pointer touch-none"
@@ -117,14 +125,6 @@ export function Panel({entry}) {
           onTouchEnd={stopDrawing}
           onTouchCancel={stopDrawing}
         />
-      </div>
-      <div className="grid grid-cols-4 gap-2 text-sm w-[300px]">
-        <Button key="clear" onClick={() => reset()}>Clear</Button>
-        {opacityLevels.map((v, i) => (
-          <Button key={`level-${i}`} onClick={() => reset(i)} toggled={level === i}>
-            Level {i+1}
-          </Button>
-        ))}
       </div>
     </div>
   )
