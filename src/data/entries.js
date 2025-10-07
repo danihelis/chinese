@@ -464,6 +464,104 @@ export default {
     pinyin: 'gun3',
     radical: 'stick, rod',
   },
+
+  '们': {
+    index: ['人', 3],
+    composition: '⿰亻门',
+    origin: 'simplified from 們; phono-semantic: semantic 亻 (“person”) + phonetic 門',
+    ethym: [{
+      pinyin: 'men',
+      definitions: [
+        'suffix indicating plural for pronouns, some animated nouns and personifications',
+        'suffix attached to the name of the representative of a group to refer to that whole group',
+      ],
+    }],
+  },
+
+  '门': {
+    root: [0, 3],
+    composition: '⿲丨丶𠃌',
+    origin: 'simplified form of 門; pictogram: a gate',
+    ethym: [{
+      pinyin: 'men2',
+      definitions: [
+        'gate; door; entrance; opening; portal (classifier: 扇)',
+        'valve; switch',
+        'way of doing something; knack',
+        'family',
+        'school; sect; school of thought; tradition',
+        'class; category',
+        'classifier for lessons, subjects, branches of technology, and languages',
+        'classifier for livelihoods, trades, skills, businesses, etc.',
+        'classifier for thoughts, ideas, or emotions, particularly those forming a system or complex',
+        'classifier for marriage, romantic, or family relations',
+      ],
+    }],
+  },
+
+  '中': {
+    index: ['丨', 3],
+    composition: '⿻口丨',
+    origin: 'pictogram: a flagpole; maybe a vertical stroke 丨 passing through the center of 口',
+    ethym: [{
+      pinyin: 'zhong1',
+      definitions: [
+        'middle; center',
+        'medium; intermediary',
+        'within; among; in',
+        'while; in the process of; during; in the middle of',
+        'to be fit for',
+        'heart; innermost being',
+        'intermediary',
+        'short for 中国; China, Chinese',
+      ],
+    }, {
+      pinyin: 'zhong4',
+      definitions: [
+        'to hit the mark; to be correct; to be successful',
+        'to be hit by; to suffer; to be affected by',
+        'to win (a prize, a lottery)',
+      ],
+    }],
+  },
+
+  '来': {
+    index: ['木', 3],
+    composition: '⿻未丷',
+    origin: 'variant of 來; pictogram: wheat; original character of 麥 (“wheat”); maybe from mythological saying, that it comes from heaven',
+    ethym: [{
+      pinyin: 'lai2',
+      definitions: [
+        'to come; to arrive',
+        'to happen; to occur',
+        'to do (specific meaning depending on the context)',
+        'since',
+        'next; coming; future',
+        '(after a number) about; approximately; around',
+        'used after a verb of motion to indicate movement toward the speaker',
+        'used before a verb to express volition',
+        'an interjection to draw attention',
+        'used with 不 or 得 to express capability',
+      ],
+    }],
+  },
+
+  '木': {
+    root: [0, 4],
+    composition: '⿻十𠆢',
+    origin: 'pictogram: a tree, with branches on top and roots on bottom',
+    ethym: [{
+      pinyin: 'mu4',
+      definitions: [
+        'tree; woody plant',
+        'wood; timber (classifier: 条)',
+        'wooden',
+        'simple; plain; slow; emotionless; wooden',
+        'numb',
+      ],
+    }],
+  },
+
 };
 
 /*

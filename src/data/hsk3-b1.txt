@@ -228,7 +228,7 @@
 228	买	mǎi	buy
 229	慢	màn	slow
 230	忙	máng	busy
-231	毛（量）	máo	a fractional unit of money in china (measure word)
+231	毛（量）	máo	a fractional unit of money in China (measure word)
 232	没	méi	no
 233	没关系	méiguānxi	no problem
 234	没什么	méi shén me	it’s nothing
@@ -238,7 +238,8 @@
 238	门	mén	door
 239	门口	mén kǒu	doorway
 240	门票	mén piào	tickets
-241	们（朋友们）	men （ péng yǒu men ）	plural marker for pronouns and a few animate nouns (friends)
+241	们	men	plural marker for pronouns and a few animate nouns
+241	朋友们	péng yǒu men	friends
 242	米饭	mǐfàn	steamed rice
 243	面包	miànbāo	bread
 244	面条儿	miàn tiáor	noodles
@@ -474,9 +475,9 @@
 474	知道	zhīdào	know
 475	知识	zhīshi	knowledge
 476	中	zhōng	middle; in
-477	中国	zhōngguó	china
+477	中国	zhōngguó	China
 478	中间	zhōngjiān	middle
-479	中文	zhōngwén	chinese
+479	中文	zhōngwén	Chinese
 480	中午	zhōngwǔ	noon
 481	中学	zhōng xué	middle school
 482	中学生	zhōng xué shēng	middle school student

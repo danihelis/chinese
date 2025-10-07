@@ -11,7 +11,7 @@
 11	这	1552042	14.703763929078	zhe4/zhei4	this/these, here
 12	个	1199580	15.323689040917	ge4	(a measure word)/individual
 13	们	1169853	15.928251681058	men	(plural marker for pronouns and a few animate nouns)
-14	中	1104541	16.499062050484	zhong1/zhong4	within/among/in/middle/center/while (doing sth)/during/China/Chinese, hit (the mark)
+14	中	1104541	16.499062050484	zhong1/zhong4	within/among/middle/center/during/China, hit (the mark)
 15	来	1079469	17.056915583014	lai2	to come
 16	上	1069575	17.609656043421	shang4	on/on top/upon/first (of two parts)/previous or last (week, etc.)/upper/higher/above/previous/to climb/to go into/above/to go up
 17	大	1054064	18.154380649605	da4/dai4	big/huge/large/major/great/wide/deep/oldest/eldest, doctor
@@ -182,7 +182,7 @@
 182	位	214983	53.842327966544	wei4	position/location/(measure word for persons)/place/seat
 183	次	214857	53.953362870222	ci4	nth/number (of times)/order/sequence/next/second(ary)/(measure word)
 184	度	214376	54.064149200251	du4	capacity/degree/standard
-185	门	212769	54.174105056568	men2	opening/door/gate/doorway/gateway/valve/switch/way to do something/knack/family/house/(religious) sect/school (of thought)/class/category/phylum or division (taxonomy)
+185	门	212769	54.174105056568	men2	door/gate/switch/way to do something/house/sect/school/category
 186	任	212485	54.283914145907	ren4	to assign/to appoint/office/responsibility
 187	常	212309	54.393632281062	chang2	always/ever/often/frequently/common/general/constant
 188	先	210628	54.502481700406	xian1	early/prior/former/in advance/first
