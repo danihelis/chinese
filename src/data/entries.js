@@ -408,6 +408,62 @@ export default {
     }],
   },
 
+  '这': {
+    index: ['辵', 4, 7],
+    composition: '⿺辶文',
+    origin: 'alternative form of 這; phono-semantic: semantic 辶 (“walk”) + phonetic 言',
+    ethym: [{
+      pinyin: 'zhe4',
+      definitions: [
+        'this; these',
+        'at this moment; right away; at once',
+        'here',
+      ],
+    }],
+  },
+
+  '辵': {
+    root: [162, 7],
+    composition: '⿱彡龰',
+    origin: 'ideogram: 彳 (“walk”) + 止 (“foot” or “to stop”)',
+    ethym: [{
+      pinyin: 'chuo4',
+      definitions: [
+        '(historical dictionaries only) to walk for a while and be still for a while',
+      ],
+    }],
+  },
+
+  '辶': {
+    index: ['辵', 0, 3],
+    composition: '⿳丶𠃍乀',
+    origin: 'combining form of 辵',
+    pinyin: 'chuo4',
+    radical: 'walk, road',
+  },
+
+  '个': {
+    index: ['丨', 2],
+    composition: '⿱𠆢丨',
+    origin: 'variant of 箇 (“bamboo stalk”); pictogram: half of 竹 (“bamboo”), perhaps from the developed concept of "piece, item"',
+    ethym: [{
+      pinyin: 'ge4',
+      definitions: [
+        'single; alone; individual',
+        'height; build; stature',
+        'generic classifier for people or for things lacking specific classifiers',
+        'classifier for hours and months',
+        'particle between a verb and its complement',
+      ],
+    }],
+  },
+
+  '丨': {
+    root: [2, 1],
+    origin: 'pictogram of a vertical wooden stick',
+    pinyin: 'gun3',
+    radical: 'stick, rod',
+  },
 };
 
 /*
@@ -429,7 +485,7 @@ export default {
     root: [0, 0],
     composition: '',
     origin: '',
-    pinyin:  '',
+    pinyin: '',
     radical: '',
   },
 */

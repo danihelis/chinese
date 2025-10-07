@@ -8,7 +8,7 @@
 8	有	1782004	12.203634448562	you3	to have/there is/to exist/to be
 9	我	1690048	13.077026131829	wo3	I/me/myself
 10	他	1595761	13.901691695105	ta1	he/him
-11	这	1552042	14.703763929078	zhe4/zhei4	this/these, this/these/(sometimes used before a measure word, especially in Beijing)
+11	这	1552042	14.703763929078	zhe4/zhei4	this/these, here
 12	个	1199580	15.323689040917	ge4	(a measure word)/individual
 13	们	1169853	15.928251681058	men	(plural marker for pronouns and a few animate nouns)
 14	中	1104541	16.499062050484	zhong1/zhong4	within/among/in/middle/center/while (doing sth)/during/China/Chinese, hit (the mark)

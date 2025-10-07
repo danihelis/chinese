@@ -59,6 +59,7 @@ database.values().forEach(data => {
   if (data.root) data.index = [data.key, 0];
   const index = data.root ? data : database.get(data.index[0]);
   if (!index) console.log('index not found for %s: %s', data.key, data.index[0]);
+  else if (data.index?.[2]) data.strokes = data.index[2];
   else data.strokes = index.root[1] + (data.index?.[1] ?? 0);
 });
 
@@ -72,7 +73,7 @@ export const frequency = frequencyRaw
       value: parseInt(row[2]),
       percentile: Math.max(0, Math.floor(percentile)),
       pinyin: row[4],
-      meaning: row[5].replace(/,/g, ';').replace(/\//g, ', '),
+      meaning: row[5].replace(/,/g, ';').replace(/\//g, ', ') || '(historical character)',
     });
     return map;
   }, new Map());
