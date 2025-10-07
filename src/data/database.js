@@ -2,6 +2,8 @@ import entries from './entries.js';
 import frequencyRaw from './frequency.txt?raw';
 import hsk1Raw from './hsk3-b1.txt?raw';
 
+const percentileSize = 300;
+
 function loadHsk(content, level, base) {
   const hsk = content
     .split('\n')
@@ -65,13 +67,13 @@ export const frequency = frequencyRaw
   .map(line => line.split('\t'))
   .filter(row => row.length >= 5)
   .reduce((map, row, index, array) => {
+    const percentile = 100 * (1 - index / (percentileSize || array.length));
     map.set(row[1], {
       value: parseInt(row[2]),
-      percentile: Math.floor(100 * (1 - index / array.length)),
+      percentile: Math.max(0, Math.floor(percentile)),
       pinyin: row[4],
       meaning: row[5].replace(/,/g, ';').replace(/\//g, ', '),
     });
-
     return map;
   }, new Map());
 console.log("Loaded frequency data with %d entries", frequency.size);

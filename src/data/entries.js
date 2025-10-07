@@ -361,23 +361,71 @@ export default {
       ],
     }],
   },
+
+  '他': {
+    index: ['人', 3],
+    composition: '⿰亻也',
+    origin: 'phono-semantic: semantic 亻 (“man”) + phonetic 也',
+    ethym: [{
+      pinyin: 'ta1',
+      definitions: [
+        '(originally gender-neutral; nowadays usually referring to males) he, him; she, her',
+        'other; another',
+      ],
+    }],
+  },
+
+  '亻': {
+    index: ['人', 0],
+    composition: '⿱丿丨',
+    origin: 'a stylization of 人',
+    pinyin:  'ren2',
+    radical: 'person',
+  },
+
+  '也': {
+    index: ['乙', 2],
+    composition: '⿻乜丨',
+    origin: 'pictogram: a child (子) with their mouth (口) open crying; later the arms were removed and the components were fused together',
+    ethym: [{
+      pinyin: 'ye3',
+      definitions: [
+        'also; too; as well; (in negative sentences) neither; either',
+        'used for emphasis',
+      ],
+    }],
+  },
+
+  '乙': {
+    root: [5, 1],
+    origin: 'unknown pictogram: maybe a developing plant; maybe the intestine of a fish',
+    ethym: [{
+      pinyin: 'yi3',
+      definitions: [
+        'the second of the ten heavenly stems',
+        'second; 2; B; II; beta',
+      ],
+    }],
+  },
+
 };
 
 /*
   '': {
-    index: '',
+    index: ['', 0],
     root: [0, 0],
     composition: '',
     origin: '',
     ethym: [{
       pinyin: '',
       definitions: [
+        '',
       ],
     }],
   },
 
   '': {
-    index: '',
+    index: ['', 0],
     root: [0, 0],
     composition: '',
     origin: '',

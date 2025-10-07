@@ -1103,7 +1103,7 @@
 1103	延	25768	90.647605053865	yan2	to prolong/to extend/to delay
 1104	震	25746	90.660910203942	zhen4	shake/shock/sign in trigram
 1105	弃	25730	90.674207085457	qi4	abandon/relinquish/to discard/to throw away
-1106	甲	25620	90.687447120607	jia3	"A" (in a sequence of examples involving "A", "B", "C", etc.)/1st heavenly stem/1st in order/armor
+1106	甲	25620	90.687447120607	jia3	1st heavenly stem/1st in order/armor
 1107	伟	25591	90.700672168988	wei3	big/large/great
 1108	麻	25584	90.713893599873	ma2	(to have) pins and needles/tingling/hemp/numb/to bother
 1109	川	25575	90.727110379692	chuan1	river/creek/plain/an area of level country
@@ -1869,7 +1869,7 @@
 1869	妖	8337	96.602335668296	yao1	goblin/witch/devil/bewitching/enchanting/monster/phantom
 1870	祸	8336	96.606643589179	huo4	disaster
 1871	侍	8320	96.610943241499	shi4	attend on
-1872	乙	8313	96.615239276323	yi3	"B" (in a sequence of examples involving "A", "B", "C", etc.)/2nd heavenly stem/2nd in order
+1872	乙	8313	96.615239276323	yi3	2nd heavenly stem/2nd in order
 1873	妨	8311	96.619534277578	fang2	hinder/harm
 1874	贪	8304	96.623825661336	tan1	greedy
 1875	挣	8297	96.628113427598	zheng1/zheng4	struggle, to earn/to make (money)
