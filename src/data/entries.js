@@ -562,6 +562,52 @@ export default {
     }],
   },
 
+  '上': {
+    index: ['一', 2],
+    composition: '⿱⺊一',
+    origin: 'ideogram: a line above another; contrast 下 (“under”)',
+    ethym: [{
+      pinyin: 'shang4',
+      definitions: [
+        'upper part; high position; up',
+        'on; above',
+        'superior; senior; top',
+        'preceding; previous; last; former',
+        'first of several (usually two or three) partitions',
+        'within; in; from the standpoint of; according to',
+      ],
+    }, {
+      pinyin: 'shang4',
+      definitions: [
+        'to go up; to ascend',
+        'to charge; to advance',
+        'to go to; to leave for (a place)',
+        'to board; to get on',
+        'to serve; to present; to offer',
+        'to attend (class, work)',
+        'to enter (a field); to appear (on stage, TV)',
+        'to fit; to install; to apply',
+        'to screw; to tighten, to twist',
+      ],
+    }],
+  },
+
+  '大': {
+    root: [37, 3],
+    composition: '⿻一人',
+    origin: 'pictogram: a person facing forward; compare 人 (“person”), which represents the profile of a person',
+    ethym: [{
+      pinyin: 'da4',
+      definitions: [
+        'of great size; big; large; huge',
+        'big; great',
+        'in an extreme manner; greatly',
+        'main; major',
+        'well-known; successful (only applied to some occupations)',
+        'mature; grown up',
+      ],
+    }],
+  },
 };
 
 /*

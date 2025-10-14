@@ -13,7 +13,7 @@
 13	们	1169853	15.928251681058	men	(plural marker for pronouns and a few animate nouns)
 14	中	1104541	16.499062050484	zhong1/zhong4	within/among/middle/center/during/China, hit (the mark)
 15	来	1079469	17.056915583014	lai2	to come
-16	上	1069575	17.609656043421	shang4	on/on top/upon/first (of two parts)/previous or last (week, etc.)/upper/higher/above/previous/to climb/to go into/above/to go up
+16	上	1069575	17.609656043421	shang4	on/upon/first/previous/upper/higher/above/to climb/to go into
 17	大	1054064	18.154380649605	da4/dai4	big/huge/large/major/great/wide/deep/oldest/eldest, doctor
 18	为	1039036	18.691339008785	wei2/wei4	act as/take...to be/to be/to do/to serve as/to become, because of/for/to
 19	和	1010465	19.213532299882	he2/he4/huo2/huo4	and/together with/with/peace/harmony/union, cap (a poem)/respond in singing, soft/warm, mix together/to blend
