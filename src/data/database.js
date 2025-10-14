@@ -1,6 +1,7 @@
 import entries from './entries.js';
 import frequencyRaw from './frequency.txt?raw';
 import hsk1Raw from './hsk3-b1.txt?raw';
+import hsk2Raw from './hsk3-b2.txt?raw';
 
 const percentileSize = 300;
 
@@ -93,7 +94,11 @@ frequency.entries()
     }
   });
 
-export const hsk = loadHsk(hsk1Raw, 1);
+
+let base = loadHsk(hsk1Raw, 1);
+base = loadHsk(hsk2Raw, 2, base);
+export const hsk = base;
+
 console.log(
   "Total HSK3 database: %d rows, %d entries, %d words, %s characters",
   hsk.counter, hsk.entries.size, hsk.words.size, hsk.characters.size);
@@ -117,9 +122,11 @@ hsk.words.values()
 export function whichNextToInput() {
   let [next, freq] = hsk.characters.values()
     .filter(c => !database.has(c) && frequency.has(c))
-    .map(c => [c, frequency.get(c).value])
-    .reduce((next, current) => next[1] > current[1] ? next : current, [null, 0]);
-  console.log("Next character: %s (frequency == %d)", next, freq);
+    .map(c => [c, frequency.get(c)])
+    .reduce((next, current) => next[1].value > current[1].value ? next : current);
+
+  console.log("Next character: %s (%s, %s, frequency == %d)",
+      next, freq.pinyin, freq.meaning, freq.value);
   return next;
 }
 

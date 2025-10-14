@@ -608,6 +608,40 @@ export default {
       ],
     }],
   },
+
+  '为': {
+    index: ['丶', 3],
+    composition: '⿸⿵丶力丶',
+    origin: 'from cursive script of 為; ideogram: 又 (“hand”) + 象 (“elephant”) — a hand holding an elephant',
+    ethym: [{
+      pinyin: 'wei2',
+      definitions: [
+        'to do; to make',
+        'to administer; to govern',
+        'to construct; to make',
+        'to become; to turn into',
+        'to be (equivalent to, equal to)',
+        'to take something as',
+        'to act as; to serve as; to behave as',
+        'by',
+        'suffix used after a single-character adjective to form an adverb',
+      ],
+    }, {
+      pinyin: 'wei4',
+      definitions: [
+        'for',
+        'because of',
+        'for the sake of',
+      ],
+    }],
+  },
+
+  '丶': {
+    root: [3, 1],
+    origin: 'ideogram: just a point; however, it can represent many different things: ice (冰), water (汉), minerals (丹), an eye (鸟), etc.',
+    pinyin: 'zhu3',
+    radical: 'dot',
+  },
 };
 
 /*
