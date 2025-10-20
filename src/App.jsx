@@ -83,26 +83,23 @@ export default function App() {
     }
   }
 
-  const renderComponent = () => {
-    switch (page) {
-      case 'list':
-        return <CharacterList handlePage={handlePage} />;
-      case 'detail':
-        return <CharacterDetail entry={entry} handlePage={handlePage} />;
-      case 'train':
-        return <Train />;
-      default:
-        return <p>No content</p>;
-    }
+  let content = <p>No content</p>;
+  switch (page) {
+    case 'list':
+      content = <CharacterList handlePage={handlePage} />;
+      break;
+    case 'detail':
+      content = <CharacterDetail entry={entry} handlePage={handlePage} />;
+      break;
+    case 'train':
+      content = <Train />;
+      break;
   }
 
   return (
     <div>
       <NavBar handlePage={handlePage} />
-      <div className="flex flex-col gap-10 items-center justify-center m-5 mt-10">
-        <h1 className="text-3xl font-bold">{renderTitle()}</h1>
-        {renderComponent()}
-      </div>
+      {content}
     </div>
-  )
+  );
 }
