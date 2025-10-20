@@ -3,6 +3,7 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { database } from './data/database.js';
 import { CharacterList } from './list/CharacterList.jsx';
 import { CharacterDetail } from './list/CharacterDetail.jsx';
+import { Train } from './train/Train.jsx';
 
 const defaultPage = 'list';
 const entryPages = new Set(['detail']);
@@ -12,6 +13,7 @@ function NavBar({handlePage}) {
   const menu = [
     // ['Home', defaultPage],
     ['List of characters', 'list'],
+    ['Train', 'train'],
   ];
 
   // 学习中文
@@ -74,6 +76,7 @@ export default function App() {
     switch (page) {
       case 'list': return 'List of Characters';
       case 'detail': return 'Character';
+      case 'train': return 'Training';
       default: 'No page';
     }
   }
@@ -84,6 +87,8 @@ export default function App() {
         return <CharacterList handlePage={handlePage} />;
       case 'detail':
         return <CharacterDetail entry={entry} handlePage={handlePage} />;
+      case 'train':
+        return <Train />;
       default:
         return <p>No content</p>;
     }
