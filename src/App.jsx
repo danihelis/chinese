@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { database } from './data/database.js';
+import { database, whichNextToInput } from './data/database.js';
 import { CharacterList } from './list/CharacterList.jsx';
 import { CharacterDetail } from './list/CharacterDetail.jsx';
 import { Train } from './train/Train.jsx';
 
 const defaultPage = 'list';
 const entryPages = new Set(['detail']);
+
+whichNextToInput();
 
 
 function NavBar({handlePage}) {

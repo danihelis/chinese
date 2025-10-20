@@ -361,27 +361,309 @@ export default {
       ],
     }],
   },
+
+  '他': {
+    index: ['人', 3],
+    composition: '⿰亻也',
+    origin: 'phono-semantic: semantic 亻 (“man”) + phonetic 也',
+    ethym: [{
+      pinyin: 'ta1',
+      definitions: [
+        '(originally gender-neutral; nowadays usually referring to males) he, him; she, her',
+        'other; another',
+      ],
+    }],
+  },
+
+  '亻': {
+    index: ['人', 0],
+    composition: '⿱丿丨',
+    origin: 'a stylization of 人',
+    pinyin:  'ren2',
+    radical: 'person',
+  },
+
+  '也': {
+    index: ['乙', 2],
+    composition: '⿻乜丨',
+    origin: 'pictogram: a child (子) with their mouth (口) open crying; later the arms were removed and the components were fused together',
+    ethym: [{
+      pinyin: 'ye3',
+      definitions: [
+        'also; too; as well; (in negative sentences) neither; either',
+        'used for emphasis',
+      ],
+    }],
+  },
+
+  '乙': {
+    root: [5, 1],
+    origin: 'unknown pictogram: maybe a developing plant; maybe the intestine of a fish',
+    ethym: [{
+      pinyin: 'yi3',
+      definitions: [
+        'the second of the ten heavenly stems',
+        'second; 2; B; II; beta',
+      ],
+    }],
+  },
+
+  '这': {
+    index: ['辵', 4, 7],
+    composition: '⿺辶文',
+    origin: 'alternative form of 這; phono-semantic: semantic 辶 (“walk”) + phonetic 言',
+    ethym: [{
+      pinyin: 'zhe4',
+      definitions: [
+        'this; these',
+        'at this moment; right away; at once',
+        'here',
+      ],
+    }],
+  },
+
+  '辵': {
+    root: [162, 7],
+    composition: '⿱彡龰',
+    origin: 'ideogram: 彳 (“walk”) + 止 (“foot” or “to stop”)',
+    ethym: [{
+      pinyin: 'chuo4',
+      definitions: [
+        '(historical dictionaries only) to walk for a while and be still for a while',
+      ],
+    }],
+  },
+
+  '辶': {
+    index: ['辵', 0, 3],
+    composition: '⿳丶𠃍乀',
+    origin: 'combining form of 辵',
+    pinyin: 'chuo4',
+    radical: 'walk, road',
+  },
+
+  '个': {
+    index: ['丨', 2],
+    composition: '⿱𠆢丨',
+    origin: 'variant of 箇 (“bamboo stalk”); pictogram: half of 竹 (“bamboo”), perhaps from the developed concept of "piece, item"',
+    ethym: [{
+      pinyin: 'ge4',
+      definitions: [
+        'single; alone; individual',
+        'height; build; stature',
+        'generic classifier for people or for things lacking specific classifiers',
+        'classifier for hours and months',
+        'particle between a verb and its complement',
+      ],
+    }],
+  },
+
+  '丨': {
+    root: [2, 1],
+    origin: 'pictogram of a vertical wooden stick',
+    pinyin: 'gun3',
+    radical: 'stick, rod',
+  },
+
+  '们': {
+    index: ['人', 3],
+    composition: '⿰亻门',
+    origin: 'simplified from 們; phono-semantic: semantic 亻 (“person”) + phonetic 門',
+    ethym: [{
+      pinyin: 'men',
+      definitions: [
+        'suffix indicating plural for pronouns, some animated nouns and personifications',
+        'suffix attached to the name of the representative of a group to refer to that whole group',
+      ],
+    }],
+  },
+
+  '门': {
+    root: [0, 3],
+    composition: '⿲丨丶𠃌',
+    origin: 'simplified form of 門; pictogram: a gate',
+    ethym: [{
+      pinyin: 'men2',
+      definitions: [
+        'gate; door; entrance; opening; portal (classifier: 扇)',
+        'valve; switch',
+        'way of doing something; knack',
+        'family',
+        'school; sect; school of thought; tradition',
+        'class; category',
+        'classifier for lessons, subjects, branches of technology, and languages',
+        'classifier for livelihoods, trades, skills, businesses, etc.',
+        'classifier for thoughts, ideas, or emotions, particularly those forming a system or complex',
+        'classifier for marriage, romantic, or family relations',
+      ],
+    }],
+  },
+
+  '中': {
+    index: ['丨', 3],
+    composition: '⿻口丨',
+    origin: 'pictogram: a flagpole; maybe a vertical stroke 丨 passing through the center of 口',
+    ethym: [{
+      pinyin: 'zhong1',
+      definitions: [
+        'middle; center',
+        'medium; intermediary',
+        'within; among; in',
+        'while; in the process of; during; in the middle of',
+        'to be fit for',
+        'heart; innermost being',
+        'intermediary',
+        'short for 中国; China, Chinese',
+      ],
+    }, {
+      pinyin: 'zhong4',
+      definitions: [
+        'to hit the mark; to be correct; to be successful',
+        'to be hit by; to suffer; to be affected by',
+        'to win (a prize, a lottery)',
+      ],
+    }],
+  },
+
+  '来': {
+    index: ['木', 3],
+    composition: '⿻未丷',
+    origin: 'variant of 來; pictogram: wheat; original character of 麥 (“wheat”); maybe from mythological saying, that it comes from heaven',
+    ethym: [{
+      pinyin: 'lai2',
+      definitions: [
+        'to come; to arrive',
+        'to happen; to occur',
+        'to do (specific meaning depending on the context)',
+        'since',
+        'next; coming; future',
+        '(after a number) about; approximately; around',
+        'used after a verb of motion to indicate movement toward the speaker',
+        'used before a verb to express volition',
+        'an interjection to draw attention',
+        'used with 不 or 得 to express capability',
+      ],
+    }],
+  },
+
+  '木': {
+    root: [0, 4],
+    composition: '⿻十𠆢',
+    origin: 'pictogram: a tree, with branches on top and roots on bottom',
+    ethym: [{
+      pinyin: 'mu4',
+      definitions: [
+        'tree; woody plant',
+        'wood; timber (classifier: 条)',
+        'wooden',
+        'simple; plain; slow; emotionless; wooden',
+        'numb',
+      ],
+    }],
+  },
+
+  '上': {
+    index: ['一', 2],
+    composition: '⿱⺊一',
+    origin: 'ideogram: a line above another; contrast 下 (“under”)',
+    ethym: [{
+      pinyin: 'shang4',
+      definitions: [
+        'upper part; high position; up',
+        'on; above',
+        'superior; senior; top',
+        'preceding; previous; last; former',
+        'first of several (usually two or three) partitions',
+        'within; in; from the standpoint of; according to',
+      ],
+    }, {
+      pinyin: 'shang4',
+      definitions: [
+        'to go up; to ascend',
+        'to charge; to advance',
+        'to go to; to leave for (a place)',
+        'to board; to get on',
+        'to serve; to present; to offer',
+        'to attend (class, work)',
+        'to enter (a field); to appear (on stage, TV)',
+        'to fit; to install; to apply',
+        'to screw; to tighten, to twist',
+      ],
+    }],
+  },
+
+  '大': {
+    root: [37, 3],
+    composition: '⿻一人',
+    origin: 'pictogram: a person facing forward; compare 人 (“person”), which represents the profile of a person',
+    ethym: [{
+      pinyin: 'da4',
+      definitions: [
+        'of great size; big; large; huge',
+        'big; great',
+        'in an extreme manner; greatly',
+        'main; major',
+        'well-known; successful (only applied to some occupations)',
+        'mature; grown up',
+      ],
+    }],
+  },
+
+  '为': {
+    index: ['丶', 3],
+    composition: '⿸⿵丶力丶',
+    origin: 'from cursive script of 為; ideogram: 又 (“hand”) + 象 (“elephant”) — a hand holding an elephant',
+    ethym: [{
+      pinyin: 'wei2',
+      definitions: [
+        'to do; to make',
+        'to administer; to govern',
+        'to construct; to make',
+        'to become; to turn into',
+        'to be (equivalent to, equal to)',
+        'to take something as',
+        'to act as; to serve as; to behave as',
+        'by',
+        'suffix used after a single-character adjective to form an adverb',
+      ],
+    }, {
+      pinyin: 'wei4',
+      definitions: [
+        'for',
+        'because of',
+        'for the sake of',
+      ],
+    }],
+  },
+
+  '丶': {
+    root: [3, 1],
+    origin: 'ideogram: just a point; however, it can represent many different things: ice (冰), water (汉), minerals (丹), an eye (鸟), etc.',
+    pinyin: 'zhu3',
+    radical: 'dot',
+  },
 };
 
 /*
   '': {
-    index: '',
+    index: ['', 0],
     root: [0, 0],
     composition: '',
     origin: '',
     ethym: [{
       pinyin: '',
       definitions: [
+        '',
       ],
     }],
   },
 
   '': {
-    index: '',
+    index: ['', 0],
     root: [0, 0],
     composition: '',
     origin: '',
-    pinyin:  '',
+    pinyin: '',
     radical: '',
   },
 */

@@ -1,6 +1,9 @@
 import entries from './entries.js';
 import frequencyRaw from './frequency.txt?raw';
 import hsk1Raw from './hsk3-b1.txt?raw';
+import hsk2Raw from './hsk3-b2.txt?raw';
+
+const percentileSize = 300;
 
 function loadHsk(content, level, base) {
   const hsk = content
@@ -57,6 +60,7 @@ database.values().forEach(data => {
   if (data.root) data.index = [data.key, 0];
   const index = data.root ? data : database.get(data.index[0]);
   if (!index) console.log('index not found for %s: %s', data.key, data.index[0]);
+  else if (data.index?.[2]) data.strokes = data.index[2];
   else data.strokes = index.root[1] + (data.index?.[1] ?? 0);
 });
 
@@ -65,13 +69,13 @@ export const frequency = frequencyRaw
   .map(line => line.split('\t'))
   .filter(row => row.length >= 5)
   .reduce((map, row, index, array) => {
+    const percentile = 100 * (1 - index / (percentileSize || array.length));
     map.set(row[1], {
       value: parseInt(row[2]),
-      percentile: Math.floor(100 * (1 - index / array.length)),
+      percentile: Math.max(0, Math.floor(percentile)),
       pinyin: row[4],
-      meaning: row[5].replace(/,/g, ';').replace(/\//g, ', '),
+      meaning: row[5].replace(/,/g, ';').replace(/\//g, ', ') || '(historical character)',
     });
-
     return map;
   }, new Map());
 console.log("Loaded frequency data with %d entries", frequency.size);
@@ -90,7 +94,11 @@ frequency.entries()
     }
   });
 
-export const hsk = loadHsk(hsk1Raw, 1);
+
+let base = loadHsk(hsk1Raw, 1);
+base = loadHsk(hsk2Raw, 2, base);
+export const hsk = base;
+
 console.log(
   "Total HSK3 database: %d rows, %d entries, %d words, %s characters",
   hsk.counter, hsk.entries.size, hsk.words.size, hsk.characters.size);
@@ -114,9 +122,11 @@ hsk.words.values()
 export function whichNextToInput() {
   let [next, freq] = hsk.characters.values()
     .filter(c => !database.has(c) && frequency.has(c))
-    .map(c => [c, frequency.get(c).value])
-    .reduce((next, current) => next[1] > current[1] ? next : current, [null, 0]);
-  console.log("Next character: %s (frequency == %d)", next, freq);
+    .map(c => [c, frequency.get(c)])
+    .reduce((next, current) => next[1].value > current[1].value ? next : current);
+
+  console.log("Next character: %s (%s, %s, frequency == %d)",
+      next, freq.pinyin, freq.meaning, freq.value);
   return next;
 }
 
