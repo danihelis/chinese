@@ -20,7 +20,7 @@ function NavBar({handlePage}) {
 
   // 学习中文
   return (
-    <div className="bg-black text-white w-full p-2 px-4 flex items-center sticky top-0">
+    <div className="bg-black text-white w-full p-2 px-4 flex items-center">
       <span className="font-mashan text-2xl">学</span>
       <span className="font-bold ml-2">Learning Chinese</span>
       <span className="flex-1" />
@@ -97,7 +97,7 @@ export default function App() {
   }
 
   return (
-    <div>
+    <div className="flex flex-col h-dvh">
       <NavBar handlePage={handlePage} />
       {content}
     </div>

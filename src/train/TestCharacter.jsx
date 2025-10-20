@@ -104,7 +104,7 @@ export function TestCharacter({entry}) {
 
   return (
     <Page title="Training">
-      <div className="flex flex-col gap-6 items-center justify-center mt-5 max-w-sm justify-self-center">
+      <div className="flex flex-col gap-6 items-center justify-center max-w-sm justify-self-center">
         <div className="text-gray-800 bg-gray-200 text-9xl rounded-xl p-2 h-40 flex justify-center items-center">
           {entry.key}
         </div>

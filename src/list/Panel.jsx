@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
+import { TrashIcon } from '@heroicons/react/24/outline';
 
-const size = 300;
+const size = 350;
 const padding = 10;
 const opacityLevels = ['opacity-35', 'opacity-10', 'opacity-0'];
 
@@ -21,7 +22,6 @@ function Button({children, onClick, toggled}) {
 export function Panel({entry}) {
   const selfRef = useRef(null);
   const [practice, setPractice] = useState(false);
-  const [level, setLevel] = useState(0);
 
   let isDrawing = false;
   let lastX = 0;
@@ -68,13 +68,12 @@ export function Panel({entry}) {
     isDrawing = false;
   };
 
-  const reset = (newLevel) => {
+  const reset = () => {
     const ctx = getContext();
 
     ctx.clearRect(0, 0, size, size);
 
-    let [tone, alpha] = [220, 0.8];
-    ctx.fillStyle = `rgb(${tone} ${tone} ${tone} / ${alpha.toPrecision(2)})`;
+    ctx.fillStyle = `rgb(229 231 235 / 0.8)`;
     ctx.fillRect(0, 0, size, size);
 
     ctx.beginPath();
@@ -88,29 +87,17 @@ export function Panel({entry}) {
     ctx.lineTo(size, size / 2);
     ctx.moveTo(size / 2, 0);
     ctx.lineTo(size / 2, size);
-    ctx.strokeStyle = '#eee';
+    ctx.strokeStyle = '#d1d5dc';
     ctx.stroke();
-
-    if (newLevel !== undefined) setLevel(newLevel);
   };
 
-  useEffect(() => {
-    reset(0);
-  }, [entry]);
+  useEffect(reset, [entry]);
 
   return (
     <div className="flex flex-col gap-2 items-center touch-none">
-      <div className="grid grid-cols-4 gap-2 text-sm w-[300px]">
-        <Button key="clear" onClick={() => reset()}>Clear</Button>
-        {opacityLevels.map((v, i) => (
-          <Button key={`level-${i}`} onClick={() => reset(i)} toggled={level === i}>
-            Level {i+1}
-          </Button>
-        ))}
-      </div>
-      <div className="relative h-[300px] w-[300px] touch-none" ref={selfRef}>
-        <div className={`${opacityLevels[level]} absolute top-0 left-0 w-full h-full flex items-center justify-center -z-1`}>
-          <span className="no-select font-light text-[250px]">{entry.key}</span>
+      <div className="relative h-[350px] w-[350px] touch-none" ref={selfRef}>
+        <div className={`opacity-10 absolute top-0 left-0 w-full h-full flex items-center justify-center -z-1`}>
+          <span className="no-select font-light text-[300px]">{entry.key}</span>
         </div>
         <canvas
           className="absolute top-0 left-0 cursor-pointer touch-none"
@@ -125,6 +112,13 @@ export function Panel({entry}) {
           onTouchEnd={stopDrawing}
           onTouchCancel={stopDrawing}
         />
+        <button
+          className="bg-gray-500 text-white absolute right-0 top-0 m-2 p-1 rounded shadow-md cursor-pointer active:bg-white active:text-gray-800"
+          key="clear"
+          onClick={() => reset()}
+        >
+          <TrashIcon className="size-5" />
+        </button>
       </div>
     </div>
   )
