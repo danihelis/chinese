@@ -4,13 +4,13 @@ import { Panel } from './Panel.jsx';
 import { Page } from '../Page.jsx';
 
 
-const characterColor = 'text-gray-800';
-const componentColor = 'text-gray-800';
+const characterColor = 'text-gray-900';
+const componentColor = 'text-gray-900';
 
 
 function Character({character, entry, handlePage}) {
   let cEntry = entry.key === character ? null : database.get(character);
-  if (!cEntry) return <span className="">{character}</span>;
+  if (!cEntry) return <span className="text-gray-600">{character}</span>;
   return (
     <span
       className={`${cEntry.ethym ? characterColor : componentColor} cursor-pointer`}
@@ -89,8 +89,8 @@ function Word({word, entry, handlePage}) {
       <div>
         <CharacterSequence sequence={word.entry} entry={entry} handlePage={handlePage} />
       </div>
-      <span className="text-gray-600">{word.pinyin}</span>
-      <p className="text-sm italic ">{word.meaning}</p>
+      <span className="text-black">{word.pinyin}</span>
+      <p className="text-sm italic text-gray-800">{word.meaning}</p>
     </>
   );
 }
@@ -113,7 +113,7 @@ function WordList({entry, handlePage}) {
         {list.map(w => <Word key={w.entry} word={w} entry={entry} handlePage={handlePage} />)}
       </div>
       {collapsable ? (
-        <div className="text-gray-800 cursor-pointer" onClick={() => setCollapse(!collapse)}>
+        <div className="text-gray-600 cursor-pointer" onClick={() => setCollapse(!collapse)}>
           <span className="underline text-sm">show {collapse ? 'more' : 'less'} words</span>
         </div>
       ) : null}
@@ -136,7 +136,8 @@ function DefinitionList({ethym}) {
   const collapsable = ethym.definitions.length > 3;
   const [collapse, setCollapse] = useState(collapsable);
 
-  const list = collapse ? ethym.definitions.slice(0, 2) : ethym.definitions;
+  const list = collapse && ethym.definitions.length > 3 ?
+      ethym.definitions.slice(0, 2) : ethym.definitions;
 
   return (
     <div className="flex flex-col gap-1">
@@ -144,7 +145,7 @@ function DefinitionList({ethym}) {
         <Definition key={`definition-${i}`} definition={d} index={i} />
       ))}
       {collapsable ? (
-        <div className="text-gray-800 cursor-pointer" onClick={() => setCollapse(!collapse)}>
+        <div className="text-gray-600 cursor-pointer" onClick={() => setCollapse(!collapse)}>
           <span className="underline text-sm">show {collapse ? 'more' : 'less'} definitions</span>
         </div>
       ) : null}
@@ -187,7 +188,7 @@ export function CharacterDetail({entry, handlePage}) {
                   {entry.ethym?.length > 1 ? (
                     <div className="flex gap-1 items-center">
                       {entry.ethym.map((e, i) => (
-                        <div key={e.pinyin} className={`${i === ethymIndex ? 'inset-ring-1 inset-ring-gray-800 text-gray-800' : 'bg-gray-600 text-white cursor-pointer'} w-5 h-5 text-xs flex items-center justify-center select-none`} onClick={() => changeEthym(i)}>
+                        <div key={`${e.pinyin}-${i}`} className={`${i === ethymIndex ? 'inset-ring-1 inset-ring-gray-800 text-gray-800' : 'bg-gray-600 text-white cursor-pointer'} w-5 h-5 text-xs flex items-center justify-center select-none`} onClick={() => changeEthym(i)}>
                           {i + 1}
                         </div>
                       ))}

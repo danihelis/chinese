@@ -642,6 +642,74 @@ export default {
     pinyin: 'zhu3',
     radical: 'dot',
   },
+
+  '和': {
+    index: ['口', 5],
+    composition: '⿰禾口',
+    origin: 'phono-semantic: phonetic 禾 + semantic 口 (“mouth”), meaning harmony; perhaps through its concept in music',
+    ethym: [{
+      pinyin: 'he2',
+      definitions: [
+        'peaceful; harmonious',
+        'gentle; kind',
+        'warm; temperate',
+        'sum; total',
+        'to make peace; to become reconciled',
+      ],
+    }, {
+      pinyin: 'he2',
+      definitions: [
+        'and',
+        'with',
+      ],
+    }, {
+      pinyin: 'huo2',
+      definitions: [
+        'to mix with water to make something stick together; to knead ',
+        'to mix (usually substances in powder or grain form)',
+        'to add water to make something less thick',
+      ],
+    }],
+  },
+
+  '口': {
+    root: [30, 3],
+    composition: '⿱冂一',
+    origin: 'pictogram: resembles an open mouth',
+    ethym: [{
+      pinyin: 'kou3',
+      definitions: [
+        'mouth, especially the lips and internal mouth cavity (classifier: 把)',
+        'entrance; opening; mouth (of an object)',
+        'gateway; mountain pass',
+        'hole; cut',
+        'blade; edge of a knife',
+        'port',
+        'perimeter',
+        'government organ; department',
+        'classifier for family members, populations, livestock',
+        'classifier for bites or mouthfuls',
+      ],
+    }],
+  },
+
+  '国': {
+    index: ['口', 5],
+    composition: '⿴囗玉',
+    origin: 'simplified from 國; phono-semantic: semantic 囗 (“closure”) + phonetic 或',
+    ethym: [{
+      pinyin: 'guo2',
+      definitions: [
+        'country; nation; nation-state; kingdom',
+        '(in compounds) national; representing a nation',
+        'short for 国语; Mandarin',
+        'short for 国民党; Kuomintang',
+        'domestic; of our country (in many contexts meaning Chinese)',
+        'classifier for countries (quasi-measure word)',
+      ],
+    }],
+  },
+
 };
 
 /*
