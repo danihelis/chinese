@@ -710,6 +710,101 @@ export default {
     }],
   },
 
+  '地': {
+    index: ['土', 0],
+    composition: '⿰土也',
+    origin: 'phono-semantic: semantic 土 (“earth”) + phonetic 也',
+    ethym: [{
+      pinyin: 'di4',
+      definitions: [
+        'earth',
+        'ground; floor',
+        'land; field (classifier: 块)',
+        'distance; separation',
+        '(only in compounds) area; region',
+        'place; locality',
+        'status; situation; position',
+        '(only in compounds) state of mind',
+        'place; room; space',
+        'background (behind a text or figure)',
+      ],
+    }, {
+      pinyin: 'de',
+      definitions: [
+        '(chiefly Mandarin) particle indicating the preceding word is used as an adverb',
+      ],
+    }],
+  },
+
+  '到': {
+    index: ['刀', 6],
+    composition: '⿰至刂',
+    origin: 'phono-semantic: semantic 至 (“to arrive”) + phonetic 刀',
+    ethym: [{
+      pinyin: 'dao4',
+      definitions: [
+        'to arrive at a destination; to reach a destination; to get to',
+        'to go to; to leave for',
+        'used as a verbal complement to indicate the (successful) completion of an action',
+        '(chiefly in the negative) to reach',
+        'to; to (a place); to (a time); until; up to',
+      ],
+    }],
+  },
+
+  '至': {
+    root: [133, 6],
+    composition: '⿱⿱一厶土',
+    origin: 'ideogram: an arrow stuck into the ground',
+    ethym: [{
+      pinyin: 'zhi4',
+      definitions: [
+        'to reach; to arrive',
+        'extreme; most',
+        'from … to …',
+      ],
+    }],
+  },
+
+  '刀': {
+    root: [18, 2],
+    composition: '⿹𠃌丿',
+    origin: 'pictogram: a knife',
+    ethym: [{
+      pinyin: 'dao1',
+      definitions: [
+        'knife; blade (classifier: 把)',
+        'single-edged sword; cutlass',
+        'classifier for sets of one hundred sheets of paper',
+        'classifier for incisions with a knife, blade, single-edged sword, etc.',
+      ],
+    }],
+  },
+
+  '刂': {
+    index: ['刀', 0],
+    composition: ' ⿰丨亅',
+    origin: 'radical form of 刀 (“knife”)',
+    pinyin: 'dao1',
+    radical: 'knife',
+  },
+
+  '以': {
+    index: ['人', 3],
+    composition: '⿲𠄌丶人',
+    origin: 'pictogram: a person (人) carrying something',
+    ethym: [{
+      pinyin: 'yi3',
+      definitions: [
+        'a preposition that expresses a boundary in time, orientation, direction or quantity',
+        'by; with; by means of',
+        'according to',
+        'so as to; in order to',
+        'to use',
+        'short for 以色列 (Yǐsèliè, “Israel”)',
+      ],
+    }],
+  },
 };
 
 /*

@@ -20,7 +20,7 @@
 20	国	985350	19.722746532323	guo2	country/state/nation
 21	地	969349	20.223691685823	de/di4	(subor. part. adverbial)/-ly, earth/ground/field/place/land
 22	到	965035	20.722407428253	dao4	to (a place)/until (a time)/up to/to go/to arrive
-23	以	910627	21.193005925076	yi3	to use/according to/so as to/in order to/by/with/because/Israel (abbrev.)
+23	以	910627	21.193005925076	yi3	to use/according to/so as to/in order to/by/with/because/Israel
 24	说	874977	21.645181031848	shui4/shuo1	persuade (politically), to speak/to say
 25	时	833532	22.075937978714	shi2	o'clock/time/when/hour/season/period
 26	要	811011	22.495056407563	yao1/yao4	demand/ask/request/coerce, important/vital/to want/to be going to/must

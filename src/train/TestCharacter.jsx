@@ -25,7 +25,7 @@ function Answer({selected, answer, className}) {
         <span className="">{selected}</span>
       </div>
       {!correct ? (
-        <div className={`bg-gray-300 text-black rounded flex gap-3 p-2 items-center`}>
+        <div className={`bg-gray-100 text-black rounded flex gap-3 p-2 items-center`}>
           <div className={`bg-white text-black w-5 h-5 rounded flex justify-center items-center shrink-0`}>{'✓'}</div>
           <span className="">{answer}</span>
         </div>
