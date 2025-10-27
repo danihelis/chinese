@@ -805,6 +805,185 @@ export default {
       ],
     }],
   },
+
+  '说': {
+    index: ['讠', 7],
+    composition: '⿰讠兑',
+    origin: 'simplified from 說 (訁 → 讠); phono-semantic: semantic 言 (“to speak”) + phonetic 兌',
+    ethym: [{
+      pinyin: 'shuo1',
+      definitions: [
+        'to say; to speak',
+        'to explain',
+        'to refer to',
+        'to discuss',
+        'to introduce; to bring parties together',
+        'to criticize; to scold; to upbraid',
+        'to perform',
+        'theory; explanation',
+      ],
+    }, {
+      pinyin: 'shui4',
+      definitions: [
+        'to persuade; to canvass; to lobby',
+      ],
+    }],
+  },
+
+  '讠': {
+    index: ['言', 0, 2],
+    root: [149, 2],
+    composition: '⿱丶㇊',
+    origin: 'simplified form of 言 (“speech”)',
+    pinyin: 'yan2',
+    radical: 'speech',
+  },
+
+  '言': {
+    root: [149, 7],
+    composition: '⿳亠⿳一一口',
+    origin: 'ideogram: a horizontal stroke is added to the top of 舌 (“tongue”) to indicate movement of the tongue',
+    ethym: [{
+      pinyin: 'yan2',
+      definitions: [
+        'to say; to speak; to talk',
+        'to discuss; to comment',
+        'to state; to describe; to explain',
+        'to write down; to record',
+        'to ask; to inquire',
+        'to inform; to tell; to let know',
+        'spoken language; speech',
+        'opinion; view; perspective',
+        'words; language appropriate to the occasion',
+        'proposal; idea; plan',
+        'government decree; order',
+        'character; word',
+        'sentence; writing; works',
+      ],
+    }],
+  },
+
+  '时': {
+    index: ['日', 3],
+    composition: '⿰日寸',
+    origin: 'simplified form of 時; phono-semantic: semantic 日 (“sun; day”) + phonetic 寺',
+    ethym: [{
+      pinyin: 'shi2',
+      definitions: [
+        'season',
+        'time (a duration)',
+        'time (the passing of time)',
+        'times; years; era',
+        'time; fixed time',
+        'double-hour',
+        'hour; o’clock (mainly in formal writing)',
+        'opportunity; chance',
+        'current; contemporary',
+        'that time',
+        'occasionally; from time to time',
+      ],
+    }],
+  },
+
+  '要': {
+    index: ['襾', 3],
+    composition: '⿱覀女',
+    origin: 'pictogram: a woman (女) with two hands pointing to her midsection; the upper part was eventually stylized as 覀',
+    ethym: [{
+      pinyin: 'yao1',
+      definitions: [
+        'to demand; to ask; to request',
+        'to force; to coerce',
+        'to promise',
+        'to block; to intercept',
+      ],
+    }, {
+      pinyin: 'yao4',
+      definitions: [
+        'to want; to wish',
+        'to wish to have or keep',
+        'to ask for',
+        'to request',
+        'to need',
+        'will; going to (future auxiliary)',
+        'should; must; to have to',
+        'vital; important',
+        'important points; essentials',
+        'if; in case of',
+      ],
+    }],
+  },
+
+  '襾': {
+    root: [146, 6],
+    composition: '⿱一⿻凵冂',
+    origin: 'pictogram: 冂 overlapped with 凵 and a horizontal stroke on top to indicate the act of covering something',
+    ethym: [{
+      pinyin: 'ya4',
+      definitions: [
+        '(historical) cover',
+      ],
+    }],
+  },
+
+  '覀': {
+    index: ['襾', 0],
+    composition: '⿱一⿻口⿰丨丨',
+    origin: 'a variant form of 襾',
+    pinyin: 'ya4',
+    radical: 'cover',
+  },
+
+  '女': {
+    root: [38, 3],
+    composition: '⿻𡿨丆',
+    origin: 'pictogram: a woman with breasts kneeling or standing',
+    ethym: [{
+      pinyin: 'nü3',
+      definitions: [
+        'woman; (only of humans in Standard Chinese) female',
+        'daughter (classifier: 个)',
+      ],
+    }],
+  },
+
+  '就': {
+    index: ['尢', 9],
+    composition: '⿰京尤',
+    origin: 'originally an ideogram: 享 (shrine) + 京 (tower), meaning "to sacrifice at a high place"; later, 尤 (“especially; even more”) replaced 享',
+    ethym: [{
+      pinyin: 'jiu4',
+      definitions: [
+        'to approach; to move towards',
+        'to reach; to arrive at',
+        'to undertake; to engage in ',
+        'to succeed; to complete',
+        'to comply; to follow; to accept',
+        'to suffer; to be subjected to',
+        '(of food) to go with',
+        'with regard to; concerning',
+        'even if; even though',
+        'at once; right away ',
+        '(used for emphasis) exactly; precisely; just ',
+        'only; merely; just ',
+        'then',
+        '(used to express earliness) as early as; as soon as ',
+        'as many as; as much as',
+      ],
+    }],
+  },
+
+  '尢': {
+    root: [43, 3],
+    composition: '⿸𠂇乚',
+    origin: 'ideogram: a man with bent legs (jumping or collapsing)',
+    ethym: [{
+      pinyin: 'wang1',
+      definitions: [
+        '(obsolete on its own in Standard Chinese) lame; crippled',
+      ],
+    }],
+  },
 };
 
 /*

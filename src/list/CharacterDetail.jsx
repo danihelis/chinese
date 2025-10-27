@@ -86,7 +86,10 @@ function Block({title, children, padding = true}) {
 function Word({word, entry, handlePage}) {
   return (
     <>
-      <div>
+      <div className="flex items-baseline">
+        <div className="bg-gray-700 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center mr-2">
+          {word.level}
+        </div>
         <CharacterSequence sequence={word.entry} entry={entry} handlePage={handlePage} />
       </div>
       <span className="text-black">{word.pinyin}</span>
@@ -98,11 +101,15 @@ function Word({word, entry, handlePage}) {
 
 function WordList({entry, handlePage}) {
   const collapsable = entry.words.size > 3;
-  const [collapse, setCollapse] = useState(collapsable);
+  const [collapse, setCollapse] = useState();
+
+  useEffect(() => {
+    setCollapse(collapsable);
+  }, [entry]);
 
   let list = [...entry.words];
   list.sort((a, b) => {
-    if (a.level !== b.level) a.level - b.level;
+    if (a.level !== b.level) return a.level - b.level;
     return a.pinyin.localeCompare(b.pinyin);
   });
   if (collapse) list = list.slice(0, 2);

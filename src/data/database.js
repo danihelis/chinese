@@ -127,6 +127,13 @@ export function whichNextToInput() {
 
   console.log("Next character: %s (%s, %s, frequency == %d)",
       next, freq.pinyin, freq.meaning, freq.value);
+
+  const entry = hsk.entries.get(next);
+  if (entry) console.log('Char entry:', entry);
+  else {
+    const words = hsk.words.keys().filter(key => [...key].includes(next)).toArray();
+    console.log('Just words:', words.join(', '));
+  }
   return next;
 }
 
