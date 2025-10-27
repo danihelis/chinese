@@ -10,9 +10,13 @@ export function Train() {
   const [entry, setEntry] = useState();
 
   useEffect(() => {
-    const entry = choice(available);
-    setEntry(entry);
+    handleNext();
   }, []);
 
-  return entry && <TestCharacter entry={entry} />;
+  const handleNext = () => {
+    const entry = choice(available);
+    setEntry(entry);
+  };
+
+  return entry && <TestCharacter entry={entry} onNext={handleNext} />;
 }

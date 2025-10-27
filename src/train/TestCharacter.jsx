@@ -16,12 +16,34 @@ function Option({option, selected, onClick}) {
 }
 
 
-function List({title, entry, getOptions, className, onSelect}) {
+function Answer({selected, answer, className}) {
+  const correct = selected === answer;
+  return (
+    <div className={className}>
+      <div className={`bg-gray-700 text-white rounded flex gap-3 p-2 items-center`}>
+        <div className={`bg-white text-black w-5 h-5 rounded flex justify-center items-center shrink-0`}>{correct ? '✓' : '✗'}</div>
+        <span className="">{selected}</span>
+      </div>
+      {!correct ? (
+        <div className={`bg-gray-300 text-black rounded flex gap-3 p-2 items-center`}>
+          <div className={`bg-white text-black w-5 h-5 rounded flex justify-center items-center shrink-0`}>{'✓'}</div>
+          <span className="">{answer}</span>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+
+function List({title, entry, getOptions, className, onSelect, showAnswer, answerClassName}) {
   const [options, setOptions] = useState([]);
+  const [answer, setAnswer] = useState();
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
-    setOptions(getOptions(entry));
+    const [options, answer] = getOptions(entry);
+    setOptions(options);
+    setAnswer(answer);
     setSelected(null);
   }, [entry]);
 
@@ -31,19 +53,23 @@ function List({title, entry, getOptions, className, onSelect}) {
   };
 
   return (
-    <div className="flex flex-col gap-2 items-center">
+    <div className="flex flex-col gap-2 items-center w-full">
       <span className="font-bold">{title}</span>
-      <div className={className}>
-        {options.map(o => (
-          <Option key={o} option={o} selected={selected === o} onClick={() => handleClick(o)} />
-        ))}
-      </div>
+      {showAnswer ? (
+        <Answer selected={selected} answer={answer} className={answerClassName} />
+      ) : (
+        <div className={className}>
+          {options.map(o => (
+            <Option key={o} option={o} selected={selected === o} onClick={() => handleClick(o)} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
 
-function Pronounce({entry, onSelect}) {
+function Pronounce({entry, onSelect, showAnswer}) {
 
   const getOptions = (entry) => {
     const others = database
@@ -54,9 +80,10 @@ function Pronounce({entry, onSelect}) {
       .toArray();
 
     const options = shuffle(others).slice(0, 8);
-    options.push(entry.ethym[0].pinyin);
+    const answer = entry.ethym[0].pinyin;
+    options.push(answer);
     options.sort((a, b) => a.localeCompare(b));
-    return options;
+    return [options, answer];
   };
 
   return (
@@ -66,12 +93,14 @@ function Pronounce({entry, onSelect}) {
       entry={entry}
       onSelect={onSelect}
       getOptions={getOptions}
+      showAnswer={showAnswer}
+      answerClassName="flex gap-2"
     />
   );
 }
 
 
-function Meaning({entry, onSelect}) {
+function Meaning({entry, onSelect, showAnswer}) {
 
   const getOptions = (entry) => {
     const others = database
@@ -81,9 +110,10 @@ function Meaning({entry, onSelect}) {
       .toArray();
 
     const options = shuffle(others).slice(0, 5);
-    options.push(entry.frequency.meaning);
+    const answer = entry.frequency.meaning;
+    options.push(answer);
     shuffle(options);
-    return options;
+    return [options, answer];
   };
 
   return (
@@ -93,23 +123,61 @@ function Meaning({entry, onSelect}) {
       entry={entry}
       onSelect={onSelect}
       getOptions={getOptions}
+      showAnswer={showAnswer}
+      answerClassName="flex flex-col gap-2 items-stretch"
     />
   );
 }
 
 
-export function TestCharacter({entry}) {
-  const [pronounce, setPronounce] = useState(null);
-  const [meaning, setMeaning] = useState(null);
+function Button({children, onClick, disabled, className}) {
+  const style = disabled ? 'bg-gray-300 text-gray-400' :
+    'bg-gray-500 text-white active:bg-gray-400 cursor-pointer';
+
+  return (
+    <button
+      className={`${style} p-2 px-4 rounded ${className}`}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      {children}
+    </button>
+  );
+}
+
+
+export function TestCharacter({entry, onNext}) {
+  const [pronounce, setPronounce] = useState();
+  const [meaning, setMeaning] = useState();
+  const [showAnswer, setShowAnswer] = useState();
+
+  useEffect(() => {
+    setPronounce(null);
+    setMeaning(null);
+    setShowAnswer(false);
+  }, [entry]);
+
+  const validateAnswer = () => {
+    setShowAnswer(true);
+  };
 
   return (
     <Page title="Training">
-      <div className="flex flex-col gap-6 items-center justify-center max-w-sm justify-self-center">
+      <div className="flex flex-col gap-6 items-center justify-center w-full max-w-sm justify-self-center">
         <div className="text-gray-800 bg-gray-200 text-9xl rounded-xl p-2 h-40 flex justify-center items-center">
           {entry.key}
         </div>
-        <Pronounce entry={entry} onSelect={setPronounce} />
-        <Meaning entry={entry} onSelect={setMeaning} />
+        <Pronounce entry={entry} onSelect={setPronounce} showAnswer={showAnswer} />
+        <Meaning entry={entry} onSelect={setMeaning} showAnswer={showAnswer} />
+        {showAnswer ? (
+          <Button onClick={onNext} className="mt-4">
+            <span>Next character</span>
+          </Button>
+        ) : (
+          <Button onClick={validateAnswer} disabled={!pronounce || !meaning} className="mt-4">
+            <span>Check answer</span>
+          </Button>
+        )}
       </div>
     </Page>
   );
