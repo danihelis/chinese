@@ -1,5 +1,4 @@
-Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Translation
-
+Word,Meaning,Sentence,Pinyin,Translation
 爱 (ài) [cite: 1],love [cite: 1],我 爱 爸 爸。,Wǒ ài bàba.,I love Dad.
 爱好 (àihào) [cite: 1],hobby [cite: 1],我 的 爱 好 是 读 书。,Wǒ de àihào shì dú shū.,My hobby is reading.
 八 (bā) [cite: 1],eight [cite: 1],我 有 八 个 朋 友。,Wǒ yǒu bā gè péngyou.,I have eight friends.
@@ -10,7 +9,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 百 (bǎi) [cite: 1],hundred [cite: 1],这 一 百 个 苹 果。,Zhè yī bǎi gè píng guǒ.,These are one hundred apples.
 班 (bān) [cite: 1],class [cite: 1],他 在 学 生 班。,Tā zài xuéshēng bān.,He is in the student class.
 半 (bàn) [cite: 1],half [cite: 1],一 半 是 我 的。,Yī bàn shì wǒ de.,Half is mine.
-
 半年 (bàn nián),half a year,我 们 在 这 里 住 了 半 年。,Wǒmen zài zhè lǐ zhù le bàn nián.,We lived here for half a year.
 半天 (bàn tiān),half day,我 们 玩儿 了 半 天。,Wǒmen wánr le bàn tiān.,We played for half a day.
 帮 (bāng),help,请 你 帮 我 找 一 下。,Qǐng nǐ bāng wǒ zhǎo yī xiàr.,Please help me look for a bit.
@@ -21,7 +19,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 杯子 (bēi zi),cup,这 是 谁 的 杯 子？,Zhè shì shéi de bēi zi?,Whose cup is this?
 北 (běi),north,学 校 在 北 边。,Xuéxiào zài běi biān.,The school is on the north side.
 北边 (běi biān),north side,我 们 去 北 边 走 走。,Wǒmen qù běi biān zǒu zǒu.,Let's go walk around on the north side.
-
 北京 (Běijīng),Beijing,我 在 北京 学 习 汉 语。,Wǒ zài Běijīng xuéxí Hànyǔ.,I am studying Chinese in Beijing.
 本 (běn),(measure word for books or volumes),这 是 谁 的 课 本？,Zhè shì shéi de kèběn?,Whose textbook is this?
 本子 (běn zi),book,这 个 本 子 很 有 用。,Zhè ge běn zi hěn yǒu yòng.,This book is very useful.
@@ -33,7 +30,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 病人 (bìng rén),patient,医 生 在 看 病 人。,Yīshēng zài kàn bìng rén.,The doctor is seeing the patient.
 不大 (bú dà),not big,这 个 房 间 不 大。,Zhè ge fángjiān bú dà.,This room is not big.
 不对 (bú duì),wrong,这 个 答 案 是 不 对。,Zhè ge dá'àn shì bú duì.,This answer is wrong.
-
 不客气 (bú kè qì),you’re welcome,你 不 用 说 不客气。,Nǐ bú yòng shuō bú kè qì.,"You don't need to say ""you're welcome."""
 不用 (bú yòng),no need to,你 不 用 帮 忙 了。,Nǐ bú yòng bāng máng le.,You don't need to help anymore.
 不 (bù),no,我 不 去 上 学。,Wǒ bù qù shàng xué.,I am not going to school.
@@ -44,7 +40,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 常常 (cháng cháng),often,你 常 常 回 家 吗？,Nǐ cháng cháng huí jiā ma?,Do you often go back home?
 唱 (chàng),sing,你 会 唱 歌 吗？,Nǐ huì chàng gē ma?,Can you sing a song?
 唱歌 (chàng gē),sing,我 爱 唱 歌。,Wǒ ài chàng gē.,I love to sing.
-
 车 (chē),car,我 们 坐 车 去 学 校。,Wǒmen zuò chē qù xuéxiào.,We take a car to go to school.
 车票 (chē piào),ticket,这 张 车票 是 我 的。,Zhè zhāng chē piào shì wǒ de.,This car ticket is mine.
 车上 (chē shàng),in the car,他 在 车上 打 电 话。,Tā zài chē shàng dǎ diàn huà.,He is making a phone call in the car.
@@ -55,7 +50,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 出来 (chū lái),come out,你 看 他 出 来 了 吗？,Nǐ kàn tā chū lái le ma?,Did you see him come out?
 出去 (chū qù),go out,我 们 一 起 出 去 玩儿 吧。,Wǒmen yìqǐ chū qù wánr ba.,Let's go out and play together.
 穿 (chuān),wear,她 穿 了 新 衣 服。,Tā chuān le xīn yīfu.,She wore new clothes.
-
 床 (chuáng),bed,这 张 床 很 大。,Zhè zhāng chuáng hěn dà.,This bed is very big.
 次 (cì),"(measure word for times, frequency)",这 是 我 第 一 次 来 北 京。,Zhè shì wǒ dì yī cì lái Běijīng.,This is my first time coming to Beijing.
 从 (cóng),from,他 从 这 儿 走 了。,Tā cóng zhèr zǒu le.,He walked away from here.
@@ -66,7 +60,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 打开 (dǎ kāi),"turn on, open",请 打 开 门。,Qǐng dǎ kāi mén.,Please open the door.
 打球 (dǎ qiú),play ball,我 们 下 午 去 打 球 吧。,Wǒmen xiàwǔ qù dǎ qiú ba.,Let's go play ball this afternoon.
 大 (dà),"large, big",这 个 房 子 真 大。,Zhè ge fáng zi zhēn dà.,This house is really big.
-
 大学 (dà xué),university,他 是 大 学 学 生。,Tā shì dà xué xuésheng.,He is a university student.
 大学生 (dà xué shēng),university student,那 些 都 是 大 学 生。,Nà xiē dōu shì dà xué shēng.,Those are all university students.
 到 (dào),reach,你 几 点 到 学 校？,Nǐ jǐ diǎn dào xuéxiào?,What time do you arrive at school?
@@ -77,7 +70,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 地 (dì),ground,地 上 有 水 果。,Dì shàng yǒu shuǐguǒ.,There are fruits on the ground.
 地点 (dìdiǎn),location,会 议 的 地 点 在 哪 儿？,Huì yì de dìdiǎn zài nǎr?,Where is the location of the meeting?
 地方 (dìfang),"local, place",这 个 地 方 很 好 玩儿。,Zhè ge dìfang hěn hǎo wánr.,This place is very fun.
-
 地上 (dì shàng),on the ground,请 看 地 上 有 什 么。,Qǐng kàn dì shàng yǒu shénme.,Please see what is on the ground.
 地图 (dìtú),map,我 们 需 要 看 地 图。,Wǒmen xūyào kàn dìtú.,We need to look at the map.
 弟弟 (dì di ｜ dì),younger brother,我 的 弟 弟 是 小 学 生。,Wǒ de dìdi shì xiǎo xué shēng.,My younger brother is an elementary school student.
@@ -88,7 +80,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 电脑 (diànnǎo),computer,我 想 买 新 电 脑。,Wǒ xiǎng mǎi xīn diànnǎo.,I want to buy a new computer.
 电视 (diànshì),television,爸 爸 在 看 电 视。,Bàba zài kàn diànshì.,Dad is watching television.
 电视机 (diàn shì jī),television (set),这 个 电 视 机 很 大。,Zhè ge diàn shì jī hěn dà.,This television set is very big.
-
 电影 (diànyǐng),film,我 喜 欢 看 电 影。,Wǒ xǐhuan kàn diànyǐng.,I like watching films.
 电影院 (diàn yǐng yuàn),cinema; movie theater,电 影 院 在 哪 儿？,Diàn yǐng yuàn zài nǎr?,Where is the cinema?
 东 (dōng),east,学 校 在 东 边。,Xuéxiào zài dōng biān.,The school is on the east side.
@@ -99,7 +90,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 都 (dōu),all,我 们 都 是 学 生。,Wǒmen dōu shì xuésheng.,We are all students.
 读 (dú),read,你 读 汉 字 读 得 很 好。,Nǐ dú Hàn zì dú de hěn hǎo.,You read Chinese characters very well.
 读书 (dú shū),reading; study,我 的 爱 好 是 读 书。,Wǒ de àihào shì dú shū.,My hobby is reading/studying.
-
 对 (duì),right,你 的 回 答 很 对。,Nǐ de huídá hěn duì.,Your answer is very right.
 对不起 (duìbuqǐ),I’m sorry,"""对不起"" 是 一 个 词。","""Duìbuqǐ"" shì yī ge cí.","""I'm sorry"" is a word."
 多 (duō),many; much; more,这 里 有 很 多 书。,Zhè lǐ yǒu hěn duō shū.,There are many books here.
@@ -110,7 +100,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 饭 (fàn),rice; meal,我 们 吃 午 饭 吧。,Wǒmen chī wǔ fàn ba.,Let's eat lunch.
 饭店 (fàndiàn),restaurant,学 校 旁 边 有 个 饭 店。,Xuéxiào pángbiān yǒu ge fàndiàn.,There is a restaurant next to the school.
 房间 (fángjiān),room,这 个 房 间 很 干 净。,Zhè ge fángjiān hěn gānjìng.,This room is very clean.
-
 房子 (fáng zi),house; building [cite: 3],这 个 房 子 有 两 个 房 间。,Zhè ge fáng zi yǒu liǎng ge fángjiān.,This house has two rooms.
 放 (fàng),discharge [cite: 3],他 把 书 放 在 桌 子 上。,Tā bǎ shū fàng zài zhuōzi shàng.,He put the book on the table.
 放假 (fàng jià),holiday; have a holiday [cite: 3],我 们 今 年 不 放 假。,Wǒmen jīn nián bù fàng jià.,We are not having a holiday this year.
@@ -121,7 +110,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 分 (fēn),"minute; point; part; (measure word) [cite_start][cite: 3, 4]",现 在 是 八 点 五 分。,Xiànzài shì bā diǎn wǔ fēn.,It is now five minutes past eight.
 风 (fēng),wind [cite: 4],今 天 风 很 大。,Jīntiān fēng hěn dà.,The wind is very strong today.
 干 (gān),dry [cite: 4],这 件 衣 服 还 不 干。,Zhè jiàn yīfu hái bù gān.,This piece of clothing is not dry yet.
-
 干净 (gānjìng),clean,这 个 房 间 很 干 净。,Zhè ge fángjiān hěn gānjìng.,This room is very clean.
 干 (gàn),do,你 想 干 什 么？,Nǐ xiǎng gàn shénme?,What do you want to do?
 干什么 (gàn shén me),what to do,你 下 午 想 干 什 么？,Nǐ xiàwǔ xiǎng gàn shén me?,What do you want to do this afternoon?
@@ -132,7 +120,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 歌 (gē),song,他 爱 唱 歌。,Tā ài chàng gē.,He loves to sing songs.
 个 (gè),individual (measure word),我 有 一 个 朋 友。,Wǒ yǒu yī ge péngyou.,I have one friend.
 给 (gěi),give,你 想 给 他 什 么 东 西？,Nǐ xiǎng gěi tā shénme dōngxi?,What thing do you want to give him?
-
 跟 (gēn),with,我 想 跟 你 一 起 去 。,Wǒ xiǎng gēn nǐ yìqǐ qù.,I want to go with you.
 工人 (gōngrén),worker,我 的 爸 爸 是 工 人。,Wǒ de bàba shì gōngrén.,My dad is a worker.
 工作 (gōngzuò),work,你 的 工 作 忙 吗？,Nǐ de gōngzuò máng ma?,Is your work busy?
@@ -143,7 +130,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 国家 (guójiā),country,你 爱 你 的 国 家 吗？,Nǐ ài nǐ de guójiā ma?,Do you love your country?
 国外 (guó wài),foreign; oversea; abroad,他 在 国 外 工 作 。,Tā zài guó wài gōngzuò.,He works abroad.
 过 (guò),pass,你 看 他 走 过 来 了。,Nǐ kàn tā zǒu guò lái le.,"You see, he walked over."
-
 还 (hái),also; still; yet,我 还 有 一 些 东 西 要 买。,Wǒ hái yǒu yì xiē dōngxi yào mǎi.,I still have some things to buy.
 还是 (háishi),still,他 还 是 不 知 道 答 案。,Tā hái shi bù zhīdào dá'àn.,He still doesn't know the answer.
 还有 (hái yǒu),also; in addition; besides,除 了 你 ， 还 有 谁 来 了？,"Chúle nǐ, hái yǒu shéi lái le?","Besides you, who else came?"
@@ -154,7 +140,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 好吃 (hǎochī),yummy,这 个 包 子 真 好 吃。,Zhè ge bāo zi zhēn hǎochī.,This bun is truly yummy.
 好看 (hǎo kàn),good looking,这 件 衣 服 很 好 看。,Zhè jiàn yīfu hěn hǎo kàn.,This piece of clothing is very good looking.
 好听 (hǎo tīng),pleasant to hear,她 唱 歌 唱 得 很 好 听。,Tā chàng gē chàng de hěn hǎo tīng.,She sings very pleasantly to hear.
-
 好玩儿 (hǎo wánr),fun; interesting,那 个 地 方 很 好 玩儿。,Nà ge dìfang hěn hǎo wánr.,That place is very fun.
 号 (hào),number/date,今 天 是 几 号？,Jīntiān shì jǐ hào?,What is today's date?
 喝 (hē),drink,你 想 喝 茶 还 是 牛 奶？,Nǐ xiǎng hē chá háishi niúnǎi?,Do you want to drink tea or milk?
@@ -165,7 +150,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 后天 (hòu tiān),day after tomorrow,后 天 是 星 期 几？,Hòu tiān shì xīngqī jǐ?,What day of the week is the day after tomorrow?
 花 (huā),flower,这 里 有 很 多 花。,Zhè lǐ yǒu hěn duō huā.,There are many flowers here.
 话 (huà),word; words,请 你 说 汉 语 话。,Qǐng nǐ shuō Hànyǔ huà.,Please speak Chinese words.
-
 坏 (huài),bad,那 件 衣 服 是 坏 的 。,Nà jiàn yīfu shì huài de.,That piece of clothing is bad.
 还 (huán),return; pay back,你 什 么 时 候 还 书？,Nǐ shénme shíhou huán shū?,When are you returning the book?
 回 (huí),go back; return,我 们 一 起 回 家 吧。,Wǒmen yìqǐ huí jiā ba.,Let's go back home together.
@@ -176,7 +160,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 回去 (huí qù),go back,你 现 在 想 回 去 吗？,Nǐ xiànzài xiǎng huí qù ma?,Do you want to go back now?
 会 (huì),can; be able to,我 会 说 汉 语。,Wǒ huì shuō Hànyǔ.,I can speak Chinese.
 火车 (huǒ chē),train,我 们 坐 火 车 去 上 海。,Wǒmen zuò huǒ chē qù Shànghǎi.,We take a train to go to Shanghai.
-
 机场 (jīchǎng),airport,我 们 在 机 场 见 面。,Wǒmen zài jīchǎng jiànmiàn.,We will meet at the airport.
 机票 (jī piào),air ticket,机 票 很 贵。,Jī piào hěn guì.,The air ticket is very expensive.
 鸡蛋 (jīdàn),egg,我 想 吃 一 个 鸡 蛋。,Wǒ xiǎng chī yī ge jīdàn.,I want to eat an egg.
@@ -187,7 +170,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 家 (jiā),home,我 们 的 家 在 北 京。,Wǒmen de jiā zài Běijīng.,Our home is in Beijing.
 家里 (jiā lǐ),in the home,爸 爸 妈 妈 都 在 家 里。,Bàba māma dōu zài jiā lǐ.,Dad and Mom are both at home.
 家人 (jiā rén),family,我 很 爱 我 的 家 人。,Wǒ hěn ài wǒ de jiā rén.,I love my family very much.
-
 间 (jiān),measure word for rooms,这 个 房 子 有 三 间 房 间。,Zhè ge fáng zi yǒu sān jiān fángjiān.,This house has three rooms.
 见 (jiàn),see; meet,明 天 见 吧。,Míngtiān jiàn ba.,See you tomorrow.
 见面 (jiànmiàn),meet,我 想 和 朋 友 见 面。,Wǒ xiǎng hé péngyou jiànmiàn.,I want to meet with a friend.
@@ -198,7 +180,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 介绍 (jièshào),introduce,请 你 介 绍 一 下 儿 吧。,Qǐng nǐ jièshào yí xiàr ba.,Please introduce a little bit.
 今年 (jīn nián),this year,今 年 是 二 零 二 五 年。,Jīn nián shì èr líng èr wǔ nián.,This year is 2025.
 今天 (jīntiān),today,今 天 天 气 很 好。,Jīntiān tiānqì hěn hǎo.,The weather today is very good.
-
 进 (jìn),enter,请 你 进 来 坐。,Qǐng nǐ jìn lái zuò.,Please come in and sit.
 进来 (jìn lái),come in,他 刚 才 进 来 了。,Tā gāngcái jìn lái le.,He just came in.
 进去 (jìn qù),go in,我 们 不 能 进 去。,Wǒmen bù néng jìn qù.,We cannot go in.
@@ -209,7 +190,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 开 (kāi),open; drive,请 你 开 门。,Qǐng nǐ kāi mén.,Please open the door.
 开始 (kāishǐ),start; begin,我 们 从 现 在 开 始 。,Wǒmen cóng xiànzài kāishǐ.,We start from now.
 开学 (kāi xué),start school; term starts,我 们 星 期 一 开 学。,Wǒmen xīngqī yī kāi xué.,Our school starts on Monday.
-
 看 (kàn),look; see,你 看 天 上 有 飞 机。,Nǐ kàn tiān shàng yǒu fēijī.,"Look, there is an airplane in the sky."
 看到 (kàn dào),see; catch sight of,你 看 到 我 的 书 了 吗？,Nǐ kàn dào wǒ de shū le ma?,Did you see my book?
 看见 (kàn jiàn),see; catch sight of,他 看 见 了 你 的 朋 友 。,Tā kàn jiàn le nǐ de péngyou.,He saw your friend.
@@ -220,7 +200,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 口 (kǒu),mouth,她 的 口 很 小。,Tā de kǒu hěn xiǎo.,Her mouth is very small.
 块 (kuài),piece; dollar,这 个 苹 果 三 块 钱。,Zhè ge píng guǒ sān kuài qián.,This apple is three dollars.
 快 (kuài),fast; quickly,请 你 快 点 儿 来 吧。,Qǐng nǐ kuài diǎnr lái ba.,Please come quickly.
-
 来 (lái),come,你 是 怎 么 来 的？,Nǐ shì zěnme lái de?,How did you come?
 老 (lǎo),old,他 是 一 个 老 人。,Tā shì yī ge lǎo rén.,He is an old person.
 老师 (lǎo shī),teacher,老 师 在 教 学 楼 里。,Lǎo shī zài jiào xué lóu lǐ.,The teacher is inside the teaching building.
@@ -231,7 +210,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 里边 (lǐ biān),inside,房 子 里 边 很 干 净。,Fáng zi lǐ biān hěn gānjìng.,The inside of the house is very clean.
 两 (liǎng),two (measure word),我 有 两 个 姐 姐。,Wǒ yǒu liǎng ge jiějie.,I have two older sisters.
 零 (líng),zero,现 在 是 零 点 五 分。,Xiànzài shì líng diǎn wǔ fēn.,"It is now five minutes past zero (i.e., 00:05)."
-
 楼 (lóu),floor; storied building,这 栋 楼 有 很 多 房 间。,Zhè dòng lóu yǒu hěn duō fángjiān.,This building has many rooms.
 路 (lù),road,你 家 走 哪 条 路？,Nǐ jiā zǒu nǎ tiáo lù?,Which road do you take home?
 旅馆 (lǚ guǎn),hotel,这 个 旅 馆 很 好 看。,Zhè ge lǚ guǎn hěn hǎo kàn.,This hotel is very good looking.
@@ -242,7 +220,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 吗 (ma),(question particle),你 是 学 生 吗？,Nǐ shì xuésheng ma?,Are you a student?
 买 (mǎi),buy,我 想 去 商 店 买 东 西。,Wǒ xiǎng qù shāngdiàn mǎi dōngxi.,I want to go to the store to buy things.
 卖 (mài),sell,这 个 店 里 卖 衣 服。,Zhè ge diàn lǐ mài yīfu.,This store sells clothes.
-
 慢 (màn),slow,请 你 慢 点 儿 走。,Qǐng nǐ màn diǎnr zǒu.,Please walk a bit slower.
 忙 (máng),busy,老 师 今 天 很 忙 。,Lǎoshī jīntiān hěn máng.,The teacher is very busy today.
 毛 (máo),hair; feather; dime,这 件 衣 服 十 块 八 毛 。,Zhè jiàn yīfu shí kuài bā máo.,This piece of clothing is ten dollars and eight dimes (mao).
@@ -253,7 +230,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 没（有） (méi (yǒu)),do not have,我 家 没 有 电 视 机 。,Wǒ jiā méi yǒu diàn shì jī.,My home does not have a television set.
 门 (mén),door,请 你 关 上 门 。,Qǐng nǐ guān shàng mén.,Please close the door.
 门票 (mén piào),entrance ticket,电 影 院 的 门 票 很 贵 。,Diàn yǐng yuàn de mén piào hěn guì.,The cinema entrance ticket is very expensive.
-
 米 (mǐ),rice; meter,这 件 衣 服 是 一 米 五 。,Zhè jiàn yīfu shì yī mǐ wǔ.,This piece of clothing is one meter and fifty centimeters.
 面包 (miàn bāo),bread,我 们 吃 早 饭 吃 面 包 。,Wǒmen chī zǎo fàn chī miàn bāo.,We eat bread for breakfast.
 面条 (miàn tiáo),noodles,这 个 面 条 很 好 吃 。,Zhè ge miàn tiáo hěn hǎo chī.,These noodles are very yummy.
@@ -264,7 +240,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 那 (nà),that,那 件 衣 服 很 漂 亮 。,Nà jiàn yīfu hěn piàoliang.,That piece of clothing is very beautiful.
 哪 (nǎ),which; where,你 想 坐 哪 辆 车 ？,Nǐ xiǎng zuò nǎ liàng chē?,Which car do you want to take?
 哪里 (nǎ lǐ),where,我 不 知 道 他 在 哪 里 。,Wǒ bù zhīdào tā zài nǎ lǐ.,I don't know where he is.
-
 那（里） (nà (lǐ)),there,你 去 那 里 找 他 吧。,Nǐ qù nà lǐ zhǎo tā ba.,You go find him there.
 那儿 (nàr),there,电 影 院 就 在 那儿 。,Diàn yǐng yuàn jiù zài nàr.,The cinema is right there.
 那些 (nà xiē),those,那 些 都 是 我 们 的 书 。,Nà xiē dōu shì wǒmen de shū.,Those are all our books.
@@ -275,7 +250,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 呢 (ne),(interrogative particle),你 好 吗 ？ 我 很 好 ， 你 呢 ？,"Nǐ hǎo ma? Wǒ hěn hǎo, nǐ ne?","How are you? I'm fine, and you?"
 能 (néng),can,你 不 能 回 家 。,Nǐ bù néng huí jiā.,You cannot go home.
 你 (nǐ),you,你 认 识 我 吗 ？,Nǐ rènshi wǒ ma?,Do you know me?
-
 年 (nián),year,二 零 二 四 年 是 一 年。,Èr líng èr sì nián shì yī nián.,The year 2024 is one year.
 您 (nín),you (polite),您 是 老 师 吗？,Nín shì lǎo shī ma?,Are you a teacher?
 牛奶 (niú nǎi),milk,我 的 孩 子 爱 喝 牛 奶 。,Wǒ de háizi ài hē niú nǎi.,My child loves to drink milk.
@@ -286,7 +260,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 旁边 (páng biān),side,老 师 的 旁 边 是 学 生 。,Lǎo shī de páng biān shì xué sheng.,Next to the teacher is the student.
 跑 (pǎo),run,他 跑 得 很 快 。,Tā pǎo de hěn kuài.,He runs very fast.
 朋友 (péng you),friend,我 爱 我 的 朋 友 们 。,Wǒ ài wǒ de péng you men.,I love my friends.
-
 票 (piào),ticket,这 张 票 很 有 用 。,Zhè zhāng piào hěn yǒu yòng.,This ticket is very useful.
 漂亮 (piào liang),beautiful,这 个 女 孩 子 很 漂 亮 。,Zhè ge nǚ háizi hěn piào liang.,This girl is very beautiful.
 苹 果 (píng guǒ),apple,我 想 吃 一 个 苹 果 。,Wǒ xiǎng chī yī ge píng guǒ.,I want to eat an apple.
@@ -297,7 +270,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 起 (qǐ),rise; get up,你 几 点 起 床 ？,Nǐ jǐ diǎn qǐ chuáng?,What time do you get up?
 起 床 (qǐ chuáng),get up,我 妈 妈 很 早 起 床 。,Wǒ māma hěn zǎo qǐ chuáng.,My mom gets up very early.
 汽 车 (qì chē),automobile,他 的 汽 车 是 白 色 的 。,Tā de qì chē shì bái sè de.,His automobile is white.
-
 千 (qiān),thousand,这 件 衣 服 一 千 块 钱。,Zhè jiàn yīfu yī qiān kuài qián.,This piece of clothing is one thousand dollars.
 前 (qián),front; before; ago,我 们 三 天 前 见 面 了。,Wǒmen sān tiān qián jiànmiàn le.,We met three days ago.
 前边 (qián biān),front; front side,车 站 在 学 校 前 边 。,Chē zhàn zài xuéxiào qián biān.,The station is in front of the school.
@@ -308,7 +280,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 球 (qiú),ball,他 喜 欢 打 球 。,Tā xǐhuan dǎ qiú.,He likes to play ball.
 去 (qù),go,我 们 去 学 校 学 习 吧 。,Wǒmen qù xuéxiào xuéxí ba.,Let's go to school to study.
 去年 (qù nián),last year,去 年 我 不 在 北 京 。,Qù nián wǒ bú zài Běijīng.,I was not in Beijing last year.
-
 让 (ràng),let; ask; yield,请 你 让 我 回 家 吧 。,Qǐng nǐ ràng wǒ huí jiā ba.,Please let me go home.
 热 (rè),hot,今 天 非 常 热 。,Jīntiān fēicháng rè.,It is extremely hot today.
 人 (rén),person,学 校 里 有 很 多 人 。,Xuéxiào lǐ yǒu hěn duō rén.,There are many people in the school.
@@ -319,7 +290,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 三 (sān),three,我 有 三 个 苹 果 。,Wǒ yǒu sān ge píng guǒ.,I have three apples.
 商店 (shāng diàn),store; shop,商 店 在 哪 个 地 方 ？,Shāng diàn zài nǎ ge dìfang?,In which place is the store?
 上 (shàng),up; go up; last (time),我 们 上 楼 去 吧 。,Wǒmen shàng lóu qù ba.,Let's go upstairs.
-
 上班 (shàng bān),go to work,我 们 七 点 上 班 。,Wǒmen qī diǎn shàng bān.,We go to work at seven o'clock.
 上午 (shàng wǔ),morning,今 天 上 午 你 去 哪 里 ？,Jīntiān shàng wǔ nǐ qù nǎ lǐ?,Where are you going this morning?
 上学 (shàng xué),go to school,我 的 弟 弟 每 天 上 学 。,Wǒ de dìdi měi tiān shàng xué.,My younger brother goes to school every day.
@@ -330,7 +300,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 生病 (shēng bìng),fall ill,她 不 能 去 学 校 因 为 生 病 了 。,Tā bù néng qù xuéxiào yīnwèi shēng bìng le.,She cannot go to school because she fell ill.
 生日 (shēng rì),birthday,祝 你 生 日 快 乐 ！,Zhù nǐ shēng rì kuài lè!,Wish you a happy birthday!
 十 (shí),ten,现 在 是 十 点 了 。,Xiànzài shì shí diǎn le.,It is ten o'clock now.
-
 时候 (shí hòu),time; moment,你 什 么 时 候 回 家 ？,Nǐ shénme shí hòu huí jiā?,When are you returning home?
 时间 (shí jiān),time,你 有 时 间 和 我 去 玩儿 吗 ？,Nǐ yǒu shí jiān hé wǒ qù wánr ma?,Do you have time to go play with me?
 事 (shì),matter; thing,我 们 有 很 多 话 要 说 这 件 事 。,Wǒmen yǒu hěn duō huà yào shuō zhè jiàn shì.,We have many words to say about this matter.
@@ -341,7 +310,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 手机 (shǒu jī),mobile phone,我 的 手 机 在 包 里 。,Wǒ de shǒu jī zài bāo lǐ.,My mobile phone is in the bag.
 书 (shū),book,我 喜 欢 看 这 本 书 。,Wǒ xǐhuan kàn zhè běn shū.,I like reading this book.
 书店 (shū diàn),bookstore,学 校 里 没 有 书 店 。,Xuéxiào lǐ méi yǒu shū diàn.,There is no bookstore inside the school.
-
 水果 (shuǐ guǒ),fruit,我 喜 欢 吃 水 果 。,Wǒ xǐhuan chī shuǐ guǒ.,I like eating fruit.
 水 (shuǐ),water,这 杯 子 里 有 水 吗 ？,Zhè bēi zi lǐ yǒu shuǐ ma?,Is there water inside this cup?
 睡觉 (shuì jiào),sleep,我 们 该 睡 觉 了 。,Wǒmen gāi shuì jiào le.,It's time for us to sleep.
@@ -352,7 +320,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 岁 (suì),year of age,你 儿 子 多 大 岁 数 了 ？,Nǐ érzi duō dà suì shu le?,How old is your son?
 他 (tā),he,他 是 一 个 大 学 生 。,Tā shì yī ge dà xué shēng.,He is a university student.
 她 (tā),she,她 是 我 的 老 师 。,Tā shì wǒ de lǎo shī.,She is my teacher.
-
 他们 (tā men),"they, them (male or mixed)",他们 都 是 大 学 生。,Tā men dōu shì dà xué shēng.,They are all university students.
 她们 (tā men),"they, them (female)",我 爱 我 的 女 朋 友 们 ， 她们 很 好。,"Wǒ ài wǒ de nǚ péngyou men, tā men hěn hǎo.","I love my girlfriends, they are very good."
 太 (tài),too,这 件 衣 服 太 大 了。,Zhè jiàn yīfu tài dà le.,This piece of clothing is too big.
@@ -363,7 +330,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 图书馆 (tú shū guǎn),library,图 书 馆 在 教 学 楼 旁 边 。,Tú shū guǎn zài jiào xué lóu páng biān.,The library is next to the teaching building.
 头 (tóu),head,他 的 头 很 大 。,Tā de tóu hěn dà.,His head is very big.
 外边 (wài biān),outside,请 你 看 外 边 有 什 么 。,Qǐng nǐ kàn wài biān yǒu shénme.,Please look at what is outside.
-
 完 (wán),finish,我 们 吃 饭 吃 完 了 。,Wǒmen chī fàn wán le.,We finished eating the meal.
 玩儿 (wánr),play,我 的 爱 好 是 玩儿 球 。,Wǒ de àihào shì wánr qiú.,My hobby is playing ball.
 晚 (wǎn),late,你 今 天 回 家 很 晚 。,Nǐ jīntiān huí jiā hěn wǎn.,You returned home very late today.
@@ -374,7 +340,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 问 (wèn),ask,请 你 问 老 师 这 个 问 题 。,Qǐng nǐ wèn lǎo shī zhè ge wèn tí.,Please ask the teacher this question.
 问题 (wèn tí),question,你 有 什 么 问 题 吗 ？,Nǐ yǒu shénme wèn tí ma?,Do you have any questions?
 我 (wǒ),I,我 的 老 师 爱 我 们 。,Wǒ de lǎo shī ài wǒ men.,My teacher loves us.
-
 我们 (wǒ men),"we, us",我们 都 是 中 国 人 吗 ？,Wǒ men dōu shì Zhōng guó rén ma?,Are we all Chinese people?
 五 (wǔ),five,这 件 衣 服 五 十 块 钱 。,Zhè jiàn yīfu wǔ shí kuài qián.,This piece of clothing is fifty dollars.
 午饭 (wǔ fàn),lunch,我 们 一 起 吃 午 饭 吧 。,Wǒmen yìqǐ chī wǔ fàn ba.,Let's eat lunch together.
@@ -385,7 +350,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 洗 (xǐ),wash,请 你 帮 我 洗 衣 服 。,Qǐng nǐ bāng wǒ xǐ yīfu.,Please help me wash the clothes.
 喜欢 (xǐ huan),like,我 不 喜 欢 看 电 视 。,Wǒ bù xǐ huan kàn diànshì.,I do not like watching TV.
 下 (xià),under; down; next,我 们 下 星 期 见 。,Wǒmen xià xīngqī jiàn.,We will meet next week.
-
 下班 (xià bān),get off work,我 们 五 点 下 班 。,Wǒmen wǔ diǎn xià bān.,We get off work at five o'clock.
 下边 (xià biān),under,你 看 桌 子 下 边 有 什 么 。,Nǐ kàn zhuō zi xià biān yǒu shénme.,Look at what is under the table.
 下车 (xià chē),get off a car,请 你 在 这 儿 下 车 。,Qǐng nǐ zài zhèr xià chē.,Please get off the car here.
@@ -396,7 +360,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 先生 (xiān sheng),Mr.,这 位 先 生 是 我 的 朋 友 。,Zhè wèi xiān sheng shì wǒ de péngyou.,This gentleman is my friend.
 现在 (xiàn zài),now,你 现 在 在 哪 里 ？,Nǐ xiàn zài zài nǎ lǐ?,Where are you now?
 想 (xiǎng),want; think,我 很 想 回 家 。,Wǒ hěn xiǎng huí jiā.,I really want to go home.
-
 向 (xiàng),toward,请 向 老 师 问 好 。,Qǐng xiàng lǎo shī wèn hǎo.,Please say hello toward the teacher.
 小 (xiǎo),small; little,这 件 衣 服 太 小 了 。,Zhè jiàn yīfu tài xiǎo le.,This piece of clothing is too small.
 小 姐 (xiǎo jiě),Miss,请 问 这 位 小 姐 是 谁 ？,Qǐng wèn zhè wèi xiǎo jiě shì shéi?,May I ask who this young lady is?
@@ -407,7 +370,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 些 (xiē),some; several,我 们 有 一 些 问 题 。,Wǒmen yǒu yī xiē wèn tí.,We have some questions.
 写 (xiě),write,请 你 写 汉 字 。,Qǐng nǐ xiě Hàn zì.,Please write Chinese characters.
 谢谢 (xiè xie),thank,"我 说 "" 谢谢 "" 。","Wǒ shuō ""xiè xie"" .","I said ""thank you."""
-
 新 (xīn),new,我 们 买 了 一 个 新 房 子 。,Wǒmen mǎi le yī ge xīn fáng zi.,We bought a new house.
 星期 (xīng qī),week,一 个 星 期 有 七 天 。,Yī ge xīng qī yǒu qī tiān.,One week has seven days.
 行 (xíng),OK; walk,我 们 可 以 走 路 去 ， 行 吗 ？,"Wǒmen kěyǐ zǒu lù qù, xíng ma?","We can walk there, is that okay?"
@@ -418,7 +380,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 学校 (xué xiào),school,我 们 去 学 校 上 课 。,Wǒmen qù xué xiào shàng kè.,We go to school to attend class.
 颜色 (yán sè),color,你 喜 欢 什 么 颜 色 ？,Nǐ xǐhuan shénme yán sè?,What color do you like?
 眼 睛 (yǎn jīng),eye,她 的 眼 睛 很 漂 亮 。,Tā de yǎn jīng hěn piàoliang.,Her eyes are very beautiful.
-
 要 (yào),want; will,我 们 要 去 图 书 馆 。,Wǒmen yào qù túshū guǎn.,We want to go to the library.
 也 (yě),also,我 也 想 去 北 京 。,Wǒ yě xiǎng qù Běijīng.,I also want to go to Beijing.
 夜里 (yè lǐ),at night,你 夜 里 几 点 睡 觉 ？,Nǐ yè lǐ jǐ diǎn shuì jiào?,What time do you sleep at night?
@@ -429,7 +390,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 椅子 (yǐ zi),chair,这 个 椅 子 很 小 。,Zhè ge yǐ zi hěn xiǎo.,This chair is very small.
 以前 (yǐ qián),before,以 前 我 不 认 识 你 。,Yǐ qián wǒ bù rènshi nǐ.,I didn't know you before.
 已经 (yǐ jīng),already,他 已 经 回 家 了 。,Tā yǐ jīng huí jiā le.,He has already gone home.
-
 一起 (yì qǐ),together,我 们 一 起 去 学 校 。,Wǒmen yì qǐ qù xuéxiào.,We go to school together.
 一些 (yì xiē),some,我 的 包 里 有 一 些 书 。,Wǒ de bāo lǐ yǒu yì xiē shū.,I have some books in my bag.
 用 (yòng),use,你 不 用 帮 我 忙 。,Nǐ bú yòng bāng máng.,You don't need to help me.
@@ -440,7 +400,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 有 （ 一 ） 些 (yǒu （ yì ） xiē),some,我 对 这 件 事 有 一 些 问 题 。,Wǒ duì zhè jiàn shì yǒu yì xiē wèn tí.,I have some questions about this matter.
 有用 (yǒu yòng),useful,这 本 书 很 有 用 。,Zhè běn shū hěn yǒu yòng.,This book is very useful.
 右 (yòu),right,请 你 往 右 边 看 。,Qǐng nǐ wǎng yòu biān kàn.,Please look toward the right side.
-
 右边 (yòu bian),right side,请 你 往 右 边 走 。,Qǐng nǐ wǎng yòu bian zǒu.,Please walk toward the right side.
 雨 (yǔ),rain,今 天 没 有 雨 。,Jīntiān méi yǒu yǔ.,There is no rain today.
 元 (yuán),yuan (currency),这 件 衣 服 十 元 。,Zhè jiàn yīfu shí yuán.,This piece of clothing is ten yuan.
@@ -451,7 +410,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 在 (zài),stay; in process of,我 的 朋 友 在 学 校 里 。,Wǒ de péngyou zài xuéxiào lǐ.,My friend is in the school.
 在家 (zài jiā),at home,爸 爸 妈 妈 都 在 家 吗 ？,Bàba māma dōu zài jiā ma?,Are Dad and Mom both at home?
 早 (zǎo),early,你 今 天 起 床 很 早 。,Nǐ jīntiān qǐ chuáng hěn zǎo.,You got up very early today.
-
 早饭 (zǎo fàn),breakfast,我 们 七 点 吃 早 饭 。,Wǒmen qī diǎn chī zǎo fàn.,We eat breakfast at seven o'clock.
 早上 (zǎo shang),morning,今 天 早 上 天 气 很 好 。,Jīntiān zǎo shang tiān qì hěn hǎo.,The weather this morning is very good.
 怎么 (zěn me),how,你 是 怎 么 来 的 ？,Nǐ shì zěn me lái de?,How did you come?
@@ -468,7 +426,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 这些 (zhè xiē),these,这 些 都 是 我 们 的 东 西 。 [cite: 22],Zhè xiē dōu shì wǒmen de dōngxi.,These are all our things.
 着 (zhe),in process of,老 师 穿 着 新 衣 服 。 [cite: 22],Lǎo shī chuān zhe xīn yīfu.,The teacher is wearing new clothes.
 真 (zhēn),really,今 天 真 冷 。 [cite: 22],Jīntiān zhēn lěng.,Today is really cold.
-
 真的 (zhēn de),really ,你 的 话 是 真 的 吗 ？,Nǐ de huà shì zhēn de ma?,Are your words real/true?
 正（副） (zhèng),just; exactly ,他 正 吃 饭 呢 。,Tā zhèng chī fàn ne.,He is just (exactly) eating.
 正在 (zhèng zài),in process of ,我 们 正 在 上 课 。,Wǒmen zhèng zài shàng kè.,We are currently attending class.
@@ -481,7 +438,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 中间 (zhōng jiān),middle ,请 你 坐 在 中 间 。,Qǐng nǐ zuò zài zhōng jiān.,Please sit in the middle.
 中文 (zhōng wén),Chinese ,我 想 学 中 文 。,Wǒ xiǎng xué Zhōng wén.,I want to learn Chinese.
 中午 (zhōng wǔ),noon ,我 们 中 午 吃 饭 。,Wǒmen zhōng wǔ chī fàn.,We have a meal at noon.
-
 中学 (zhōng xué),middle school [cite: 23],我 们 去 中 学 看 老 师 。,Wǒmen qù zhōng xué kàn lǎo shī.,We go to the middle school to see the teacher.
 中学生 (zhōng xué shēng),middle school student [cite: 23],我 是 一 个 中 学 生 。,Wǒ shì yī ge zhōng xué shēng.,I am a middle school student.
 重 (zhòng),heavy [cite: 23],这 个 包 很 重 。,Zhè ge bāo hěn zhòng.,This bag is very heavy.
@@ -492,7 +448,6 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 字 (zì),"word, character [cite: 23]",你 认 识 这 个 字 吗 ？,Nǐ rènshi zhè ge zì ma?,Do you recognize this character?
 子（桌子） (zi （ zhuō zi ）),noun suffix (table) [cite: 23],桌 子 上 没 有 水 。,Zhuō zi shàng méi yǒu shuǐ.,There is no water on the table.
 走 (zǒu),"go, walk [cite: 23]",我 们 一 起 走 吧 。,Wǒmen yì qǐ zǒu ba.,Let's walk together.
-
 走路 (zǒu lù),walk,我 们 喜 欢 一 起 走 路 。,Wǒmen xǐhuan yì qǐ zǒu lù.,We like walking together.
 最 (zuì),most,他 是 我 最 好 的 朋 友 。,Tā shì wǒ zuì hǎo de péngyou.,He is my best friend.
 最好 (zuì hǎo),best,这 件 衣 服 是 最 好 的 。,Zhè jiàn yīfu shì zuì hǎo de.,This piece of clothing is the best.
@@ -503,3 +458,67 @@ Word (Pīnyīn),Meaning,Simple Sentence (Simplified Chinese),Pīnyīn,English Tr
 坐 (zuò),sit,你 坐 在 哪 里 ？,Nǐ zuò zài nǎ lǐ?,Where are you sitting?
 坐下 (zuò xià),sit down,请 你 坐 下 。,Qǐng nǐ zuò xià.,Please sit down.
 做 (zuò),do,你 想 做 什 么 工 作 ？,Nǐ xiǎng zuò shén me gōngzuò?,What kind of work do you want to do?
+开车 (kāi chē),drive,我会开车 。,Wǒ huì kāi chē.,I can drive a car.
+开会 (kāi huì),have a meeting,老师在开会 。,Lǎoshī zài kāi huì.,The teacher is having a meeting.
+开玩笑 (kāi wán xiào),make fun of,别开玩笑 。,Bié kāiwánxiào.,Don't make fun of (me).
+渴 (kě),thirsty,我很渴 。,Wǒ hěn kě.,I am very thirsty.
+来到 (lái dào),come; arrive,我们来到学校 。,Wǒmen lái dào xuéxiào.,We arrived at school.
+六 (liù),six,现在六点了 。,Xiànzài liù diǎn le.,It is six o'clock now.
+楼上 (lóu shàng),upstairs,请坐楼上 。,Qǐng zuò lóu shàng.,Please sit upstairs.
+楼下 (lóu xià),downstairs,弟弟在楼下 。,Dìdi zài lóu xià.,Younger brother is downstairs.
+路口 (lù kǒu),intersection,车站在路口 。,Chēzhàn zài lù kǒu.,The station is at the intersection.
+没什么 (méi shén me),it's nothing,没关系，没什么 。,"Méiguānxi, méi shén me.","It doesn't matter, it's nothing."
+没事儿 (méi shìr),it's okay,不用说对不起，没事儿 。,"Bú yòng shuō duìbuqǐ, méi shìr.","No need to say sorry, it's okay."
+妹妹 (mèi mei),younger sister,我有妹妹 。,Wǒ yǒu mèi mei.,I have a younger sister.
+门口 (mén kǒu),doorway,老师在门口 。,Lǎoshī zài mén kǒu.,The teacher is at the doorway.
+米饭 (mǐ fàn),steamed rice,我吃米饭 。,Wǒ chī mǐfàn.,I eat steamed rice.
+面条儿 (miàn tiáor),noodles,我想吃面条儿 。,Wǒ xiǎng chī miàn tiáor.,I want to eat noodles.
+明年 (míng nián),next year,明年我去北京  。,Míng nián wǒ qù Běijīng.,I will go to Beijing next year.
+哪些 (nǎ xiē),which,哪些是你的书 ？,Nǎ xiē shì nǐ de shū?,Which ones are your books?
+那边 (nà biān),there,电影院在那边 。,Diànyǐngyuàn zài nà biān.,The cinema is over there.
+奶奶 (nǎi nai),grandma,我爱奶奶  。,Wǒ ài nǎinai.,I love grandma.
+男朋友 (nán péng yǒu),boyfriend,他是我的男朋友 。,Tā shì wǒ de nán péng yǒu.,He is my boyfriend.
+男人 (nán ren),man,他是个男人 。,Tā shì ge nán ren.,He is a man.
+男生 (nán shēng),boy,他是个男生 。,Tā shì ge nán shēng.,He is a boy.
+女孩儿 (nǚ háir),girl,那个女孩儿很好看 。,Nà ge nǚ háir hěn hǎo kàn.,That girl is very good-looking.
+女人 (nǚ ren),woman,她是个女人 。,Tā shì ge nǚ ren.,She is a woman.
+女生 (nǚ shēng),girl,她是个女生 。,Tā shì ge nǚ shēng.,She is a girl.
+起来 (qǐ lái),get up,请起来 。,Qǐng qǐlái.,Please get up.
+钱包 (qián bāo),wallet,我的钱包在家里 。,Wǒ de qián bāo zài jiā lǐ.,My wallet is at home.
+请假 (qǐng jià),ask for leave,我想请假 。,Wǒ xiǎng qǐngjià.,I want to ask for leave.
+请进 (qǐng jìn),please come in,请进 ！,Qǐng jìn!,Please come in!
+请坐 (qǐng zuò),please have a seat,请坐 。,Qǐng zuò.,Please have a seat.
+认真 (rèn zhēn),earnest,你很认真 。,Nǐ hěn rènzhēn.,You are very earnest.
+日期 (rì qī),date,今天的日期是几号 ？,Jīntiān de rìqī shì jǐ hào?,What is today's date?
+山 (shān),mountain,那个山很高 。,Nà ge shān hěn gāo.,That mountain is very high.
+商场 (shāng chǎng),mall,我们去商场吧  。,Wǒmen qù shāng chǎng ba.,Let's go to the mall.
+上边 (shàng biān),above; on,书在桌子上边 。,Shū zài zhuōzi shàng biān.,The book is on the table.
+上车 (shàng chē),get on,请上车 。,Qǐng shàng chē.,Please get on the car.
+上次 (shàng cì),last time,上次我没来 。,Shàng cì wǒ méi lái.,I didn't come last time.
+上网 (shàng wǎng),surf the internet,我喜欢上网 。,Wǒ xǐhuan shàngwǎng.,I like to surf the internet.
+身上 (shēn shàng),on one's body,钱在你身上 。,Qián zài nǐ shēn shàng.,The money is on your body.
+生气 (shēng qì),get angry,妈妈生气了 。,Māma shēngqì le.,Mom got angry.
+是不是 (shì bú shì),isn't it?,你是不是老师 ？,Nǐ shì bú shì lǎoshī?,Are you a teacher?
+书包 (shū bāo),school bag,我的书包很大 。,Wǒ de shū bāo hěn dà.,My school bag is very big.
+树 (shù),tree,那里有树 。,Nà lǐ yǒu shù.,There are trees there.
+听到 (tīng dào),hear,我听到你说话了 。,Wǒ tīng dào nǐ shuō huà le.,I heard you speak.
+听见 (tīng jiàn),hear,你听见我说的话吗 ？,Nǐ tīng jiàn wǒ shuō de huà ma?,Did you hear what I said?
+听写 (tīng xiě),dictate,老师给我们听写汉字 。,Lǎoshī gěi wǒmen tīng xiě Hànzì.,The teacher gave us dictation (of) Chinese characters.
+外语 (wài yǔ),foreign language,我想学外语 。,Wǒ xiǎng xué wài yǔ.,I want to learn a foreign language.
+网上 (wǎng shàng),online,我在网上买书 。,Wǒ zài wǎng shàng mǎi shū.,I buy books online.
+网友 (wǎng yǒu),net friend,她是我的网友 。,Tā shì wǒ de wǎng yǒu.,She is my net friend.
+忘记 (wàng jì),forget,我忘记他的名字了 。,Wǒ wàngjì tā de míngzi le.,I forgot his name.
+洗手间 (xǐ shǒu jiān),restroom,洗手间在哪儿 ？,Xǐshǒujiān zài nǎr?,Where is the restroom?
+下次 (xià cì),next time,下次见 。,Xià cì jiàn.,See you next time.
+小孩儿 (xiǎo háir),child; kid,小孩儿在玩儿 。,Xiǎo háir zài wánr.,The child is playing.
+小朋友 (xiǎo péng yǒu),child; kid,那些小朋友很喜欢学习 。,Nà xiē xiǎo péng yǒu hěn xǐhuan xuéxí.,Those children like studying very much.
+新年 (xīn nián),new year,新年好 ！,Xīn nián hǎo!,Happy New Year!
+星期日 (xīng qī rì),Sunday,今天是星期日 。,Jīntiān shì Xīngqīrì.,Today is Sunday.
+星期天 (xīng qī tiān),Sunday,星期天你去哪儿 ？,Xīngqītiān nǐ qù nǎr?,Where are you going on Sunday?
+学院 (xué yuàn),college; academy,他在学院工作 。,Tā zài xué yuàn gōngzuò.,He works at the college.
+爷爷 (yé ye),grandpa,爷爷身体很好 。,Yéye shēntǐ hěn hǎo.,Grandpa's health is very good.
+页 (yè),page,这是第十页 。,Zhè shì dì shí yè.,This is page ten.
+一块儿 (yí kuàir),together,我们一块儿走吧  。,Wǒmen yí kuàir zǒu ba.,Let's walk together.
+一样 (yí yàng),same,这两个书包不一样 。,Zhè liǎng ge shūbāo bù yí yàng.,These two school bags are not the same.
+一边 (yì biān),one side; simultaneously,他一边走一边说话 。,Tā yì biān zǒu yì biān shuō huà.,He walks while talking.
+一点儿 (yī diǎnr),a little bit,请给我一点儿水 。,Qǐng gěi wǒ yī diǎnr shuǐ.,Please give me a little bit of water.
