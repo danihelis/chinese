@@ -522,3 +522,8 @@ Word,Meaning,Sentence,Pinyin,Translation
 一样 (yí yàng),same,这两个书包不一样 。,Zhè liǎng ge shūbāo bù yí yàng.,These two school bags are not the same.
 一边 (yì biān),one side; simultaneously,他一边走一边说话 。,Tā yì biān zǒu yì biān shuō huà.,He walks while talking.
 一点儿 (yī diǎnr),a little bit,请给我一点儿水 。,Qǐng gěi wǒ yī diǎnr shuǐ.,Please give me a little bit of water.
+病人 (bìng rén),patient,医生在医院看病人。,Yīshēng zài yīyuàn kàn bìng rén.,The doctor is seeing patients at the hospital.
+家里 (jiā lǐ),in the home,妈妈和妹妹都在家里。,Māma hé mèimei dōu zài jiā lǐ.,Mom and younger sister are both at home.
+路上 (lù shang),on the road,路上有很多车。,Lù shang yǒu hěn duō chē.,There are many cars on the road.
+病人 (bìng rén),patient,病人 的 身 体 很 累 。,Bìng rén de shēntǐ hěn lèi.,The patient's body is very tired.
+家里 (jiā lǐ),in the home,家 里 有 很 多 人 。,Jiā lǐ yǒu hěn duō rén.,There are many people in the home.

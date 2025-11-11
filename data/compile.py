@@ -4,6 +4,7 @@ import re
 import csv
 from collections import namedtuple
 import json
+import random
 
 DICT_FILE = 'cedict_ts.u8'
 FREQ_FILE = 'frequency.txt'
@@ -23,7 +24,7 @@ def fix_pinyin(word):
         'u': 'ūúǔùu',
         'ü': 'ǖǘǚǜü',
     }
-    word = re.sub(r'u:', 'ü', word)
+    word = re.sub(r'u\s*:\s*', 'ü', word)
 
     def replace_pinyin(match):
         index = int(match.group(4)) - 1
@@ -46,7 +47,7 @@ def fix_text(text):
 
         size = len(match.group(0))
         pinyin = fix_pinyin(match.group(1))
-        length = len(pinyin.split())
+        length = len(match.group(1).split())
         start = match.start()
 
         word_start = start - length
@@ -61,13 +62,23 @@ def fix_text(text):
 
 class Entry:
 
-    def __init__(self, word, pinyin, definition):
+    def __init__(self, word, pinyin):
         self.word = word
         self.pinyin = pinyin
-        self.definitions = [
+        self.definitions = []
+
+    def add_definition(self, definition):
+        self.definitions += [
             fix_text(re.sub(';', ',', d))
             for d in definition.split('/')
         ]
+
+    @property
+    def short_definition(self):
+        d = '; '.join(self.definitions)
+        if len(d) > 80:
+            d = d[:79] + '…'
+        return d
 
 
 class Sentence:
@@ -78,16 +89,25 @@ class Sentence:
         self.pinyin = pinyin
         self.translation = translation
 
+    def set_words(self, words):
+        self.words = words
+        self.glyphs = {}
+        for w in words:
+            self.glyphs.update(w.glyphs)
+        for w in self.words:
+            w.sentences.add(self)
+        for g in self.glyphs.values():
+            g.sentences.add(self)
+
 
 class Word:
 
     def __init__(self, value):
         self.value = value
         self.entries = {}
-        self.frequency = 0
-        self.percentile = 100.0
-        self.sentences = []
+        self.sentences = set()
         self.words = set()
+        self.glyphs = {}
         self.hsk = 0
 
     @property
@@ -96,14 +116,25 @@ class Word:
 
     def add_entry(self, pinyin, definition):
         pinyin = fix_pinyin(pinyin)
-        self.entries[pinyin] = Entry(self, pinyin, definition)
+        if pinyin not in self.entries:
+            self.entries[pinyin] = Entry(self, pinyin)
+        self.entries[pinyin].add_definition(definition)
 
     def add_frequency(self, frequency, percentil):
         self.frequency = frequency
         self.percentile = percentile
 
-    def add_sentence(self, sentence):
-        self.sentences.append(sentence)
+    @property
+    def default_pinyin(self):
+        e = list(filter(lambda e: e.pinyin.islower(), self.entries.values()))
+        e = sorted(e, key=lambda e: len(e.definitions), reverse=True)
+        assert e, 'no entry found for default pinyin'
+        return e[0].pinyin
+
+    @property
+    def default_definition(self):
+        e = self.entries[self.default_pinyin]
+        return e.short_definition
 
 
 print('Loading dictionary entries...')
@@ -115,6 +146,12 @@ with open(DICT_FILE) as stream:
             key = match.group(2)
             word = dictionary.setdefault(key, Word(key))
             word.add_entry(match.group(3), match.group(4))
+
+for w in dictionary.values():
+    for g in w.value:
+        if g in dictionary:
+            entry = w.glyphs[g] = dictionary[g]
+            entry.words.add(w)
 
 print('> Loaded %d entries' % len(dictionary))
 
@@ -141,7 +178,11 @@ print('Loading HSK entries...')
 splitter = r'[%s]' % '（｜'
 hsk = {}
 word_list = {}
-glyph_set = set()
+glyph_list = {}
+
+def add_to_word_list(word):
+    return entry
+
 with open(HSK_FILE) as stream:
     for line in stream.readlines():
         match = re.match(r'^(\d+)\s+(\S+)\s+(.+)$', line)
@@ -149,18 +190,15 @@ with open(HSK_FILE) as stream:
             word = re.split(splitter, match.group(2))[0]
             if word not in dictionary:
                 print('> Not found: %s: %s' % (match.group(1), word))
+            elif word in hsk:
+                print('> Repeated: %s: %s' % (match.group(1), word))
             else:
                 hsk[word] = word_list[word] = dictionary[word]
+                glyph_list.update(hsk[word].glyphs)
                 hsk[word].hsk = 1
-                for glyph in word:
-                    if glyph not in word_list:
-                        assert glyph in dictionary, (
-                                '%s is not in dictionary' % glyph)
-                        word_list[glyph] = dictionary[glyph]
-                    word_list[glyph].words.add(word)
-                    glyph_set.add(glyph)
 
-print('> Loaded %d entries' % len(hsk))
+print('> Loaded %d entries (%d words, %d glyphs)' % (
+    len(hsk), len(word_list), len(glyph_list)))
 
 
 print('Loading sentence csv file...')
@@ -180,18 +218,46 @@ with open(SENT_FILE) as stream:
         if phrase in unique_sentences:
             repeated += 1
             continue
+
+        skip = False
+        for g in phrase:
+            if g in dictionary and g not in glyph_list:
+                print('>>> Glyph not part of HSK:', g)
+                # skip = True
+        if skip:
+            continue
+
         unique_sentences.add(phrase)
         sentence = Sentence(len(unique_sentences), phrase, pinyin, translation)
         sentence_list[sentence.id] = sentence
 
         sentence_words = set()
-        for index in range(len(phrase)):
-            for end in range(index, len(phrase)):
-                word = phrase[index : end + 1]
-                if word in dictionary and word not in sentence_words:
-                    dictionary[word].add_sentence(sentence)
-                    sentence_words.add(word)
-        unique_words |= sentence_words
+        start = 0
+        contents = []
+        while start < len(phrase):
+            words = [
+                phrase[start:end]
+                for end in range(start + 1, len(phrase) + 1)
+            ]
+            words = [
+                dictionary[w]
+                for w in words
+                if w in dictionary
+            ]
+            if not words:
+                start += 1
+            else:
+                words = [(w.hsk, len(w.value), w) for w in words]
+                _, length, word = sorted(words, reverse=True)[0]
+                contents.append(word)
+                start += length
+
+        sentence.set_words(contents)
+        for word in contents:
+            unique_words.add(word)
+            if word not in word_list:
+                word_list[word.value] = word
+                glyph_list.update(word.glyphs)
 
 print('> Loaded %d sentences (%d repeated) for %d unique words' % (
     len(unique_sentences), repeated, len(unique_words)))
@@ -201,9 +267,49 @@ for word, entry in hsk.items():
         print('> Word %s has no sentences' % word)
 
 
-data = {'words': word_list, 'glyphs': glyph_set, 'sentences': sentence_list}
+print('Computing learning order...')
+learning_order = []
+remaining_sentences = set(sentence_list.values())
+remaining_glyphs = set(glyph_list.values())
+
+while remaining_sentences:
+    for g in remaining_glyphs:
+        g.score = 1 if g.hsk else 0
+        g.score += sum(1 if w.hsk else 0 for w in g.words)
+        g.score += sum(
+            1
+            for s in g.sentences
+            if s in remaining_sentences
+        )
+
+    for s in remaining_sentences:
+        glyphs = remaining_glyphs & set(s.glyphs.values())
+        s.score = sum(g.score for g in glyphs) / (len(glyphs) or 1)
+
+    sentence = sorted(remaining_sentences,
+                      key=lambda s: s.score,
+                      reverse=True)[0]
+
+    new_glyphs = sorted(
+        remaining_glyphs & set(sentence.glyphs.values()),
+        key=lambda g: g.score,
+        reverse=True)
+    remaining_glyphs = remaining_glyphs - set(new_glyphs)
+    learning_order += new_glyphs
+
+    remaining_sentences = set(
+        s
+        for s in remaining_sentences
+        if any(g in remaining_glyphs for g in s.glyphs.values())
+    )
+
+
+data = {
+    'words': word_list,
+    'glyphs': [g.value for g in learning_order],
+    'sentences': sentence_list}
 print('Creating output with %d words, %d glyphs and %d sentences' % (
-      len(word_list), len(glyph_set), len(sentence_list)))
+      len(word_list), len(glyph_list), len(sentence_list)))
 
 
 def set_serializer(obj):
@@ -218,13 +324,17 @@ def set_serializer(obj):
     if isinstance(obj, Word):
         data = {
             'entry': obj.entries,
-            'sentences': [s.id for s in entry.sentences],
+            'sentences': [s.id for s in obj.sentences],
             'hsk': obj.hsk,
         }
         if obj.is_glyph:
             data.update({
                 'frequency': obj.frequency,
-                'words': obj.words,
+                'words': [
+                    w.value
+                    for w in obj.words
+                    if w.value in word_list and not w.is_glyph
+                ],
             })
         return data
     if isinstance(obj, set):
@@ -238,14 +348,29 @@ print('> JSON output data written in %s' % JSON_OUTPUT_FILE)
 
 
 with open(TXT_OUTPUT_FILE, 'w') as stream:
-    for key, word in word_list.items():
+
+    def print_word(word):
         if not word.hsk:
             print('* ', file=stream, end='')
-        print(key, file=stream)
+        print(word.value, file=stream)
         for index, entry in enumerate(word.entries.values()):
             mark = f'{chr(ord('A') + index)}) ' if len(word.entries) > 1 else ''
             print(f'  {mark}{entry.pinyin}', file=stream)
             for dindex, definition in enumerate(entry.definitions):
                 print(f'    {dindex + 1}. {definition}', file=stream)
+        if not word.sentences:
+            print('  ~NO SENTENCES~', file=stream)
+        for s in random.sample(list(word.sentences),
+                               min(3, len(word.sentences))):
+            print(f'  * {s.value} {s.pinyin} {s.translation}',
+                  ' '.join(w.value for w in s.words),
+                  file=stream)
+
+    for glyph in learning_order:
+        print_word(glyph)
+
+    for word in word_list.values():
+        if not word.is_glyph:
+            print_word(word)
 
 print('> TXT output data written in %s' % TXT_OUTPUT_FILE)
