@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, Fragment } from 'react';
-import { database } from '../data/database.js';
+import database from '../data/database.js';
 import { Panel } from './Panel.jsx';
 import { Page } from '../Page.jsx';
 
@@ -8,26 +8,29 @@ const characterColor = 'text-gray-900';
 const componentColor = 'text-gray-900';
 
 
-function Character({character, entry, handlePage}) {
-  let cEntry = entry.key === character ? null : database.get(character);
-  if (!cEntry) return <span className="text-gray-600">{character}</span>;
+function Character({character, handlePage}) {
+  if (!(character in database.words)) {
+    return <span className="text-gray-600">{character}</span>;
+  }
   return (
     <span
-      className={`${cEntry.ethym ? characterColor : componentColor} cursor-pointer`}
-      onClick={() => handlePage('detail', cEntry)}
-    >{cEntry.key}</span>
+      className={`text-gray-900 cursor-pointer`}
+      onClick={() => handlePage('detail', character)}
+    >{character}</span>
   );
 }
 
 
-function CharacterSequence({sequence, entry, handlePage}) {
-    return [...sequence].map((char, i) => (
-      <Character key={[char, i]} character={char} handlePage={handlePage} entry={entry} />
+function CharacterSequence({sequence, handlePage}) {
+    return [...sequence].map((glyph, i) => (
+      <Character key={[glyph, i]} character={glyph} handlePage={handlePage} />
     ));
 }
 
 
-function MixedCharacterText({text, entry, handlePage}) {
+function MixedCharacterText({text, handlePage}) {
+  if (!text) return null;
+
   let chunks = [];
   let currentChunk = '';
 
@@ -38,9 +41,9 @@ function MixedCharacterText({text, entry, handlePage}) {
   };
 
   for (const character of [...text]) {
-    if (database.has(character)) {
+    if (character in database.words) {
       pushChunk();
-      chunks.push(<Character key={[character, chunks.length]} character={character} entry={entry} handlePage={handlePage} />);
+      chunks.push(<Character key={[character, chunks.length]} character={character} handlePage={handlePage} />);
     } else {
       currentChunk += character;
     }
@@ -83,33 +86,33 @@ function Block({title, children, padding = true}) {
 }
 
 
-function Word({word, entry, handlePage}) {
+function Word({word, handlePage}) {
   return (
     <>
       <div className="flex items-baseline">
         <div className="bg-gray-700 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center mr-2">
-          {word.level}
+          {word.hsk ?? 'x'}
         </div>
-        <CharacterSequence sequence={word.entry} entry={entry} handlePage={handlePage} />
+        <CharacterSequence sequence={word.key} handlePage={handlePage} />
       </div>
       <span className="text-black">{word.pinyin}</span>
-      <p className="text-sm italic text-gray-800">{word.meaning}</p>
+      <p className="text-sm italic text-gray-800">{word.definition}</p>
     </>
   );
 }
 
 
-function WordList({entry, handlePage}) {
-  const collapsable = entry.words.size > 3;
+function WordList({words, handlePage}) {
+  const collapsable = words.length > 3;
   const [collapse, setCollapse] = useState();
 
   useEffect(() => {
     setCollapse(collapsable);
-  }, [entry]);
+  }, [words]);
 
-  let list = [...entry.words];
+  let list = words.map(w => database.words[w]).filter(w => !!w);
   list.sort((a, b) => {
-    if (a.level !== b.level) return a.level - b.level;
+    if (a.hsk !== b.hsk) return (b.hsk ?? 0) - (a.hsk ?? 0);
     return a.pinyin.localeCompare(b.pinyin);
   });
   if (collapse) list = list.slice(0, 2);
@@ -117,7 +120,9 @@ function WordList({entry, handlePage}) {
   return (
     <div className="flex flex-col gap-1">
       <div className="grid grid-cols-[auto_auto_1fr] gap-x-4 gap-y-1 items-center">
-        {list.map(w => <Word key={w.entry} word={w} entry={entry} handlePage={handlePage} />)}
+        {list.map(w => (
+          <Word key={w.key} word={w} handlePage={handlePage} />
+        ))}
       </div>
       {collapsable ? (
         <div className="text-gray-600 cursor-pointer" onClick={() => setCollapse(!collapse)}>
@@ -132,24 +137,24 @@ function WordList({entry, handlePage}) {
 function Definition({definition, index}) {
   return (
     <div className="flex gap-1">
-      <span className="text-gray-600">{index + 1}.</span>
+      <span className="text-gray-600">{index}.</span>
       <p>{definition}</p>
     </div>
   );
 }
 
 
-function DefinitionList({ethym}) {
-  const collapsable = ethym.definitions.length > 3;
+function DefinitionList({definitions}) {
+  const collapsable = definitions.length > 3;
   const [collapse, setCollapse] = useState(collapsable);
 
-  const list = collapse && ethym.definitions.length > 3 ?
-      ethym.definitions.slice(0, 2) : ethym.definitions;
+  const list = collapse && definitions.length > 3 ?
+      definitions.slice(0, 2) : definitions;
 
   return (
     <div className="flex flex-col gap-1">
       {list.map((d, i) => (
-        <Definition key={`definition-${i}`} definition={d} index={i} />
+        <Definition key={`definition-${i}`} definition={d} index={i + 1} />
       ))}
       {collapsable ? (
         <div className="text-gray-600 cursor-pointer" onClick={() => setCollapse(!collapse)}>
@@ -161,14 +166,17 @@ function DefinitionList({ethym}) {
 }
 
 
-export function CharacterDetail({entry, handlePage}) {
+export function CharacterDetail({word, handlePage}) {
   const [ethymIndex, setEthymIndex] = useState(0);
   const [collapseDefinitions, setCollapseDefinitions] = useState(true);
   const [collapseWords, setCollapseWords] = useState(true);
 
-  const ethym = entry.ethym?.[ethymIndex];
-  const hsk = entry.hsk?.[ethymIndex] ?? entry.hsk?.[0];
-  const pronouncing = ethym ?? (entry.pinyin ? entry : null);
+  const entry = database.words[word];
+  const ethymologies = Object.keys(entry.entry ?? []);
+  ethymologies.sort((a, b) => a.localeCompare(b));
+
+  const pinyin = ethymologies[ethymIndex] ?? entry.pinyin;
+  const data = entry.entry?.[ethymologies[ethymIndex]];
 
   const textColor = entry.frequency ? characterColor : componentColor;
   const bgLightColor = entry.frequency ? 'bg-gray-200' : 'bg-gray-200';
@@ -185,81 +193,85 @@ export function CharacterDetail({entry, handlePage}) {
       <div className="flex flex-col gap-6 items-center justify-center mt-5 max-w-sm justify-self-center">
         <div className="grid grid-cols-2 gap-4">
           <div className={`${textColor} ${bgLightColor} text-9xl rounded-xl p-2 h-40 flex justify-center items-center`}>
-            {entry.key}
+            {word}
           </div>
           <div className="flex flex-col gap-1">
-            {pronouncing ? (
+            {pinyin ? (
               <>
                 <div className="flex">
-                  <p className="flex-1 text-3xl">{pronouncing.pinyin}</p>
-                  {entry.ethym?.length > 1 ? (
+                  <p className="flex-1 text-3xl">{pinyin}</p>
+                  {Object.keys(entry.entry ?? {}).length > 1 ? (
                     <div className="flex gap-1 items-center">
-                      {entry.ethym.map((e, i) => (
-                        <div key={`${e.pinyin}-${i}`} className={`${i === ethymIndex ? 'inset-ring-1 inset-ring-gray-800 text-gray-800' : 'bg-gray-600 text-white cursor-pointer'} w-5 h-5 text-xs flex items-center justify-center select-none`} onClick={() => changeEthym(i)}>
+                      {Object.keys(entry.entry).map((e, i) => (
+                        <div key={e} className={`${i === ethymIndex ? 'inset-ring-1 inset-ring-gray-800 text-gray-800' : 'bg-gray-600 text-white cursor-pointer'} w-5 h-5 text-xs flex items-center justify-center select-none`} onClick={() => changeEthym(i)}>
                           {i + 1}
                         </div>
                       ))}
                     </div>
                   ) : null}
                 </div>
-                <p className="text-gray-800">/{pronouncing.phonetic}/</p>
+                <p className="text-gray-800">/{data?.phonetic}/</p>
               </>
             ) : null}
             <span className="flex-1" />
-            <Attribute name="IDX" tooltip="Index">
-              <Character character={entry.index[0]} entry={entry} handlePage={handlePage} />
-              <span>{`${entry.index < 0 ? '-' : '+'}${entry.index[1]}`}</span>
-            </Attribute>
-            <Attribute name="STR" tooltip="Strokes">{entry.strokes}</Attribute>
-            {!entry.composition ? null : (
-              <Attribute name="CMP" tooltip="Composition">
-                <CharacterSequence sequence={entry.composition} entry={entry} handlePage={handlePage} />
-              </Attribute>
-            )}
+            {entry.index ? (
+              <>
+                <Attribute name="IDX" tooltip="Index">
+                  <Character character={entry.index[0]} handlePage={handlePage} />
+                  <span>{`${entry.index < 0 ? '-' : '+'}${entry.index[1]}`}</span>
+                </Attribute>
+                <Attribute name="STR" tooltip="Strokes">{entry.strokes}</Attribute>
+                {!entry.composition ? null : (
+                  <Attribute name="CMP" tooltip="Composition">
+                    <CharacterSequence sequence={entry.composition} handlePage={handlePage} />
+                  </Attribute>
+                )}
+              </>
+            ) : null}
           </div>
         </div>
         <div className={`${textColor} text-xl text-center`}>
-          {hsk?.meaningx ?? entry.frequency?.meaning ?? entry.radical}
+          {data?.definitions[0] ?? entry.radical}
         </div>
         <div className="text-sm self-stretch">
-          <div className={`${bgHeavyColor} ${ethym ? 'rounded-t-md' : 'rounded-md'} p-4 text-center`}>
+          <div className={`${bgHeavyColor} ${entry.frequency ? 'rounded-t-md' : 'rounded-md'} p-4 text-center`}>
             <div className="flex gap-2 items-center">
               <span className="font-mashan text-4xl">
-                {entry.key}
+                {word}
               </span>
               <div className="flex-1">
                 <span className="text-xs font-semibold uppercase">Origin </span>
-                <MixedCharacterText text={entry.origin} entry={entry} handlePage={handlePage} />
+                <MixedCharacterText text={entry.origin} handlePage={handlePage} />
               </div>
             </div>
           </div>
-          {ethym ? (
+          {entry.frequency ? (
             <div className="bg-gray-600 text-white rounded-b-md flex p-2 px-4">
               <div className="flex-auto">
                 <span className="text-xs font-semibold uppercase mr-2">Freq Perc</span>
-                {entry.frequency.percentile}%
+                {entry.frequency}%
               </div>
               <div className="flex-auto text-right">
                 <span className="text-xs font-semibold uppercase mr-2">HSK Level</span>
-                {hsk?.level ?? <span>&ndash;</span>}
+                {entry.hsk ?? <span>&ndash;</span>}
               </div>
             </div>
           ) : null}
         </div>
-        {ethym ? (
+        {data ? (
           <Block title="Definitions">
-            <DefinitionList ethym={ethym} />
+            <DefinitionList definitions={data.definitions} />
           </Block>
         ) : (
           <p className="text-center italic">Not a character on its own</p>
         )}
-        {entry.words ? (
+        {entry.words?.length ? (
           <Block title="Compounded words">
-            <WordList entry={entry} handlePage={handlePage} />
+            <WordList words={entry.words} handlePage={handlePage} />
           </Block>
         ) : null}
         <Block title="Pratice writing" padding={false}>
-          <Panel entry={entry} />
+          <Panel word={word} />
         </Block>
       </div>
     </Page>

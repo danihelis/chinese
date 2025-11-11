@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { database, whichNextToInput } from './data/database.js';
+import database from './data/database.js';
 import { CharacterList } from './list/CharacterList.jsx';
 import { CharacterDetail } from './list/CharacterDetail.jsx';
 import { Train } from './train/Train.jsx';
 
 const defaultPage = 'list';
 const entryPages = new Set(['detail']);
-
-whichNextToInput();
 
 
 function NavBar({handlePage}) {
@@ -50,28 +48,27 @@ function NavBar({handlePage}) {
 
 export default function App() {
   const [page, setPage] = useState(null);
-  const [entry, setEntry] = useState(null);
+  const [word, setWord] = useState(null);
 
   useEffect(() => {
     const handlePopState = (event) => {
       const query = new URLSearchParams(window.location.search);
-      handlePage(query.get('p') || defaultPage,
-        database.get(query.get('c')), false);
+      handlePage(query.get('p') || defaultPage, query.get('c'), false);
     };
     window.addEventListener('popstate', handlePopState);
     handlePopState();
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  const handlePage = (page, entry, pushState = true) => {
+  const handlePage = (page, word, pushState = true) => {
     if (pushState) {
       let url = `?p=${page}`;
-      if (entry) url += `&c=${entry.key}`;
+      if (word) url += `&w=${word}`;
       window.history.pushState({}, '', url);
     }
-    if (entryPages.has(page) && !entry) page = defaultPage;
+    if (entryPages.has(page) && !word) page = defaultPage;
     setPage(page);
-    setEntry(entry);
+    setWord(word);
   };
 
   const renderTitle = () => {
@@ -89,7 +86,7 @@ export default function App() {
       content = <CharacterList handlePage={handlePage} />;
       break;
     case 'detail':
-      content = <CharacterDetail entry={entry} handlePage={handlePage} />;
+      content = <CharacterDetail word={word} handlePage={handlePage} />;
       break;
     case 'train':
       content = <Train />;

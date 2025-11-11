@@ -1,141 +1,5 @@
 import entries from './entries.js';
-import frequencyRaw from './frequency.txt?raw';
-import hsk1Raw from './hsk3-b1.txt?raw';
-import hsk2Raw from './hsk3-b2.txt?raw';
-
-const percentileSize = 300;
-
-function loadHsk(content, level, base) {
-  const hsk = content
-    .split('\n')
-    .map(line => line.split('\t'))
-    .filter(row => row.length === 4)
-    .reduce((hsk, row) => {
-      const data = {
-        entry: row[1],
-        pinyin: row[2],
-        meaning: row[3],
-        level: level,
-      };
-      const key = data.entry.replace(/[（｜].*/, '');
-      if (!hsk.entries.has(key)) hsk.entries.set(key, []);
-      hsk.entries.get(key).push(data);
-      hsk.counter++;
-
-      const characters = [...key];
-      if (characters.length > 1) {
-        data.characters = characters;
-        hsk.words.set(key, data);
-      }
-      characters.forEach(c => hsk.characters.add(c));
-      return hsk;
-    }, {
-      entries: new Map(),
-      characters: new Set(),
-      words: new Map(),
-      counter: 0,
-    });
-
-  console.log(
-    "Loaded %d rows for HSK3 (level %d): %d entries, %d words, %s characters",
-    hsk.counter, level, hsk.entries.size, hsk.words.size, hsk.characters.size);
-
-  if (base) {
-    hsk.entries = new Map([...hsk.entries, ...base.entries]);
-    hsk.words = new Map([...hsk.words, ...base.words]);
-    hsk.characters = new Set([...hsk.characters, ...base.characters]);
-    hsk.counter += base.counter;
-  }
-  return hsk;
-}
-
-export const database = Object.entries(entries)
-  .reduce((map, [key, value]) => {
-    map.set(key, {key: key, ...value});
-    return map;
-  }, new Map());
-console.log("Loaded database with %d entries", database.size);
-
-database.values().forEach(data => {
-  if (data.root) data.index = [data.key, 0];
-  const index = data.root ? data : database.get(data.index[0]);
-  if (!index) console.log('index not found for %s: %s', data.key, data.index[0]);
-  else if (data.index?.[2]) data.strokes = data.index[2];
-  else data.strokes = index.root[1] + (data.index?.[1] ?? 0);
-});
-
-export const frequency = frequencyRaw
-  .split('\n')
-  .map(line => line.split('\t'))
-  .filter(row => row.length >= 5)
-  .reduce((map, row, index, array) => {
-    const percentile = 100 * (1 - index / (percentileSize || array.length));
-    map.set(row[1], {
-      value: parseInt(row[2]),
-      percentile: Math.max(0, Math.floor(percentile)),
-      pinyin: row[4],
-      meaning: row[5].replace(/,/g, ';').replace(/\//g, ', ') || '(historical character)',
-    });
-    return map;
-  }, new Map());
-console.log("Loaded frequency data with %d entries", frequency.size);
-
-frequency.entries()
-  .filter(([key, entry]) => database.has(key))
-  .map(([key, entry]) => [key, entry, database.get(key)])
-  .forEach(([key, entry, data]) => {
-    data.frequency = entry;
-    data.hasDefinition = true;
-    for (const e of data.ethym) {
-      if (!entry.pinyin.split('/').includes(e.pinyin)) {
-        console.log("warning: different pinyin: %s %s != %s", key, e.pinyin,
-            entry.pinyin);
-      }
-    }
-  });
-
-
-let base = loadHsk(hsk1Raw, 1);
-base = loadHsk(hsk2Raw, 2, base);
-export const hsk = base;
-
-console.log(
-  "Total HSK3 database: %d rows, %d entries, %d words, %s characters",
-  hsk.counter, hsk.entries.size, hsk.words.size, hsk.characters.size);
-
-hsk.entries.entries()
-  .filter(([key, entry]) => database.has(key))
-  .forEach(([key, entry]) => {
-    database.get(key).hsk = entry;
-  });
-
-hsk.words.values()
-  .forEach(entry => entry.characters
-    .filter(c => database.has(c))
-    .map(c => [c, database.get(c)])
-    .forEach(([c, data]) => {
-      if (!data.words) data.words = new Set();
-      data.words.add(entry);
-    })
-  );
-
-export function whichNextToInput() {
-  let [next, freq] = hsk.characters.values()
-    .filter(c => !database.has(c) && frequency.has(c))
-    .map(c => [c, frequency.get(c)])
-    .reduce((next, current) => next[1].value > current[1].value ? next : current);
-
-  console.log("Next character: %s (%s, %s, frequency == %d)",
-      next, freq.pinyin, freq.meaning, freq.value);
-
-  const entry = hsk.entries.get(next);
-  if (entry) console.log('Char entry:', entry);
-  else {
-    const words = hsk.words.keys().filter(key => [...key].includes(next)).toArray();
-    console.log('Just words:', words.join(', '));
-  }
-  return next;
-}
+import database from './data.json';
 
 const tones = {
   'a': 'āáǎà',
@@ -205,38 +69,78 @@ const uVowels = {
 };
 
 export function intoPhoneticCharacters(pinyin) {
+  for (const [letter, values] of Object.entries(tones)) {
+    pinyin = pinyin.replace(new RegExp(`[${values}]`, 'g'), letter);
+  }
   pinyin = pinyin
-    .replace(/([pbmf])o(?![a-z])/, '$1uo')
-    .replace(/([zcsr]h?)i(?![a-z])/, '$1ø')
-    .replace(/([jqxy])u/, '$1ü');
+    .replace(/([pbmf])o(?![a-z])/g, '$1uo')
+    .replace(/([zcsr]h?)i(?![a-z])/g, '$1ø')
+    .replace(/([jqxy])u/g, '$1ü')
+    .toLowerCase();
 
-  const match = pinyin.match(new RegExp(pattern));
-  let vowelTable = vowels;
-  let phonetic = (consonants[match[1]] ?? '') + (semivowels[match[2]] ?? '');
-  if (match[2] || match[1] === 'y' || match[1] === 'w') {
-    vowelTable = match[2] === 'u' || match[1] === 'w' ? uVowels : iVowels;
+  const parts = [];
+  for (const part of pinyin.split(/\s+/)) {
+    const match = part.match(new RegExp(pattern));
+    if (!match) continue;
+    let vowelTable = vowels;
+    let phonetic = (consonants[match[1]] ?? '') + (semivowels[match[2]] ?? '');
+    if (match[2] || match[1] === 'y' || match[1] === 'w') {
+      vowelTable = match[2] === 'u' || match[1] === 'w' ? uVowels : iVowels;
+    }
+    if (match[3] in vowelTable) {
+      phonetic += vowelTable[match[3]];
+    } else {
+      const coda = match[3].match('([aeiouü]+)(ng|n)?(r)?');
+      phonetic += (vowelTable[coda[1]] ?? coda[1])
+          + (consonants[coda[2]] ?? '') + (consonants[coda[3]] ?? '');
+    }
+    parts.push(phonetic
+      .replace(/ji/, 'i')
+      .replace(/wu/, 'u')
+      .replace(/jy/, 'y')
+      .replace(/(jw|jɥ)/, 'ɥ'));
   }
-  if (match[3] in vowelTable) {
-    phonetic += vowelTable[match[3]];
-  } else {
-    const coda = match[3].match('([aeiouü]+)(ng|n|r)?');
-    phonetic += (vowelTable[coda[1]] ?? coda[1]) + (consonants[coda[2]] ?? '');
-  }
-  phonetic = phonetic
-    .replace(/ji/, 'i')
-    .replace(/wu/, 'u')
-    .replace(/jy/, 'y')
-    .replace(/(jw|jɥ)/, 'ɥ');
-  return phonetic;
+  return parts.join(' ');
 }
 
-function setPhoneticInfo(data) {
-  if (!data.pinyin) return;
-  data.phonetic = intoPhoneticCharacters(data.pinyin);
-  data.pinyin = correctPinyinAccent(data.pinyin);
-}
 
-database.values().forEach(data => {
-  setPhoneticInfo(data);
-  data.ethym?.forEach(ethym => setPhoneticInfo(ethym));
+Object.entries(entries).forEach(([key, entry]) => {
+  if (entry.root) entry.index = [entry.key, 0];
+  const index = entry.root ? entry : entries[entry.index[0]];
+  if (!index) console.log('index not found for %s: %s', key, entry.index[0]);
+  else if (entry.index?.[2]) entry.strokes = entry.index[2];
+  else entry.strokes = index.root[1] + (entry.index?.[1] ?? 0);
+
+  if (entry.pinyin) entry.pinyin = correctPinyinAccent(entry.pinyin);
+
+  if (!(key in database.words)) database.words[key] = {};
+  Object.assign(database.words[key], entry);
 });
+
+for (const glyph of database.glyphs) {
+  if (!database.words[glyph].index) {
+    console.log("Next glyph to set input", glyph, database.words[glyph]);
+    break;
+  }
+}
+
+for (const [key, word] of Object.entries(database.words)) {
+  word.key = key;
+  if (!word.entry) continue;
+  for (const [ekey, entry] of Object.entries(word.entry)) {
+    entry.key = ekey;
+    entry.phonetic = intoPhoneticCharacters(entry.pinyin);
+  }
+  const entries = Object.keys(word.entry);
+  entries.sort((a, b) => a.localeCompare(b));
+  const main = entries[0];
+  word.pinyin = main;
+  word.definition = word.entry[main].definitions[0];
+}
+for (const glyph of database.glyphs) {
+  if (!(glyph in database.words)) console.log("Glyph not in database:", glyph);
+  else database.words[glyph].isGlyph = true;
+}
+
+console.log("Loaded database:", database);
+export default database;

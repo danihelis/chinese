@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { database } from '../data/database.js';
+import database from '../data/database.js';
 import { shuffle } from '../utils.js';
 import { Page } from '../Page.jsx';
 

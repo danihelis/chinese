@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { database } from '../data/database.js';
+import database from '../data/database.js';
 import { choice } from '../utils.js';
 import { TestCharacter } from './TestCharacter.jsx';
 
-const available = [...database.values().filter(e => e.hsk && e.ethym)];
+const available = [];
 
 
 export function Train() {

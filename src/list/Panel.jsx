@@ -19,7 +19,7 @@ function Button({children, onClick, toggled}) {
 }
 
 
-export function Panel({entry}) {
+export function Panel({word}) {
   const selfRef = useRef(null);
   const [practice, setPractice] = useState(false);
 
@@ -91,13 +91,13 @@ export function Panel({entry}) {
     ctx.stroke();
   };
 
-  useEffect(reset, [entry]);
+  useEffect(reset, [word]);
 
   return (
     <div className="flex flex-col gap-2 items-center touch-none">
       <div className="relative h-[350px] w-[350px] touch-none" ref={selfRef}>
         <div className={`opacity-10 absolute top-0 left-0 w-full h-full flex items-center justify-center -z-1`}>
-          <span className="no-select font-light text-[300px]">{entry.key}</span>
+          <span className="no-select font-light text-[300px]">{word}</span>
         </div>
         <canvas
           className="absolute top-0 left-0 cursor-pointer touch-none"

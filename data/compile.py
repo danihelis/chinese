@@ -304,6 +304,8 @@ while remaining_sentences:
     )
 
 
+word_list.update(glyph_list)
+
 data = {
     'words': word_list,
     'glyphs': [g.value for g in learning_order],
