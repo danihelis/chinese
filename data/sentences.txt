@@ -1,14 +1,14 @@
 Word,Meaning,Sentence,Pinyin,Translation
-爱 (ài) [cite: 1],love [cite: 1],我 爱 爸 爸。,Wǒ ài bàba.,I love Dad.
-爱好 (àihào) [cite: 1],hobby [cite: 1],我 的 爱 好 是 读 书。,Wǒ de àihào shì dú shū.,My hobby is reading.
-八 (bā) [cite: 1],eight [cite: 1],我 有 八 个 朋 友。,Wǒ yǒu bā gè péngyou.,I have eight friends.
-爸爸 (bàba) [cite: 1],dad [cite: 1],爸 爸 在 家 吗？,Bàba zài jiā ma?,Is Dad at home?
-吧 (ba) [cite: 1],(interjection particle) [cite: 1],我 们 走 吧。,Wǒmen zǒu ba.,Let's go.
-白 (bái) [cite: 1],white [cite: 1],这 是 白 颜 色。,Zhè shì bái yán sè.,This is white.
-白天 (báitiān) [cite: 1],day [cite: 1],白 天 很 亮。,Báitiān hěn liàng.,The day is very bright.
-百 (bǎi) [cite: 1],hundred [cite: 1],这 一 百 个 苹 果。,Zhè yī bǎi gè píng guǒ.,These are one hundred apples.
-班 (bān) [cite: 1],class [cite: 1],他 在 学 生 班。,Tā zài xuéshēng bān.,He is in the student class.
-半 (bàn) [cite: 1],half [cite: 1],一 半 是 我 的。,Yī bàn shì wǒ de.,Half is mine.
+爱 (ài),love,我 爱 爸 爸。,Wǒ ài bàba.,I love Dad.
+爱好 (àihào),hobby,我 的 爱 好 是 读 书。,Wǒ de àihào shì dú shū.,My hobby is reading.
+八 (bā),eight,我 有 八 个 朋 友。,Wǒ yǒu bā gè péngyou.,I have eight friends.
+爸爸 (bàba),dad,爸 爸 在 家 吗？,Bàba zài jiā ma?,Is Dad at home?
+吧 (ba),(interjection particle),我 们 走 吧。,Wǒmen zǒu ba.,Let's go.
+白 (bái),white,这 是 白 颜 色。,Zhè shì bái yán sè.,This is white.
+白天 (báitiān),day,白 天 很 亮。,Báitiān hěn liàng.,The day is very bright.
+百 (bǎi),hundred,这 一 百 个 苹 果。,Zhè yī bǎi gè píng guǒ.,These are one hundred apples.
+班 (bān),class,他 在 学 生 班。,Tā zài xuéshēng bān.,He is in the student class.
+半 (bàn),half,一 半 是 我 的。,Yī bàn shì wǒ de.,Half is mine.
 半年 (bàn nián),half a year,我 们 在 这 里 住 了 半 年。,Wǒmen zài zhè lǐ zhù le bàn nián.,We lived here for half a year.
 半天 (bàn tiān),half day,我 们 玩儿 了 半 天。,Wǒmen wánr le bàn tiān.,We played for half a day.
 帮 (bāng),help,请 你 帮 我 找 一 下。,Qǐng nǐ bāng wǒ zhǎo yī xiàr.,Please help me look for a bit.
@@ -100,16 +100,16 @@ Word,Meaning,Sentence,Pinyin,Translation
 饭 (fàn),rice; meal,我 们 吃 午 饭 吧。,Wǒmen chī wǔ fàn ba.,Let's eat lunch.
 饭店 (fàndiàn),restaurant,学 校 旁 边 有 个 饭 店。,Xuéxiào pángbiān yǒu ge fàndiàn.,There is a restaurant next to the school.
 房间 (fángjiān),room,这 个 房 间 很 干 净。,Zhè ge fángjiān hěn gānjìng.,This room is very clean.
-房子 (fáng zi),house; building [cite: 3],这 个 房 子 有 两 个 房 间。,Zhè ge fáng zi yǒu liǎng ge fángjiān.,This house has two rooms.
-放 (fàng),discharge [cite: 3],他 把 书 放 在 桌 子 上。,Tā bǎ shū fàng zài zhuōzi shàng.,He put the book on the table.
-放假 (fàng jià),holiday; have a holiday [cite: 3],我 们 今 年 不 放 假。,Wǒmen jīn nián bù fàng jià.,We are not having a holiday this year.
-放学 (fàng xué),off school [cite: 3],他 们 下 午 四 点 放 学。,Tāmen xiàwǔ sì diǎn fàng xué.,They get off school at four o'clock in the afternoon.
-飞 (fēi),fly [cite: 3],小 鸟 在 天 上 飞。,Xiǎo niǎo zài tiān shàng fēi.,The little bird is flying in the sky.
-飞机 (fēijī),aircraft [cite: 3],我 们 坐 飞 机 去 国 外。,Wǒmen zuò fēijī qù guó wài.,We take an aircraft to go abroad.
-非常 (fēicháng),very [cite: 3],今 天 我 非 常 高 兴。,Jīntiān wǒ fēicháng gāoxìng.,I am very happy today.
-分 (fēn),"minute; point; part; (measure word) [cite_start][cite: 3, 4]",现 在 是 八 点 五 分。,Xiànzài shì bā diǎn wǔ fēn.,It is now five minutes past eight.
-风 (fēng),wind [cite: 4],今 天 风 很 大。,Jīntiān fēng hěn dà.,The wind is very strong today.
-干 (gān),dry [cite: 4],这 件 衣 服 还 不 干。,Zhè jiàn yīfu hái bù gān.,This piece of clothing is not dry yet.
+房子 (fáng zi),house; building,这 个 房 子 有 两 个 房 间。,Zhè ge fáng zi yǒu liǎng ge fángjiān.,This house has two rooms.
+放 (fàng),discharge,他 把 书 放 在 桌 子 上。,Tā bǎ shū fàng zài zhuōzi shàng.,He put the book on the table.
+放假 (fàng jià),holiday; have a holiday,我 们 今 年 不 放 假。,Wǒmen jīn nián bù fàng jià.,We are not having a holiday this year.
+放学 (fàng xué),off school,他 们 下 午 四 点 放 学。,Tāmen xiàwǔ sì diǎn fàng xué.,They get off school at four o'clock in the afternoon.
+飞 (fēi),fly,小 鸟 在 天 上 飞。,Xiǎo niǎo zài tiān shàng fēi.,The little bird is flying in the sky.
+飞机 (fēijī),aircraft,我 们 坐 飞 机 去 国 外。,Wǒmen zuò fēijī qù guó wài.,We take an aircraft to go abroad.
+非常 (fēicháng),very,今 天 我 非 常 高 兴。,Jīntiān wǒ fēicháng gāoxìng.,I am very happy today.
+分 (fēn),"minute; point; part; (measure word)",现 在 是 八 点 五 分。,Xiànzài shì bā diǎn wǔ fēn.,It is now five minutes past eight.
+风 (fēng),wind,今 天 风 很 大。,Jīntiān fēng hěn dà.,The wind is very strong today.
+干 (gān),dry,这 件 衣 服 还 不 干。,Zhè jiàn yīfu hái bù gān.,This piece of clothing is not dry yet.
 干净 (gānjìng),clean,这 个 房 间 很 干 净。,Zhè ge fángjiān hěn gānjìng.,This room is very clean.
 干 (gàn),do,你 想 干 什 么？,Nǐ xiǎng gàn shénme?,What do you want to do?
 干什么 (gàn shén me),what to do,你 下 午 想 干 什 么？,Nǐ xiàwǔ xiǎng gàn shén me?,What do you want to do this afternoon?
@@ -417,15 +417,15 @@ Word,Meaning,Sentence,Pinyin,Translation
 站 (zhàn),stand; station,请 你 在 这 儿 站 着 。,Qǐng nǐ zài zhèr zhàn zhe.,Please stand here.
 张 (zhāng),"(measure word for paper, tables)",我 的 桌 子 上 有 一 张 纸 。,Wǒ de zhuō zi shàng yǒu yī zhāng zhǐ.,There is one piece of paper on my table.
 找 (zhǎo),look for,你 想 找 谁 ？,Nǐ xiǎng zhǎo shéi?,Who do you want to look for?
-找到 (zhǎo dào),find,我 没 有 找 到 我 的 书 。 [cite: 22],Wǒ méi yǒu zhǎo dào wǒ de shū.,I did not find my book.
+找到 (zhǎo dào),find,我 没 有 找 到 我 的 书 。,Wǒ méi yǒu zhǎo dào wǒ de shū.,I did not find my book.
 这 (zhè),this,这 是 我 的 书 。,Zhè shì wǒ de shū.,This is my book.
-这边 (zhè biān),here,你 往 这 边 走 吧 。 [cite: 22],Nǐ wǎng zhè biān zǒu ba.,You walk this way (here).
+这边 (zhè biān),here,你 往 这 边 走 吧 。,Nǐ wǎng zhè biān zǒu ba.,You walk this way (here).
 这些 (zhè xiē),these,这些 都 是 好 东 西 。,Zhè xiē dōu shì hǎo dōngxi.,These are all good things.
-这里 (zhè lǐ),here,你 坐 在 这 里 。 [cite: 22],Nǐ zuò zài zhè lǐ.,You sit here.
-这儿 (zhèr),here,我 们 在 这儿 见 面 吧 。 [cite: 22],Wǒmen zài zhèr jiàn miàn ba.,Let's meet here.
-这些 (zhè xiē),these,这 些 都 是 我 们 的 东 西 。 [cite: 22],Zhè xiē dōu shì wǒmen de dōngxi.,These are all our things.
-着 (zhe),in process of,老 师 穿 着 新 衣 服 。 [cite: 22],Lǎo shī chuān zhe xīn yīfu.,The teacher is wearing new clothes.
-真 (zhēn),really,今 天 真 冷 。 [cite: 22],Jīntiān zhēn lěng.,Today is really cold.
+这里 (zhè lǐ),here,你 坐 在 这 里 。,Nǐ zuò zài zhè lǐ.,You sit here.
+这儿 (zhèr),here,我 们 在 这儿 见 面 吧 。,Wǒmen zài zhèr jiàn miàn ba.,Let's meet here.
+这些 (zhè xiē),these,这 些 都 是 我 们 的 东 西 。,Zhè xiē dōu shì wǒmen de dōngxi.,These are all our things.
+着 (zhe),in process of,老 师 穿 着 新 衣 服 。,Lǎo shī chuān zhe xīn yīfu.,The teacher is wearing new clothes.
+真 (zhēn),really,今 天 真 冷 。,Jīntiān zhēn lěng.,Today is really cold.
 真的 (zhēn de),really ,你 的 话 是 真 的 吗 ？,Nǐ de huà shì zhēn de ma?,Are your words real/true?
 正（副） (zhèng),just; exactly ,他 正 吃 饭 呢 。,Tā zhèng chī fàn ne.,He is just (exactly) eating.
 正在 (zhèng zài),in process of ,我 们 正 在 上 课 。,Wǒmen zhèng zài shàng kè.,We are currently attending class.
@@ -438,16 +438,16 @@ Word,Meaning,Sentence,Pinyin,Translation
 中间 (zhōng jiān),middle ,请 你 坐 在 中 间 。,Qǐng nǐ zuò zài zhōng jiān.,Please sit in the middle.
 中文 (zhōng wén),Chinese ,我 想 学 中 文 。,Wǒ xiǎng xué Zhōng wén.,I want to learn Chinese.
 中午 (zhōng wǔ),noon ,我 们 中 午 吃 饭 。,Wǒmen zhōng wǔ chī fàn.,We have a meal at noon.
-中学 (zhōng xué),middle school [cite: 23],我 们 去 中 学 看 老 师 。,Wǒmen qù zhōng xué kàn lǎo shī.,We go to the middle school to see the teacher.
-中学生 (zhōng xué shēng),middle school student [cite: 23],我 是 一 个 中 学 生 。,Wǒ shì yī ge zhōng xué shēng.,I am a middle school student.
-重 (zhòng),heavy [cite: 23],这 个 包 很 重 。,Zhè ge bāo hěn zhòng.,This bag is very heavy.
-重要 (zhòng yào),important [cite: 23],这 个 问 题 很 重 要 。,Zhè ge wèn tí hěn zhòng yào.,This question is very important.
-住 (zhù),live [cite: 23],你 住 在 哪 个 房 子 ？,Nǐ zhù zài nǎ ge fáng zi?,Which house do you live in?
-准备 (zhǔn bèi),get ready [cite: 23],妈 妈 准 备 吃 饭 了 。,Māma zhǔn bèi chī fàn le.,Mom is getting ready to eat.
-桌子 (zhuō zi),table [cite: 23],请 你 坐 在 桌 子 旁 边 。,Qǐng nǐ zuò zài zhuō zi páng biān.,Please sit next to the table.
-字 (zì),"word, character [cite: 23]",你 认 识 这 个 字 吗 ？,Nǐ rènshi zhè ge zì ma?,Do you recognize this character?
-子（桌子） (zi （ zhuō zi ）),noun suffix (table) [cite: 23],桌 子 上 没 有 水 。,Zhuō zi shàng méi yǒu shuǐ.,There is no water on the table.
-走 (zǒu),"go, walk [cite: 23]",我 们 一 起 走 吧 。,Wǒmen yì qǐ zǒu ba.,Let's walk together.
+中学 (zhōng xué),middle school,我 们 去 中 学 看 老 师 。,Wǒmen qù zhōng xué kàn lǎo shī.,We go to the middle school to see the teacher.
+中学生 (zhōng xué shēng),middle school student,我 是 一 个 中 学 生 。,Wǒ shì yī ge zhōng xué shēng.,I am a middle school student.
+重 (zhòng),heavy,这 个 包 很 重 。,Zhè ge bāo hěn zhòng.,This bag is very heavy.
+重要 (zhòng yào),important,这 个 问 题 很 重 要 。,Zhè ge wèn tí hěn zhòng yào.,This question is very important.
+住 (zhù),live,你 住 在 哪 个 房 子 ？,Nǐ zhù zài nǎ ge fáng zi?,Which house do you live in?
+准备 (zhǔn bèi),get ready,妈 妈 准 备 吃 饭 了 。,Māma zhǔn bèi chī fàn le.,Mom is getting ready to eat.
+桌子 (zhuō zi),table,请 你 坐 在 桌 子 旁 边 。,Qǐng nǐ zuò zài zhuō zi páng biān.,Please sit next to the table.
+字 (zì),"word, character",你 认 识 这 个 字 吗 ？,Nǐ rènshi zhè ge zì ma?,Do you recognize this character?
+子（桌子） (zi （ zhuō zi ）),noun suffix (table),桌 子 上 没 有 水 。,Zhuō zi shàng méi yǒu shuǐ.,There is no water on the table.
+走 (zǒu),"go, walk",我 们 一 起 走 吧 。,Wǒmen yì qǐ zǒu ba.,Let's walk together.
 走路 (zǒu lù),walk,我 们 喜 欢 一 起 走 路 。,Wǒmen xǐhuan yì qǐ zǒu lù.,We like walking together.
 最 (zuì),most,他 是 我 最 好 的 朋 友 。,Tā shì wǒ zuì hǎo de péngyou.,He is my best friend.
 最好 (zuì hǎo),best,这 件 衣 服 是 最 好 的 。,Zhè jiàn yīfu shì zuì hǎo de.,This piece of clothing is the best.
@@ -527,3 +527,5 @@ Word,Meaning,Sentence,Pinyin,Translation
 路上 (lù shang),on the road,路上有很多车。,Lù shang yǒu hěn duō chē.,There are many cars on the road.
 病人 (bìng rén),patient,病人 的 身 体 很 累 。,Bìng rén de shēntǐ hěn lèi.,The patient's body is very tired.
 家里 (jiā lǐ),in the home,家 里 有 很 多 人 。,Jiā lǐ yǒu hěn duō rén.,There are many people in the home.
+第二 (dì èr),second,我 的 第 二 个 姐 姐 是 老 师 。,Wǒ de dì èr ge jiějie shì lǎo shī.,My second older sister is a teacher.
+有些 (yǒu xiē),some,有 些 问 题 很 难 。,Yǒu xiē wèn tí hěn nán.,Some questions are very difficult.

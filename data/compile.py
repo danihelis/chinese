@@ -50,13 +50,20 @@ def fix_text(text):
         length = len(match.group(1).split())
         start = match.start()
 
+        has_word = text[start - 1] != ' '
         word_start = start - length
-        if word_start > 1 and text[word_start - 1] == '|':
+        if has_word and word_start > 1 and text[word_start - 1] == '|':
             text = text[: word_start - 1 - length] + text[word_start :]
             start -= length + 1
-        text = text[:start] + f'/{pinyin}/' + text[start + size:]
+            word_start -= length + 1
+        if has_word and word_start > 0 and text[word_start - 1] != ' ':
+            text = f'{text[:word_start]} {text[word_start:]}'
+            start += 1
 
-    return text
+        text = (text[:start] + (f' %<{pinyin}>%' if has_word else pinyin) +
+                text[start + size:])
+
+    return re.sub('%<', '[', re.sub('>%', ']', text))
 
 
 
@@ -68,10 +75,17 @@ class Entry:
         self.definitions = []
 
     def add_definition(self, definition):
-        self.definitions += [
+        new_definitions = [
             fix_text(re.sub(';', ',', d))
             for d in definition.split('/')
         ]
+
+        def is_not_variant(phrase):
+            return not (phrase.find('variant of') >= 0 and
+                        re.search(r'\b%s\b' % self.word.value, phrase))
+
+        self.definitions += list(filter(is_not_variant, new_definitions))
+
 
     @property
     def short_definition(self):
@@ -109,6 +123,8 @@ class Word:
         self.words = set()
         self.glyphs = {}
         self.hsk = 0
+        self.hsk_pinyin = None
+        self.hsk_definition = None
 
     @property
     def is_glyph(self):
@@ -119,6 +135,8 @@ class Word:
         if pinyin not in self.entries:
             self.entries[pinyin] = Entry(self, pinyin)
         self.entries[pinyin].add_definition(definition)
+        if not self.entries[pinyin].definitions:
+            del self.entries[pinyin]
 
     def add_frequency(self, frequency, percentil):
         self.frequency = frequency
@@ -126,6 +144,8 @@ class Word:
 
     @property
     def default_pinyin(self):
+        if self.hsk_pinyin:
+            return self.hsk_pinyin
         e = list(filter(lambda e: e.pinyin.islower(), self.entries.values()))
         e = sorted(e, key=lambda e: len(e.definitions), reverse=True)
         assert e, 'no entry found for default pinyin'
@@ -185,17 +205,24 @@ def add_to_word_list(word):
 
 with open(HSK_FILE) as stream:
     for line in stream.readlines():
-        match = re.match(r'^(\d+)\s+(\S+)\s+(.+)$', line)
-        if match:
-            word = re.split(splitter, match.group(2))[0]
+        match = re.match(r'^(\d+)\t(\S+)\t([^\t]+)\t(.*)$', line)
+        if not match:
+            print('> Could not parse:', line)
+        elif (re.search(splitter, match.group(2)) or
+              re.search(splitter, match.group(3))):
+            print('> Composed entry:', line)
+        else:
+            word = match.group(2).strip()
             if word not in dictionary:
                 print('> Not found: %s: %s' % (match.group(1), word))
             elif word in hsk:
                 print('> Repeated: %s: %s' % (match.group(1), word))
             else:
-                hsk[word] = word_list[word] = dictionary[word]
-                glyph_list.update(hsk[word].glyphs)
-                hsk[word].hsk = 1
+                entry = hsk[word] = word_list[word] = dictionary[word]
+                glyph_list.update(entry.glyphs)
+                entry.hsk = 1
+                entry.hsk_pinyin = match.group(3).strip()
+                entry.hsk_definition = match.group(4).strip()
 
 print('> Loaded %d entries (%d words, %d glyphs)' % (
     len(hsk), len(word_list), len(glyph_list)))
@@ -322,13 +349,18 @@ def set_serializer(obj):
             'translation': obj.translation
         }
     if isinstance(obj, Entry):
-        return {'pinyin': obj.pinyin, 'definitions': obj.definitions}
+        return {'definitions': obj.definitions}
     if isinstance(obj, Word):
         data = {
-            'entry': obj.entries,
+            'entries': obj.entries,
             'sentences': [s.id for s in obj.sentences],
             'hsk': obj.hsk,
         }
+        if obj.hsk:
+            data.update({
+                'pinyin': obj.hsk_pinyin,
+                'meaning': obj.hsk_definition,
+            })
         if obj.is_glyph:
             data.update({
                 'frequency': obj.frequency,
@@ -354,7 +386,9 @@ with open(TXT_OUTPUT_FILE, 'w') as stream:
     def print_word(word):
         if not word.hsk:
             print('* ', file=stream, end='')
-        print(word.value, file=stream)
+        print(word.value, file=stream, end='' if word.hsk else '\n')
+        if word.hsk:
+            print(f' /{word.hsk_pinyin}/ {word.hsk_definition}', file=stream)
         for index, entry in enumerate(word.entries.values()):
             mark = f'{chr(ord('A') + index)}) ' if len(word.entries) > 1 else ''
             print(f'  {mark}{entry.pinyin}', file=stream)

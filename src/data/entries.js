@@ -16,7 +16,7 @@ export default {
     root: [4, 1],
     origin: 'ideogram: the stroke itself',
     pinyin:  'pie3',
-    radical: 'left-falling stroke',
+    meaning: 'left-falling stroke',
   },
 
   '日': {
@@ -35,7 +35,7 @@ export default {
     root: [20, 2],
     composition: '⿰丿𠃌',
     origin: 'pictogram: a person bending over',
-    radical: 'wrap',
+    meaning: 'wrap',
   },
 
   '一': {
@@ -53,7 +53,7 @@ export default {
     index: ['疋', 0],
     composition: '⿱一龰',
     origin: 'variant form of 正',
-    radical: 'straight; upright',
+    meaning: 'straight; upright',
   },
 
   '不': {
@@ -72,7 +72,7 @@ export default {
     root: [6, 1],
     origin: 'ideogram: the stroke itself',
     pinyin: 'jue2',
-    radical: 'a backward hook',
+    meaning: 'a backward hook',
   },
 
   '在': {
@@ -128,7 +128,7 @@ export default {
     composition: '⿱丿丨',
     origin: 'a stylization of 人',
     pinyin:  'ren2',
-    radical: 'person',
+    meaning: 'person',
   },
 
   '也': {
@@ -159,7 +159,7 @@ export default {
     composition: '⿳丶𠃍乀',
     origin: 'combining form of 辵',
     pinyin: 'chuo4',
-    radical: 'walk, road',
+    meaning: 'walk, road',
   },
 
   '个': {
@@ -172,7 +172,7 @@ export default {
     root: [2, 1],
     origin: 'pictogram of a vertical wooden stick',
     pinyin: 'gun3',
-    radical: 'stick, rod',
+    meaning: 'stick, rod',
   },
 
   '们': {
@@ -227,7 +227,7 @@ export default {
     root: [3, 1],
     origin: 'ideogram: just a point; however, it can represent many different things: ice (冰), water (汉), minerals (丹), an eye (鸟), etc.',
     pinyin: 'zhu3',
-    radical: 'dot',
+    meaning: 'dot',
   },
 
   '和': {
@@ -277,7 +277,7 @@ export default {
     composition: ' ⿰丨亅',
     origin: 'radical form of 刀 (“knife”)',
     pinyin: 'dao1',
-    radical: 'knife',
+    meaning: 'knife',
   },
 
   '以': {
@@ -298,7 +298,7 @@ export default {
     composition: '⿱丶㇊',
     origin: 'simplified form of 言 (“speech”)',
     pinyin: 'yan2',
-    radical: 'speech',
+    meaning: 'speech',
   },
 
   '言': {
@@ -330,7 +330,7 @@ export default {
     composition: '⿱一⿻口⿰丨丨',
     origin: 'a variant form of 襾',
     pinyin: 'ya4',
-    radical: 'cover',
+    meaning: 'cover',
   },
 
   '女': {
@@ -350,6 +350,94 @@ export default {
     composition: '⿸𠂇乚',
     origin: 'ideogram: a man with bent legs (jumping or collapsing)',
   },
+
+  '书': {
+    index: ['乙', 3],
+    composition: '⿺⿻⿱乛𠃌丨丶',
+    origin: 'simplified from 書; phono-semantic: semantic 聿 (“writing brush”) + phonetic 者',
+  },
+
+  '你': {
+    index: ['人', 5],
+    composition: '⿰亻尔',
+    origin: 'phono-semantic: semantic 亻 (“person”) + phonetic 尔',
+  },
+
+  '学': {
+    index: ['子', 5],
+    composition: '⿱⿱𭕄冖子',
+    origin: 'simplified form of 學; perhaps ideogram: abbreviated 敎 (“to teach”) + 𦥑 (“mingled hands”) + 宀 (“house”) + 子 (“child”), meaning a child learning in a roofed place',
+  },
+
+  '子': {
+    root: [39, 3],
+    composition: '⿻了一',
+    origin: 'pictogram: an image of a baby, with a large head and spread arms',
+  },
+
+  '生': {
+    root: [100, 5],
+    composition: '⿻𠂉土',
+    origin: 'ideogram: 屮 (“bud”) + 一 (“ground”), a bud sprouting from the ground',
+  },
+
+  '吗': {
+    index: ['口', 3],
+    composition: '⿰口马',
+    origin: 'simplified from 嗎 (馬 → 马); phono-semantic: semantic 口 (“mouth”) + phonetic 馬',
+  },
+
+  '好': {
+    index: ['女', 3],
+    composition: '⿰女子',
+    origin: 'ideogram: 女 (“woman”) + 子 (“child”), as it was good for a woman to have a child',
+  },
+
+  '都': {
+    index: ['邑', 8, 10],
+    composition: '⿰者⻏',
+    origin: 'phono-semantic: phonetic 者 + semantic 邑 (“town, city”)',
+  },
+
+  '邑': {
+    root: [163, 7],
+    composition: '⿱口巴',
+    origin: 'ideogram:  囗 (“enclosure; city wall”) + 卪 (“kneeling person”)',
+  },
+
+  '⻏': {
+    index: ['邑', 0, 2],
+    composition: '⿰丨㇌',
+    origin: 'right form of 邑',
+    pinyin: 'yi4',
+    meaning: 'capital city',
+  },
+
+  '阝': {
+    index: ['阜', 0, 2],
+    composition: '⿰丨㇌',
+    origin: 'left form of 阜',
+    pinyin: 'fu4',
+    meaning: 'mound',
+  },
+
+  '很': {
+    index: ['彳', 6],
+    composition: '⿰彳艮',
+    origin: 'phono-semantic: semantic 彳 (“to walk slowly”) + phonetic 艮',
+  },
+
+  '彳': {
+    root: [60, 3],
+    composition: '⿱丿亻',
+    origin: 'simplified from 行; pictogram: a street intersection',
+  },
+
+  '里': {
+    root: [166, 7],
+    composition: '⿱田土',
+    origin: 'ideogram: 田 (“field”) + 土 (“soil; earth”), a measure of land and fields',
+  },
 };
 
 /*
@@ -359,6 +447,6 @@ export default {
     composition: '',
     origin: '',
     pinyin: '',
-    radical: '',
+    meaning: '',
   },
 */

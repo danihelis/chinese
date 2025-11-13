@@ -96,26 +96,18 @@ function Word({word, handlePage}) {
         <CharacterSequence sequence={word.key} handlePage={handlePage} />
       </div>
       <span className="text-black">{word.pinyin}</span>
-      <p className="text-sm italic text-gray-800">{word.definition}</p>
+      <p className="text-sm italic text-gray-800">{word.meaning}</p>
     </>
   );
 }
 
 
 function WordList({words, handlePage}) {
-  const collapsable = words.length > 3;
-  const [collapse, setCollapse] = useState();
-
-  useEffect(() => {
-    setCollapse(collapsable);
-  }, [words]);
-
-  let list = words.map(w => database.words[w]).filter(w => !!w);
+  const list = words.map(w => database.words[w]).filter(w => !!w);
   list.sort((a, b) => {
     if (a.hsk !== b.hsk) return (b.hsk ?? 0) - (a.hsk ?? 0);
     return a.pinyin.localeCompare(b.pinyin);
   });
-  if (collapse) list = list.slice(0, 2);
 
   return (
     <div className="flex flex-col gap-1">
@@ -124,11 +116,6 @@ function WordList({words, handlePage}) {
           <Word key={w.key} word={w} handlePage={handlePage} />
         ))}
       </div>
-      {collapsable ? (
-        <div className="text-gray-600 cursor-pointer" onClick={() => setCollapse(!collapse)}>
-          <span className="underline text-sm">show {collapse ? 'more' : 'less'} words</span>
-        </div>
-      ) : null}
     </div>
   );
 }
@@ -145,22 +132,11 @@ function Definition({definition, index}) {
 
 
 function DefinitionList({definitions}) {
-  const collapsable = definitions.length > 3;
-  const [collapse, setCollapse] = useState(collapsable);
-
-  const list = collapse && definitions.length > 3 ?
-      definitions.slice(0, 2) : definitions;
-
   return (
     <div className="flex flex-col gap-1">
-      {list.map((d, i) => (
+      {definitions.map((d, i) => (
         <Definition key={`definition-${i}`} definition={d} index={i + 1} />
       ))}
-      {collapsable ? (
-        <div className="text-gray-600 cursor-pointer" onClick={() => setCollapse(!collapse)}>
-          <span className="underline text-sm">show {collapse ? 'more' : 'less'} definitions</span>
-        </div>
-      ) : null}
     </div>
   );
 }
@@ -172,11 +148,12 @@ export function CharacterDetail({word, handlePage}) {
   const [collapseWords, setCollapseWords] = useState(true);
 
   const entry = database.words[word];
-  const ethymologies = Object.keys(entry.entry ?? []);
+  const ethymologies = Object.keys(entry.entries ?? []);
   ethymologies.sort((a, b) => a.localeCompare(b));
 
   const pinyin = ethymologies[ethymIndex] ?? entry.pinyin;
-  const data = entry.entry?.[ethymologies[ethymIndex]];
+  const data = entry.entries?.[ethymologies[ethymIndex]];
+  const phonetic = data?.phonetic || entry.phonetic;
 
   const textColor = entry.frequency ? characterColor : componentColor;
   const bgLightColor = entry.frequency ? 'bg-gray-200' : 'bg-gray-200';
@@ -189,7 +166,7 @@ export function CharacterDetail({word, handlePage}) {
   };
 
   return (
-    <Page title="Character">
+    <Page key={word} title="Character">
       <div className="flex flex-col gap-6 items-center justify-center mt-5 max-w-sm justify-self-center">
         <div className="grid grid-cols-2 gap-4">
           <div className={`${textColor} ${bgLightColor} text-9xl rounded-xl p-2 h-40 flex justify-center items-center`}>
@@ -200,9 +177,9 @@ export function CharacterDetail({word, handlePage}) {
               <>
                 <div className="flex">
                   <p className="flex-1 text-3xl">{pinyin}</p>
-                  {Object.keys(entry.entry ?? {}).length > 1 ? (
+                  {Object.keys(entry.entries ?? {}).length > 1 ? (
                     <div className="flex gap-1 items-center">
-                      {Object.keys(entry.entry).map((e, i) => (
+                      {Object.keys(entry.entries).map((e, i) => (
                         <div key={e} className={`${i === ethymIndex ? 'inset-ring-1 inset-ring-gray-800 text-gray-800' : 'bg-gray-600 text-white cursor-pointer'} w-5 h-5 text-xs flex items-center justify-center select-none`} onClick={() => changeEthym(i)}>
                           {i + 1}
                         </div>
@@ -210,7 +187,9 @@ export function CharacterDetail({word, handlePage}) {
                     </div>
                   ) : null}
                 </div>
-                <p className="text-gray-800">/{data?.phonetic}/</p>
+                {phonetic ? (
+                  <p className="text-gray-800">/{phonetic}/</p>
+                ) : null}
               </>
             ) : null}
             <span className="flex-1" />
@@ -231,7 +210,7 @@ export function CharacterDetail({word, handlePage}) {
           </div>
         </div>
         <div className={`${textColor} text-xl text-center`}>
-          {data?.definitions[0] ?? entry.radical}
+          {data?.definitions[0] ?? entry.meaning}
         </div>
         <div className="text-sm self-stretch">
           <div className={`${bgHeavyColor} ${entry.frequency ? 'rounded-t-md' : 'rounded-md'} p-4 text-center`}>

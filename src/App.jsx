@@ -53,7 +53,7 @@ export default function App() {
   useEffect(() => {
     const handlePopState = (event) => {
       const query = new URLSearchParams(window.location.search);
-      handlePage(query.get('p') || defaultPage, query.get('c'), false);
+      handlePage(query.get('p') || defaultPage, query.get('w'), false);
     };
     window.addEventListener('popstate', handlePopState);
     handlePopState();

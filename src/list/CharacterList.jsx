@@ -13,7 +13,7 @@ function Link({word, onClick}) {
     >
       <h1 className="text-5xl text-gray-800">{word}</h1>
       <h2 className="text-gray-700 mt-2">{entry.pinyin}</h2>
-      <div className="text-gray-500 text-sm truncate w-full text-center">{entry.definition}</div>
+      <div className="text-gray-500 text-sm truncate w-full text-center">{entry.meaning}</div>
     </div>
   );
 }

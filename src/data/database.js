@@ -105,7 +105,7 @@ export function intoPhoneticCharacters(pinyin) {
 
 
 Object.entries(entries).forEach(([key, entry]) => {
-  if (entry.root) entry.index = [entry.key, 0];
+  if (entry.root) entry.index = [key, 0];
   const index = entry.root ? entry : entries[entry.index[0]];
   if (!index) console.log('index not found for %s: %s', key, entry.index[0]);
   else if (entry.index?.[2]) entry.strokes = entry.index[2];
@@ -126,16 +126,21 @@ for (const glyph of database.glyphs) {
 
 for (const [key, word] of Object.entries(database.words)) {
   word.key = key;
-  if (!word.entry) continue;
-  for (const [ekey, entry] of Object.entries(word.entry)) {
-    entry.key = ekey;
-    entry.phonetic = intoPhoneticCharacters(entry.pinyin);
+  if (!word.entries) {
+    if (word.pinyin) word.phonetic = intoPhoneticCharacters(word.pinyin);
+    continue;
   }
-  const entries = Object.keys(word.entry);
-  entries.sort((a, b) => a.localeCompare(b));
-  const main = entries[0];
-  word.pinyin = main;
-  word.definition = word.entry[main].definitions[0];
+  for (const [pinyin, entry] of Object.entries(word.entries)) {
+    entry.pinyin = pinyin;
+    entry.phonetic = intoPhoneticCharacters(pinyin);
+  }
+  if (!word.pinyin) {
+    const entries = Object.keys(word.entries);
+    entries.sort((a, b) => a.localeCompare(b));
+    const main = entries[0];
+    word.pinyin = main;
+    word.meaning = word.entries[main].definitions[0];
+  }
 }
 for (const glyph of database.glyphs) {
   if (!(glyph in database.words)) console.log("Glyph not in database:", glyph);
