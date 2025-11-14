@@ -36,7 +36,7 @@ def fix_pinyin(word):
     word = re.sub(r'([^aeiouü]*)([iuü]?)([aeiouüø]+[ngr]*)([1-5])',
                   replace_pinyin,
                   word)
-    return re.sub(r'\sr5', 'r', word)
+    return re.sub(r'\s?r5', 'r', word)
 
 
 def fix_text(text):

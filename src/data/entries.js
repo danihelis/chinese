@@ -98,7 +98,7 @@ export default {
   '月': {
     root: [74, 4],
     composition: '⿵⺆⿱一一',
-    origin: 'pictogram: pictographic representation of a crescent moon; related to 夕',
+    origin: 'pictogram: representation of a crescent moon; related to 夕',
   },
 
   '我': {
@@ -424,6 +424,43 @@ export default {
     root: [166, 7],
     composition: '⿱田土',
     origin: 'ideogram: 田 (“field”) + 土 (“soil; earth”), a measure of land and fields',
+  },
+
+  '多': {
+    index: ['夕', 3],
+    composition: '⿱夕夕',
+    origin: 'ideogram: two pieces of meat (肉); 肉 was corrupted into 夕',
+  },
+
+  '夕': {
+    root: [36, 3],
+    composition: '⿴𠂊丶',
+    origin: 'pictogram: crescent moon; ancient variant of 月',
+  },
+
+  '请': {
+    index: ['讠', 8],
+    composition: '⿰讠青',
+    origin: 'simplified from 請 (訁 → 讠); phono-semantic: semantic 言 (“say”) + phonetic 青',
+  },
+
+  '儿': {
+    root: [10, 2],
+    composition: '⿰丿乚',
+    origin: 'pictogram: a standing person; a radical form of 人',
+  },
+
+  '下': {
+    index: ['一', 2],
+    composition: '⿱一卜',
+    origin: 'ideogram: a line below another; contrast 上 (“above”)',
+  },
+
+  '车': {
+    root: [159, 4],
+    composition: '⿻⿻一𠃋十',
+    origin: 'from cursive script of 車; pictogram: vertical depiction of a carriage, with the wheels at top and bottom',
+    pinyin: '',
   },
 };
 

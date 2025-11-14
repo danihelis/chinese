@@ -80,6 +80,10 @@ export function intoPhoneticCharacters(pinyin) {
 
   const parts = [];
   for (const part of pinyin.split(/\s+/)) {
+    if (part === 'r') {
+      parts.push(consonants['r']);
+      continue;
+    }
     const match = part.match(new RegExp(pattern));
     if (!match) continue;
     let vowelTable = vowels;

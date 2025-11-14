@@ -93,13 +93,13 @@ function Block({title, children, padding = true}) {
 function Word({word, handlePage}) {
   return (
     <>
-      <div className="flex items-baseline">
+      <div className="flex items-baseline gap-2">
         {word.hsk ? (
-          <div className="bg-gray-700 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center mr-2">
+          <div className="bg-gray-700 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
             {word.hsk}
           </div>
         ) : <div className="w-4 h-4" />}
-        <CharacterSequence sequence={word.key} handlePage={handlePage} />
+        <p><CharacterSequence sequence={word.key} handlePage={handlePage} /></p>
       </div>
       <span className="text-black">{word.pinyin}</span>
       <p className="text-sm italic text-gray-800">{word.meaning}</p>
@@ -117,7 +117,7 @@ function WordList({words, handlePage}) {
 
   return (
     <div className="flex flex-col gap-1">
-      <div className="grid grid-cols-[auto_auto_1fr] gap-x-4 gap-y-1 items-center">
+      <div className="grid grid-cols-[auto_auto_1fr] gap-x-4 gap-y-1 items-centerx">
         {list.map(w => (
           <Word key={w.key} word={w} handlePage={handlePage} />
         ))}
