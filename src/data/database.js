@@ -142,10 +142,18 @@ for (const [key, word] of Object.entries(database.words)) {
     word.meaning = word.entries[main].definitions[0];
   }
 }
+
 for (const glyph of database.glyphs) {
   if (!(glyph in database.words)) console.log("Glyph not in database:", glyph);
   else database.words[glyph].isGlyph = true;
 }
+
+const glyphs = Object.values(database.words)
+  .filter(w => w.frequency);
+glyphs.sort((a, b) => b.frequency - a.frequency);
+glyphs.forEach((w, i) => {
+  w.percentile = (1 - i / glyphs.length) * 100;
+});
 
 console.log("Loaded database:", database);
 export default database;

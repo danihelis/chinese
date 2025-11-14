@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, Fragment } from 'react';
 import database from '../data/database.js';
+import { shuffle } from '../utils.js';
 import { Panel } from './Panel.jsx';
 import { Page } from '../Page.jsx';
 
@@ -21,10 +22,13 @@ function Character({character, handlePage}) {
 }
 
 
-function CharacterSequence({sequence, handlePage}) {
-    return [...sequence].map((glyph, i) => (
-      <Character key={[glyph, i]} character={glyph} handlePage={handlePage} />
-    ));
+function CharacterSequence({sequence, handlePage, word}) {
+    return [...sequence].map((glyph, i) =>
+      glyph == word ? (
+        <span key={[glyph, i]} className="underline font-bold">{glyph}</span>
+      ) : (
+        <Character key={[glyph, i]} character={glyph} handlePage={handlePage} />
+      ));
 }
 
 
@@ -90,9 +94,11 @@ function Word({word, handlePage}) {
   return (
     <>
       <div className="flex items-baseline">
-        <div className="bg-gray-700 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center mr-2">
-          {word.hsk ?? 'x'}
-        </div>
+        {word.hsk ? (
+          <div className="bg-gray-700 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center mr-2">
+            {word.hsk}
+          </div>
+        ) : <div className="w-4 h-4" />}
         <CharacterSequence sequence={word.key} handlePage={handlePage} />
       </div>
       <span className="text-black">{word.pinyin}</span>
@@ -142,14 +148,50 @@ function DefinitionList({definitions}) {
 }
 
 
+function Sentence({sentence, word, handlePage}) {
+  return (
+    <div className="">
+      <p>
+        <CharacterSequence sequence={sentence.phrase} handlePage={handlePage} word={word} />
+      </p>
+      <p>
+        {sentence.pinyin}
+      </p>
+      <p className="text-gray-800 italic">
+        {sentence.translation}
+      </p>
+    </div>
+  );
+}
+
+
+function SentenceList({sentences, word, handlePage}) {
+  const list = shuffle(sentences).slice(0, 3).map(s => database.sentences[s]);
+
+  return (
+    <div className="flex flex-col gap-4">
+      {list.map(s => (
+        <Sentence key={s.phrase} sentence={s} word={word} handlePage={handlePage} />
+      ))}
+    </div>
+  );
+}
+
+
 export function CharacterDetail({word, handlePage}) {
   const [ethymIndex, setEthymIndex] = useState(0);
-  const [collapseDefinitions, setCollapseDefinitions] = useState(true);
-  const [collapseWords, setCollapseWords] = useState(true);
+
+  useEffect(() => {
+    setEthymIndex(0);
+  }, [word]);
 
   const entry = database.words[word];
-  const ethymologies = Object.keys(entry.entries ?? []);
+  let ethymologies = Object.keys(entry.entries ?? []);
   ethymologies.sort((a, b) => a.localeCompare(b));
+  if (ethymologies.includes(entry.pinyin)) {
+    ethymologies = ethymologies.filter(p => p != entry.pinyin);
+    ethymologies.unshift(entry.pinyin);
+  }
 
   const pinyin = ethymologies[ethymIndex] ?? entry.pinyin;
   const data = entry.entries?.[ethymologies[ethymIndex]];
@@ -161,31 +203,38 @@ export function CharacterDetail({word, handlePage}) {
 
   const changeEthym = (index) => {
     if (index === ethymIndex) return;
-    setCollapseDefinitions(true);
     setEthymIndex(index);
   };
 
   return (
     <Page key={word} title="Character">
-      <div className="flex flex-col gap-6 items-center justify-center mt-5 max-w-sm justify-self-center">
-        <div className="grid grid-cols-2 gap-4">
-          <div className={`${textColor} ${bgLightColor} text-9xl rounded-xl p-2 h-40 flex justify-center items-center`}>
-            {word}
+      <div className="flex flex-col gap-6 items-center justify-center max-w-sm justify-self-center">
+        <div className="grid grid-cols-[auto_1fr] gap-4 gap-y-2">
+          {Object.keys(entry.entries ?? {}).length > 1 ? (
+            <>
+              <div className="flex gap-1 items-center justify-center relative">
+                {Object.keys(entry.entries).map((e, i) => (
+                  <div
+                    key={e}
+                    className={`${i === ethymIndex ? 'inset-ring-1 inset-ring-gray-800 text-gray-800' : 'bg-gray-600 text-white cursor-pointer'} w-5 h-5 text-xs flex items-center justify-center select-none z-1`}
+                    onClick={() => changeEthym(i)}
+                  >{i + 1}</div>
+                ))}
+              </div>
+              <div />
+            </>
+          ) : null}
+
+          <div>
+            <div className={`${textColor} ${bgLightColor} text-9xl rounded-xl p-2 h-40 w-40 flex justify-center items-center`}>
+              {word}
+            </div>
           </div>
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 min-w-40">
             {pinyin ? (
               <>
                 <div className="flex">
                   <p className="flex-1 text-3xl">{pinyin}</p>
-                  {Object.keys(entry.entries ?? {}).length > 1 ? (
-                    <div className="flex gap-1 items-center">
-                      {Object.keys(entry.entries).map((e, i) => (
-                        <div key={e} className={`${i === ethymIndex ? 'inset-ring-1 inset-ring-gray-800 text-gray-800' : 'bg-gray-600 text-white cursor-pointer'} w-5 h-5 text-xs flex items-center justify-center select-none`} onClick={() => changeEthym(i)}>
-                          {i + 1}
-                        </div>
-                      ))}
-                    </div>
-                  ) : null}
                 </div>
                 {phonetic ? (
                   <p className="text-gray-800">/{phonetic}/</p>
@@ -209,34 +258,35 @@ export function CharacterDetail({word, handlePage}) {
             ) : null}
           </div>
         </div>
-        <div className={`${textColor} text-xl text-center`}>
-          {data?.definitions[0] ?? entry.meaning}
-        </div>
+
         <div className="text-sm self-stretch">
-          <div className={`${bgHeavyColor} ${entry.frequency ? 'rounded-t-md' : 'rounded-md'} p-4 text-center`}>
-            <div className="flex gap-2 items-center">
-              <span className="font-mashan text-4xl">
-                {word}
-              </span>
-              <div className="flex-1">
-                <span className="text-xs font-semibold uppercase">Origin </span>
-                <MixedCharacterText text={entry.origin} handlePage={handlePage} />
+          {entry.origin ? (
+            <div className={`${bgHeavyColor} ${entry.percentile ? 'rounded-t-md' : 'rounded-md'} p-4 text-center`}>
+              <div className="flex gap-2 items-center">
+                <span className="font-mashan text-4xl">
+                  {word}
+                </span>
+                <div className="flex-1">
+                  <span className="text-xs font-semibold uppercase">Origin </span>
+                  <MixedCharacterText text={entry.origin} handlePage={handlePage} />
+                </div>
               </div>
             </div>
-          </div>
-          {entry.frequency ? (
-            <div className="bg-gray-600 text-white rounded-b-md flex p-2 px-4">
+          ) : null}
+          {entry.percentile ? (
+            <div className={`${entry.origin ? 'rounded-b-md' : 'rounded-md'} bg-gray-600 text-white flex p-2 px-4`}>
               <div className="flex-auto">
                 <span className="text-xs font-semibold uppercase mr-2">Freq Perc</span>
-                {entry.frequency}%
+                {entry.percentile.toFixed(0)}%
               </div>
               <div className="flex-auto text-right">
                 <span className="text-xs font-semibold uppercase mr-2">HSK Level</span>
-                {entry.hsk ?? <span>&ndash;</span>}
+                {entry.hsk || <span>&ndash;</span>}
               </div>
             </div>
           ) : null}
         </div>
+
         {data ? (
           <Block title="Definitions">
             <DefinitionList definitions={data.definitions} />
@@ -244,12 +294,20 @@ export function CharacterDetail({word, handlePage}) {
         ) : (
           <p className="text-center italic">Not a character on its own</p>
         )}
+
         {entry.words?.length ? (
           <Block title="Compounded words">
             <WordList words={entry.words} handlePage={handlePage} />
           </Block>
         ) : null}
-        <Block title="Pratice writing" padding={false}>
+
+        {entry.sentences?.length ? (
+          <Block title="Example Sentences">
+            <SentenceList sentences={entry.sentences} word={word} handlePage={handlePage} />
+          </Block>
+        ) : null}
+
+        <Block title="Practice writing" padding={false}>
           <Panel word={word} />
         </Block>
       </div>

@@ -14,9 +14,8 @@ export default {
 
   '丿': {
     root: [4, 1],
-    origin: 'ideogram: the stroke itself',
+    origin: 'ideogram: left-falling stroke',
     pinyin:  'pie3',
-    meaning: 'left-falling stroke',
   },
 
   '日': {
@@ -34,8 +33,7 @@ export default {
   '勹': {
     root: [20, 2],
     composition: '⿰丿𠃌',
-    origin: 'pictogram: a person bending over',
-    meaning: 'wrap',
+    origin: 'pictogram: a person bending over, meaning “to wrap”',
   },
 
   '一': {
@@ -46,14 +44,13 @@ export default {
   '是': {
     index: ['日', 5],
     composition: '⿱日𤴓',
-    origin: 'phono-semantic of unclear origin; maybe a compound of 日 (“sun”) + 正 (“upright; right”) (i.e. as the upright sun)',
+    origin: 'phono-semantic of unclear origin; maybe a compound of 日 (“sun”) + 正 (“upright; right”), as the upright sun',
   },
 
   '𤴓': {
     index: ['疋', 0],
     composition: '⿱一龰',
-    origin: 'variant form of 正',
-    meaning: 'straight; upright',
+    origin: 'variant form of 正 (“straight; upright”)',
   },
 
   '不': {
@@ -70,9 +67,8 @@ export default {
 
   '亅': {
     root: [6, 1],
-    origin: 'ideogram: the stroke itself',
+    origin: 'ideogram: a backward hook',
     pinyin: 'jue2',
-    meaning: 'a backward hook',
   },
 
   '在': {
@@ -126,9 +122,8 @@ export default {
   '亻': {
     index: ['人', 0],
     composition: '⿱丿丨',
-    origin: 'a stylization of 人',
+    origin: 'a stylization of 人 (“person”)',
     pinyin:  'ren2',
-    meaning: 'person',
   },
 
   '也': {
@@ -157,9 +152,8 @@ export default {
   '辶': {
     index: ['辵', 0, 3],
     composition: '⿳丶𠃍乀',
-    origin: 'combining form of 辵',
+    origin: 'combining form of 辵 (“walk, road”)',
     pinyin: 'chuo4',
-    meaning: 'walk, road',
   },
 
   '个': {
@@ -172,13 +166,12 @@ export default {
     root: [2, 1],
     origin: 'pictogram of a vertical wooden stick',
     pinyin: 'gun3',
-    meaning: 'stick, rod',
   },
 
   '们': {
     index: ['人', 3],
     composition: '⿰亻门',
-    origin: 'simplified from 們; phono-semantic: semantic 亻 (“person”) + phonetic 門',
+    origin: 'simplified from 們 (門 → 门); phono-semantic: semantic 亻 (“person”) + phonetic 門',
   },
 
   '门': {
@@ -220,14 +213,13 @@ export default {
   '为': {
     index: ['丶', 3],
     composition: '⿸⿵丶力丶',
-    origin: 'from cursive script of 為; ideogram: 又 (“hand”) + 象 (“elephant”) — a hand holding an elephant',
+    origin: 'from cursive script of 為; ideogram: 又 (“hand”) + 象 (“elephant”), a hand holding an elephant',
   },
 
   '丶': {
     root: [3, 1],
     origin: 'ideogram: just a point; however, it can represent many different things: ice (冰), water (汉), minerals (丹), an eye (鸟), etc.',
     pinyin: 'zhu3',
-    meaning: 'dot',
   },
 
   '和': {
@@ -277,7 +269,6 @@ export default {
     composition: ' ⿰丨亅',
     origin: 'radical form of 刀 (“knife”)',
     pinyin: 'dao1',
-    meaning: 'knife',
   },
 
   '以': {
@@ -298,7 +289,6 @@ export default {
     composition: '⿱丶㇊',
     origin: 'simplified form of 言 (“speech”)',
     pinyin: 'yan2',
-    meaning: 'speech',
   },
 
   '言': {
@@ -328,9 +318,8 @@ export default {
   '覀': {
     index: ['襾', 0],
     composition: '⿱一⿻口⿰丨丨',
-    origin: 'a variant form of 襾',
+    origin: 'a variant form of 襾 (“cover”)',
     pinyin: 'ya4',
-    meaning: 'cover',
   },
 
   '女': {
@@ -402,23 +391,21 @@ export default {
   '邑': {
     root: [163, 7],
     composition: '⿱口巴',
-    origin: 'ideogram:  囗 (“enclosure; city wall”) + 卪 (“kneeling person”)',
+    origin: 'ideogram: 囗 (“enclosure; city wall”) + 卪 (“kneeling person”)',
   },
 
   '⻏': {
     index: ['邑', 0, 2],
     composition: '⿰丨㇌',
-    origin: 'right form of 邑',
+    origin: 'right form of 邑 (“capital city”)',
     pinyin: 'yi4',
-    meaning: 'capital city',
   },
 
   '阝': {
     index: ['阜', 0, 2],
     composition: '⿰丨㇌',
-    origin: 'left form of 阜',
+    origin: 'left form of 阜 (“mound”)',
     pinyin: 'fu4',
-    meaning: 'mound',
   },
 
   '很': {
@@ -447,6 +434,5 @@ export default {
     composition: '',
     origin: '',
     pinyin: '',
-    meaning: '',
   },
 */
