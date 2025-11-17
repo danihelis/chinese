@@ -165,6 +165,19 @@ function Sentence({sentence, word, handlePage}) {
 }
 
 
+function VariantList({variants, handlePage}) {
+  variants.sort((a, b) => a.strokes - b.strokes);
+
+  return (
+    <div className="flex gap-2">
+      {variants.map((w) => (
+        <Character key={w.key} character={w.key} handlePage={handlePage} />
+      ))}
+    </div>
+  );
+}
+
+
 function SentenceList({sentences, word, handlePage}) {
   const list = shuffle(sentences).slice(0, 3).map(s => database.sentences[s]);
 
@@ -287,13 +300,17 @@ export function CharacterDetail({word, handlePage}) {
           ) : null}
         </div>
 
+        {entry.variants?.length ? (
+          <Block title="Variant forms">
+            <VariantList variants={entry.variants} handlePage={handlePage} />
+          </Block>
+        ) : null}
+
         {data ? (
           <Block title="Definitions">
             <DefinitionList definitions={data.definitions} />
           </Block>
-        ) : (
-          <p className="text-center italic">Not a character on its own</p>
-        )}
+        ) : null}
 
         {entry.words?.length ? (
           <Block title="Compounded words">

@@ -109,9 +109,11 @@ export function intoPhoneticCharacters(pinyin) {
 
 
 Object.entries(entries).forEach(([key, entry]) => {
+  if (entry.index?.[1] === 0) entry.isVariant = entry.index[0];
+
   if (entry.root) entry.index = [key, 0];
   const index = entry.root ? entry : entries[entry.index[0]];
-  if (!index) console.log('index not found for %s: %s', key, entry.index[0]);
+  if (!index) console.error('index not found for %s: %s', key, entry.index[0]);
   else if (entry.index?.[2]) entry.strokes = entry.index[2];
   else entry.strokes = index.root[1] + (entry.index?.[1] ?? 0);
 
@@ -130,6 +132,17 @@ for (const glyph of database.glyphs) {
 
 for (const [key, word] of Object.entries(database.words)) {
   word.key = key;
+
+  if (word.isVariant) {
+    if (!(word.isVariant in database.words)) {
+      console.error(`original form for variant ${key} not found: ${word.isVariant}`);
+    } else {
+      const original = database.words[word.isVariant];
+      if (!original.variants) original.variants = [];
+      original.variants.push(word);
+    }
+  }
+
   if (!word.entries) {
     if (word.pinyin) word.phonetic = intoPhoneticCharacters(word.pinyin);
     continue;
@@ -148,7 +161,7 @@ for (const [key, word] of Object.entries(database.words)) {
 }
 
 for (const glyph of database.glyphs) {
-  if (!(glyph in database.words)) console.log("Glyph not in database:", glyph);
+  if (!(glyph in database.words)) console.error("Glyph not in database:", glyph);
   else database.words[glyph].isGlyph = true;
 }
 

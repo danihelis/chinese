@@ -175,7 +175,7 @@ export default {
   },
 
   '门': {
-    root: [0, 3],
+    root: [169, 3],
     composition: '⿲丨丶𠃌',
     origin: 'simplified form of 門; pictogram: a gate',
   },
@@ -193,7 +193,7 @@ export default {
   },
 
   '木': {
-    root: [0, 4],
+    root: [75, 4],
     composition: '⿻十𠆢',
     origin: 'pictogram: a tree, with branches on top and roots on bottom',
   },
@@ -241,7 +241,7 @@ export default {
   },
 
   '地': {
-    index: ['土', 0],
+    index: ['土', 3],
     composition: '⿰土也',
     origin: 'phono-semantic: semantic 土 (“earth”) + phonetic 也',
   },
