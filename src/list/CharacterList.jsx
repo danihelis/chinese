@@ -89,6 +89,10 @@ export function CharacterList({handlePage}) {
       groups.get(head).push(w);
     });
 
+    groups.keys().filter(k =>
+      groups.get(k).every(w => !w.entries)
+    ).toArray().forEach(k => groups.delete(k));
+
     groups.values().forEach(l => l.sort((a, b) => {
       if (a.index[1] === b.index[1]) {
         return a.pinyin?.toLowerCase().normalize('NFD').localeCompare(

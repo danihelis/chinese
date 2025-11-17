@@ -235,7 +235,7 @@ export default {
   },
 
   '国': {
-    index: ['口', 5],
+    index: ['囗', 5],
     composition: '⿴囗玉',
     origin: 'simplified from 國; phono-semantic: semantic 囗 (“closure”) + phonetic 或',
   },
@@ -473,6 +473,55 @@ export default {
     root: [170, 8],
     composition: '⿱𠂤十',
     origin: 'pictogram: a row of steps on a hill, still visible in the upper part 𠂤',
+  },
+
+  '去': {
+    index: ['厶', 3],
+    composition: '⿱土厶',
+    origin: 'ideogram: 大 (“man”) + 口 (“mouth”), perhaps meaning anus or evacuation; 大 was simplified to 土, and 口 to 厶',
+  },
+
+  '厶': {
+    root: [28, 2],
+    composition: '⿰𠃋丶',
+    origin: 'ideogram: revolving around oneself; original character for 私 (“selfish; private”)',
+  },
+
+  '家': {
+    index: ['宀', 7],
+    composition: '⿱宀豕',
+    origin: 'phono-semantic: semantic 宀 (“roof”) + corrupted phonetic 豕',
+  },
+
+  '宀': {
+    root: [40, 3],
+    composition: '⿱丶冖',
+    origin: 'pictogram: a house, similar to 广',
+    pinyin: 'mian2',
+  },
+
+  '回': {
+    index: ['囗', 3],
+    composition: '⿴囗口',
+    origin: 'pictogram: rotation (originally a spiral)',
+  },
+
+  '囗': {
+    root: [31, 3],
+    composition: '⿱冂一',
+    origin: 'pictogram: a square-shaped enclosure; unrelated to 口 (“open mouth”)',
+  },
+
+  '天': {
+    index: ['大', 1],
+    composition: '⿱一大',
+    origin: 'pictogram: a horizontal line above a man with outstretched arms 大 to indicate the sky',
+  },
+
+  '今': {
+    index: ['人', 2],
+    composition: '⿱亽㇇',
+    origin: 'ideogram: an inverted 曰 ("to speak"), hence 亼, with a negative horizontal stroke, meaning "not to speak"',
   },
 };
 
