@@ -165,8 +165,7 @@ for (const glyph of database.glyphs) {
   else database.words[glyph].isGlyph = true;
 }
 
-const glyphs = Object.values(database.words)
-  .filter(w => w.frequency);
+const glyphs = Object.values(database.words).filter(w => w.frequency);
 glyphs.sort((a, b) => b.frequency - a.frequency);
 glyphs.forEach((w, i) => {
   w.percentile = (1 - i / glyphs.length) * 100;

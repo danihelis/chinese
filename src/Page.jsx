@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 
 
-export function Page({title, children}) {
+export function Page({title, children, className}) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export function Page({title, children}) {
   return (
     <div className="flex-grow flex flex-col gap-4 items-center p-4 overflow-y-auto h-full">
       <h1 ref={ref} className="text-3xl font-bold p-4">{title}</h1>
-      <div className="w-full">
+      <div className={`w-full ${className}`}>
         {children}
       </div>
     </div>

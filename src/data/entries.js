@@ -462,6 +462,18 @@ export default {
     origin: 'from cursive script of 車; pictogram: vertical depiction of a carriage, with the wheels at top and bottom',
     pinyin: '',
   },
+
+  '疋': {
+    root: [103, 5],
+    composition: '⿱乛龰',
+    origin: 'pictogram: a foot 止 with a leg/thigh on top; similar to 足 (“foot”)',
+  },
+
+  '阜': {
+    root: [170, 8],
+    composition: '⿱𠂤十',
+    origin: 'pictogram: a row of steps on a hill, still visible in the upper part 𠂤',
+  },
 };
 
 /*
