@@ -132,6 +132,7 @@ for (const glyph of database.glyphs) {
 
 for (const [key, word] of Object.entries(database.words)) {
   word.key = key;
+  word.head = database.words[[...word.key][0]];
 
   if (word.isVariant) {
     if (!(word.isVariant in database.words)) {

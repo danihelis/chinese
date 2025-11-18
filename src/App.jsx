@@ -13,6 +13,7 @@ function NavBar({handlePage}) {
   const menu = [
     // ['Home', defaultPage],
     ['List of characters', 'list'],
+    ['List of words', 'words'],
     ['Train', 'train'],
   ];
 
@@ -71,19 +72,13 @@ export default function App() {
     setWord(word);
   };
 
-  const renderTitle = () => {
-    switch (page) {
-      case 'list': return 'List of Characters';
-      case 'detail': return 'Character';
-      case 'train': return 'Training';
-      default: 'No page';
-    }
-  }
-
   let content = <p>No content</p>;
   switch (page) {
     case 'list':
       content = <CharacterList handlePage={handlePage} />;
+      break;
+    case 'words':
+      content = <CharacterList handlePage={handlePage} asWords />;
       break;
     case 'detail':
       content = <CharacterDetail word={word} handlePage={handlePage} />;

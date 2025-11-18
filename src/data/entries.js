@@ -523,6 +523,54 @@ export default {
     composition: '⿱亽㇇',
     origin: 'ideogram: an inverted 曰 ("to speak"), hence 亼, with a negative horizontal stroke, meaning "not to speak"',
   },
+
+  '想': {
+    index: ['心', 9],
+    composition: '⿱相心',
+    origin: 'phono-semantic: phonetic 相 + semantic 心 (“heart, mind”)',
+  },
+
+  '心': {
+    root: [61, 4],
+    composition: '⿲丿⿺乚丶丶',
+    origin: 'pictogram: a heart, now highly stylized',
+  },
+
+  '吧': {
+    index: ['口', 4],
+    composition: '⿰口巴',
+    origin: 'phono-semantic: semantic 口 (“mouth”) + phonetic 巴',
+  },
+
+  '起': {
+    index: ['走', 3],
+    composition: '⿺走己',
+    origin: 'phono-semantic: semantic 走 (“to run”) + phonetic 己',
+  },
+
+  '走': {
+    root: [156, 7],
+    composition: '⿱土龰',
+    origin: 'pictogram: a running man 夭, with 止 (“foot”) added later; 夭 was simplified to 土, and 止 to 龰',
+  },
+
+  '看': {
+    index: ['目', 4],
+    composition: '⿸龵目',
+    origin: 'ideogram: 手 (“hand”) + 目 (“eye”), to put a hand above eyes to gaze afar',
+  },
+
+  '目': {
+    root: [109, 5],
+    composition: '⿴囗⿱一一',
+    origin: 'pictogram: a human eye, now rotated 90 degrees',
+  },
+
+  '小': {
+    root: [42, 3],
+    composition: '⿻亅八',
+    origin: 'either ideogram: three small dots; or pictogram: three granules of sand, the original character of 沙 (“sand”)',
+  },
 };
 
 /*

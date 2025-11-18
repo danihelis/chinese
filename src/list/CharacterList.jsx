@@ -6,7 +6,29 @@ import { Page } from '../Page.jsx';
 import { Link } from './Link.jsx';
 
 
-function Section({label, list, method, handlePage}) {
+export function WordLink({word, showIndex, onClick}) {
+  const entry = database.words[word];
+  const index = showIndex && entry.head.index ?
+    `${entry.head.index < 0 ? '-' : '+'}${entry.head.index[1]}` : null;
+
+  // <div className="grid grid-cols-[5em_9em_1fr] p-2 bg-gray-200 hover:bg-gray-100 cursor-pointer rounded rounded-xl">
+  return (
+    <div className="flex gap-4 p-2 bg-gray-200 hover:bg-gray-100 cursor-pointer rounded rounded-xl items-baseline relative">
+      <div className="whitespace-nowrap text-xl">
+        {word}
+      </div>
+      <div className="whitespace-nowrap">
+        {entry.pinyin}
+      </div>
+      <div className="text-gray-500 text-sm truncate">
+        {entry.meaning}
+      </div>
+      {index && <div className="absolute top-0 right-0 p-1 px-2 bg-gray-300 text-gray-600 text-xs rounded rounded-tr-xl self-stretch flex items-center">{index}</div>}
+    </div>
+  );
+}
+
+function Section({label, list, method, handlePage, asWords}) {
   const index = database.words[label]?.root?.[0];
 
   return (
@@ -20,16 +42,27 @@ function Section({label, list, method, handlePage}) {
           </>
         ) : null}
       </div>
-      <div className="flex flex-wrap gap-2 justify-center">
-        {list.map(w => (
-          <Link
-            key={w.key}
-            word={w.key}
-            onClick={() => handlePage('detail', w.key)}
-            showIndex={method === 'stroke'}
-          />
-        ))}
-      </div>
+      {asWords ? (
+        list.map(w => (
+            <WordLink
+              key={w.key}
+              word={w.key}
+              onClick={() => handlePage('detail', w.key)}
+              showIndex={method === 'stroke'}
+            />
+        ))
+      ) : (
+        <div className="flex flex-wrap gap-2 justify-center">
+          {list.map(w => (
+            <Link
+              key={w.key}
+              word={w.key}
+              onClick={() => handlePage('detail', w.key)}
+              showIndex={method === 'stroke'}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -63,12 +96,14 @@ function Selector({method, setMethod}) {
 }
 
 
-export function CharacterList({handlePage}) {
+export function CharacterList({handlePage, asWords = false}) {
   const [sortMethod, setSortMethod] = useState('pinyin');
   const groups = new Map();
 
   if (sortMethod === 'pinyin') {
-    const list = database.glyphs.map(g => database.words[g]).filter(w => w.hsk);
+    const list = asWords ?
+      Object.values(database.words).filter(w => w.hsk && !w.isGlyph) :
+      database.glyphs.map(g => database.words[g]).filter(w => w.hsk);
     list.forEach(w => {
       const head = w.pinyin.normalize('NFD')[0].toUpperCase();
       if (!groups.has(head)) groups.set(head, []);
@@ -82,9 +117,12 @@ export function CharacterList({handlePage}) {
     ));
   }
   else if (sortMethod === 'stroke') {
-    const list = Object.values(database.words).filter(w => w.index);
+    const list = !asWords ?
+      Object.values(database.words).filter(w => w.index) :
+      Object.values(database.words).filter(
+          w => w.hsk && !w.isGlyph && w.head.index);
     list.forEach(w => {
-      const head = w.index[0];
+      const head = w.head.index[0];
       if (!groups.has(head)) groups.set(head, []);
       groups.get(head).push(w);
     });
@@ -94,12 +132,12 @@ export function CharacterList({handlePage}) {
     ).toArray().forEach(k => groups.delete(k));
 
     groups.values().forEach(l => l.sort((a, b) => {
-      if (a.index[1] === b.index[1]) {
+      if (a.head.index[1] === b.head.index[1]) {
         return a.pinyin?.toLowerCase().normalize('NFD').localeCompare(
-          b.pinyin?.toLowerCase().normalize('NFD') ?? ''
-        );
+          (b.pinyin ?? a.pinyin).toLowerCase().normalize('NFD')
+        ) ?? 0;
       }
-      return a.index[1] - b.index[1];
+      return a.head.index[1] - b.head.index[1];
     }));
   }
 
@@ -115,7 +153,7 @@ export function CharacterList({handlePage}) {
   }
 
   return (
-    <Page title="List of Characters" className="flex flex-col gap-5">
+    <Page title={`List of ${asWords ? 'Words' : 'Characters'}`} className="flex flex-col gap-5">
       <Selector method={sortMethod} setMethod={setSortMethod} />
       <div className="flex flex-col gap-3 justify-center">
         {sections?.map(s => (
@@ -125,6 +163,7 @@ export function CharacterList({handlePage}) {
             list={groups.get(s)}
             handlePage={handlePage}
             method={sortMethod}
+            asWords={asWords}
           />
         ))}
       </div>
