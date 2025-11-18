@@ -484,7 +484,7 @@ export default {
   '厶': {
     root: [28, 2],
     composition: '⿰𠃋丶',
-    origin: 'ideogram: revolving around oneself; original character for 私 (“selfish; private”)',
+    origin: 'ideogram: revolving around oneself; original character of 私 (“selfish; private”)',
   },
 
   '家': {
@@ -569,7 +569,38 @@ export default {
   '小': {
     root: [42, 3],
     composition: '⿻亅八',
-    origin: 'either ideogram: three small dots; or pictogram: three granules of sand, the original character of 沙 (“sand”)',
+    origin: 'either ideogram: three small dots; or pictogram: three granules of sand, original character of 沙 (“sand”)',
+  },
+
+  '边': {
+    index: ['辵', 2, 5],
+    composition: '⿺辶力',
+    origin: 'simplified from 邊 (臱 → 力); phono-semantic: semantic 辶 (“walking; movement”) + phonetic 臱',
+  },
+
+  '北': {
+    index: ['匕', 3],
+    composition: '⿲⿱一㇀丨匕',
+    origin: 'ideogram: two men back to back; the sense of “north” is derived from “back, turn the back to”',
+  },
+
+  '匕': {
+    root: [21, 2],
+    composition: '⿺乚丿',
+    origin: 'pictogram: a spoon; unrelated to 老 (“old man”), where it represents a cane',
+    pinyin: 'bi3',
+  },
+
+  '老': {
+    root: [125, 6],
+    composition: '⿱耂匕',
+    origin: 'ideogram: 人 (“man”) + 毛 (“hair”) + 匕 (“cane”), an old man leaning on a cane',
+  },
+
+  '吃': {
+    index: ['口', 3],
+    composition: '⿰口乞',
+    origin: 'phono-semantic: semantic 口 (“mouth”) + phonetic 乞',
   },
 };
 
