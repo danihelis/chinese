@@ -109,8 +109,6 @@ export function intoPhoneticCharacters(pinyin) {
 
 
 Object.entries(entries).forEach(([key, entry]) => {
-  if (entry.index?.[1] === 0) entry.isVariant = entry.index[0];
-
   if (entry.root) entry.index = [key, 0];
   const index = entry.root ? entry : entries[entry.index[0]];
   if (!index) console.error('index not found for %s: %s', key, entry.index[0]);
@@ -134,11 +132,11 @@ for (const [key, word] of Object.entries(database.words)) {
   word.key = key;
   word.head = database.words[[...word.key][0]];
 
-  if (word.isVariant) {
-    if (!(word.isVariant in database.words)) {
-      console.error(`original form for variant ${key} not found: ${word.isVariant}`);
+  if (word.variant) {
+    if (!(word.variant in database.words)) {
+      console.error(`original form for variant ${key} not found: ${word.variant}`);
     } else {
-      const original = database.words[word.isVariant];
+      const original = database.words[word.variant];
       if (!original.variants) original.variants = [];
       original.variants.push(word);
     }

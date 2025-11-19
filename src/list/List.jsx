@@ -135,6 +135,8 @@ export function List({handlePage, asWords = false}) {
     ).toArray().forEach(k => groups.delete(k));
 
     groups.values().forEach(l => l.sort((a, b) => {
+      if (a.head.index[0] === a.key) return -1;
+      if (b.head.index[0] === b.key) return 1;
       if (a.head.index[1] === b.head.index[1]) {
         return a.pinyin?.toLowerCase().normalize('NFD').localeCompare(
           (b.pinyin ?? a.pinyin).toLowerCase().normalize('NFD')

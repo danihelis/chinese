@@ -51,6 +51,7 @@ export default {
     index: ['疋', 0],
     composition: '⿱一龰',
     origin: 'variant form of 正 (“straight; upright”)',
+    variant: '疋',
   },
 
   '不': {
@@ -124,6 +125,7 @@ export default {
     composition: '⿱丿丨',
     origin: 'a stylization of 人 (“person”)',
     pinyin:  'ren2',
+    variant: '人',
   },
 
   '也': {
@@ -154,6 +156,7 @@ export default {
     composition: '⿳丶𠃍乀',
     origin: 'combining form of 辵 (“walk, road”)',
     pinyin: 'chuo4',
+    variant: '辵',
   },
 
   '个': {
@@ -269,6 +272,7 @@ export default {
     composition: ' ⿰丨亅',
     origin: 'radical form of 刀 (“knife”)',
     pinyin: 'dao1',
+    variant: '刀',
   },
 
   '以': {
@@ -278,17 +282,17 @@ export default {
   },
 
   '说': {
-    index: ['讠', 7],
+    index: ['言', 7, 9],
     composition: '⿰讠兑',
     origin: 'simplified from 說 (訁 → 讠); phono-semantic: semantic 言 (“to speak”) + phonetic 兌',
   },
 
   '讠': {
     index: ['言', 0, 2],
-    root: [149, 2],
     composition: '⿱丶㇊',
     origin: 'simplified form of 言 (“speech”)',
     pinyin: 'yan2',
+    variant: '言',
   },
 
   '言': {
@@ -320,6 +324,7 @@ export default {
     composition: '⿱一⿻口⿰丨丨',
     origin: 'a variant form of 襾 (“cover”)',
     pinyin: 'ya4',
+    variant: '襾',
   },
 
   '女': {
@@ -399,6 +404,7 @@ export default {
     composition: '⿰丨㇌',
     origin: 'right form of 邑 (“capital city”)',
     pinyin: 'yi4',
+    variant: '邑',
   },
 
   '阝': {
@@ -406,6 +412,7 @@ export default {
     composition: '⿰丨㇌',
     origin: 'left form of 阜 (“mound”)',
     pinyin: 'fu4',
+    variant: '阜',
   },
 
   '很': {
@@ -439,7 +446,7 @@ export default {
   },
 
   '请': {
-    index: ['讠', 8],
+    index: ['言', 8, 10],
     composition: '⿰讠青',
     origin: 'simplified from 請 (訁 → 讠); phono-semantic: semantic 言 (“say”) + phonetic 青',
   },
@@ -602,6 +609,76 @@ export default {
     composition: '⿰口乞',
     origin: 'phono-semantic: semantic 口 (“mouth”) + phonetic 乞',
   },
+
+  '饭': {
+    index: ['食', 4, 7],
+    composition: '⿰饣反',
+    origin: 'simplified from 飯 (食 → 饣); phono-semantic: semantic 食 (“food”) + phonetic 反',
+  },
+
+  '饣': {
+    index: ['食', 0, 3],
+    composition: '⿱⺈𠄌',
+    origin: 'simplified form of 食 (“food”)',
+    pinyin: 'shi2',
+    variant: '食',
+  },
+
+  '食': {
+    root: [184, 9],
+    composition: '⿱人良',
+    origin: 'pictogram: mouth (亼) over a bowl of rice on a stand (皀); unrelated to 良 or 艮',
+  },
+
+  '衣': {
+    root: [145, 6],
+    composition: '⿱亠𧘇',
+    origin: 'pictogram: outline of the chest, denoting upper clothing',
+  },
+
+  '服': {
+    index: ['月', 4],
+    composition: '⿰月𠬝',
+    origin: 'phono-semantic: semantic 凡 (“tray”) + phonetic 𠬝; 凡 has been corrupted into 月',
+  },
+
+  '件': {
+    index: ['人', 4],
+    composition: '⿰亻牛',
+    origin: 'ideogram: 人 (“man”) + 牛 (“cow”); (perhaps meaning to distinguish?)',
+  },
+
+  '电': {
+    index: ['田', 0],
+    composition: '⿻日乚',
+    origin: 'simplified form of 電; ideogram: 雨 (“rain”) + 申(“lightning”)',
+  },
+
+  '田': {
+    root: [102, 5],
+    composition: '⿴囗十',
+    origin: 'pictogram: representation of a field divided into four sections',
+  },
+
+  '没': {
+    index: ['水', 4, 7],
+    composition: '⿰氵殳',
+    origin: 'phono-semantic: semantic 水 (“water”) + phonetic 殳, meaning “to drown”; negative sense is an unrelated variation',
+  },
+
+  '水': {
+    root: [85, 4],
+    composition: '⿰⿰㇇亅⿺㇏丿',
+    origin: 'pictogram: flowing water',
+  },
+
+  '氵': {
+    index: ['水', 0, 3],
+    composition: '⿱⺀㇀',
+    origin: 'compressed form of 水 (“water”); used only as component',
+    pinyin: 'shui3',
+    variant: '水',
+  },
 };
 
 /*
@@ -611,5 +688,6 @@ export default {
     composition: '',
     origin: '',
     pinyin: '',
+    variant: '',
   },
 */
