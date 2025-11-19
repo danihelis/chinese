@@ -13,7 +13,10 @@ export function WordLink({word, showIndex, onClick}) {
 
   // <div className="grid grid-cols-[5em_9em_1fr] p-2 bg-gray-200 hover:bg-gray-100 cursor-pointer rounded rounded-xl">
   return (
-    <div className="flex gap-4 p-2 bg-gray-200 hover:bg-gray-100 cursor-pointer rounded rounded-xl items-baseline relative">
+    <div
+      className="flex gap-4 p-2 bg-gray-200 hover:bg-gray-100 cursor-pointer rounded rounded-xl items-baseline relative"
+      onClick={onClick}
+    >
       <div className="whitespace-nowrap text-xl">
         {word}
       </div>
@@ -96,7 +99,7 @@ function Selector({method, setMethod}) {
 }
 
 
-export function CharacterList({handlePage, asWords = false}) {
+export function List({handlePage, asWords = false}) {
   const [sortMethod, setSortMethod] = useState('pinyin');
   const groups = new Map();
 

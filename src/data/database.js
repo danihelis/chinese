@@ -125,7 +125,7 @@ Object.entries(entries).forEach(([key, entry]) => {
 
 for (const glyph of database.glyphs) {
   if (!database.words[glyph].index) {
-    console.log("Next glyph to set input", glyph, database.words[glyph]);
+    console.log("Next glyph to set input", glyph, database.words[glyph].pinyin);
     break;
   }
 }

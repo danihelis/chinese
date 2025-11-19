@@ -102,16 +102,24 @@ class Sentence:
         self.value = value
         self.pinyin = pinyin
         self.translation = translation
+        self.contents = []
 
-    def set_words(self, words):
-        self.words = words
+    def set_contents(self, contents):
+        self.contents = contents
         self.glyphs = {}
-        for w in words:
+        for w in self.words:
             self.glyphs.update(w.glyphs)
         for w in self.words:
             w.sentences.add(self)
         for g in self.glyphs.values():
             g.sentences.add(self)
+
+    @property
+    def words(self):
+        return filter(lambda w: isinstance(w, Word), self.contents)
+
+    def __str__(self):
+        return self.value
 
 
 class Word:
@@ -125,6 +133,9 @@ class Word:
         self.hsk = 0
         self.hsk_pinyin = None
         self.hsk_definition = None
+
+    def __str__(self):
+        return self.value
 
     @property
     def is_glyph(self):
@@ -272,6 +283,7 @@ with open(SENT_FILE) as stream:
                 if w in dictionary
             ]
             if not words:
+                contents.append(phrase[start])
                 start += 1
             else:
                 words = [(w.hsk, len(w.value), w) for w in words]
@@ -279,8 +291,8 @@ with open(SENT_FILE) as stream:
                 contents.append(word)
                 start += length
 
-        sentence.set_words(contents)
-        for word in contents:
+        sentence.set_contents(contents)
+        for word in sentence.words:
             unique_words.add(word)
             if word not in word_list:
                 word_list[word.value] = word
@@ -344,7 +356,7 @@ print('Creating output with %d words, %d glyphs and %d sentences' % (
 def set_serializer(obj):
     if isinstance(obj, Sentence):
         return {
-            'phrase': obj.value,
+            'contents': [str(w) for w in obj.contents],
             'pinyin': obj.pinyin,
             'translation': obj.translation
         }
@@ -399,7 +411,7 @@ with open(TXT_OUTPUT_FILE, 'w') as stream:
         for s in random.sample(list(word.sentences),
                                min(3, len(word.sentences))):
             print(f'  * {s.value} {s.pinyin} {s.translation}',
-                  ' '.join(w.value for w in s.words),
+                  ' '.join(str(w) for w in s.contents),
                   file=stream)
 
     for glyph in learning_order:

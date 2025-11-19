@@ -9,13 +9,13 @@ const characterColor = 'text-gray-900';
 const componentColor = 'text-gray-900';
 
 
-function Character({character, handlePage}) {
-  if (!(character in database.words)) {
+function Character({character, handlePage, word}) {
+  if (character === word || !(character in database.words)) {
     return <span className="text-gray-600">{character}</span>;
   }
   return (
     <span
-      className={`text-gray-900 cursor-pointer`}
+      className={`text-gray-900 cursor-pointer hover:underline`}
       onClick={() => handlePage('detail', character)}
     >{character}</span>
   );
@@ -77,12 +77,12 @@ function Attribute({name, tooltip, children}) {
 }
 
 
-function Block({title, children, padding = true}) {
+function Block({title, children, className, padding = true}) {
 
   return (
     <div className="self-stretch flex flex-col gap-4">
       <p className="text-sm font-semibold uppercase">{title}</p>
-      <div className={padding ? 'pl-6' : ''}>
+      <div className={`${padding ? 'pl-6' : ''} ${className}`}>
         {children}
       </div>
     </div>
@@ -99,7 +99,7 @@ function Word({word, handlePage}) {
             {word.hsk}
           </div>
         ) : <div className="w-4 h-4" />}
-        <p><CharacterSequence sequence={word.key} handlePage={handlePage} /></p>
+        <p className="cursor-pointer" onClick={() => handlePage('detail', word.key)}>{word.key}</p>
       </div>
       <span className="text-black">{word.pinyin}</span>
       <p className="text-sm italic text-gray-800">{word.meaning}</p>
@@ -152,7 +152,9 @@ function Sentence({sentence, word, handlePage}) {
   return (
     <div className="">
       <p>
-        <CharacterSequence sequence={sentence.phrase} handlePage={handlePage} word={word} />
+        {sentence.contents.map((w, i) => (
+          <Character key={[w, i]} character={w} handlePage={handlePage} word={word} />
+        ))}
       </p>
       <p>
         {sentence.pinyin}
@@ -184,14 +186,67 @@ function SentenceList({sentences, word, handlePage}) {
   return (
     <div className="flex flex-col gap-4">
       {list.map(s => (
-        <Sentence key={s.phrase} sentence={s} word={word} handlePage={handlePage} />
+        <Sentence key={s.pinyin} sentence={s} word={word} handlePage={handlePage} />
       ))}
     </div>
   );
 }
 
 
-export function CharacterDetail({word, handlePage}) {
+function Glyph({glyph, handlePage}) {
+  const entry = database.words[glyph];
+  return (
+    <>
+      <div className="flex items-baseline gap-2">
+        {entry?.hsk ? (
+          <div className="bg-gray-700 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+            {entry.hsk}
+          </div>
+        ) : <div className="w-4 h-4" />}
+        <Character character={glyph} handlePage={handlePage} />
+      </div>
+      <span className="text-black">{entry?.pinyin}</span>
+      <p className="text-sm italic text-gray-800">{entry?.meaning}</p>
+    </>
+  );
+}
+
+
+function GlyphList({word, handlePage}) {
+  return (
+    <div className="flex flex-col gap-1">
+      <div className="grid grid-cols-[auto_auto_1fr] gap-x-4 gap-y-1 items-centerx">
+        {[...word].map(g => (
+          <Glyph key={g} glyph={g} handlePage={handlePage} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
+function NotFound({word}) {
+  return (
+    <Page key={word} title="Not found">
+      <div className="flex flex-col gap-10 items-center justify-center">
+        <div className={`text-gray-900 bg-gray-200 text-xl rounded-xl p-4 flex justify-center items-center`}>
+          {word}
+        </div>
+        <p className="text-center">
+          This expression is not currently recorded in the database.
+        </p>
+      </div>
+    </Page>
+  );
+}
+
+
+export function Detail({word, handlePage}) {
+
+  if (!(word in database.words)) {
+    return <NotFound word={word} />;
+  }
+
   const [ethymIndex, setEthymIndex] = useState(0);
 
   useEffect(() => {
@@ -210,71 +265,78 @@ export function CharacterDetail({word, handlePage}) {
   const data = entry.entries?.[ethymologies[ethymIndex]];
   const phonetic = data?.phonetic || entry.phonetic;
 
-  const textColor = entry.frequency ? characterColor : componentColor;
-  const bgLightColor = entry.frequency ? 'bg-gray-200' : 'bg-gray-200';
-  const bgHeavyColor = entry.frequency ? 'bg-gray-200' : 'bg-gray-200';
-
   const changeEthym = (index) => {
     if (index === ethymIndex) return;
     setEthymIndex(index);
   };
 
-  return (
-    <Page key={word} title="Character">
-      <div className="flex flex-col gap-6 items-center justify-center max-w-sm justify-self-center">
-        <div className="grid grid-cols-[auto_1fr] gap-4 gap-y-2">
-          {Object.keys(entry.entries ?? {}).length > 1 ? (
-            <>
-              <div className="flex gap-1 items-center justify-center relative">
-                {Object.keys(entry.entries).map((e, i) => (
-                  <div
-                    key={e}
-                    className={`${i === ethymIndex ? 'inset-ring-1 inset-ring-gray-800 text-gray-800' : 'bg-gray-600 text-white cursor-pointer'} w-5 h-5 text-xs flex items-center justify-center select-none z-1`}
-                    onClick={() => changeEthym(i)}
-                  >{i + 1}</div>
-                ))}
-              </div>
-              <div />
-            </>
-          ) : null}
+  const ethySelector = Object.keys(entry.entries ?? {}).length > 1 ? (
+    <div className="flex gap-1 items-center justify-center relative">
+      {Object.keys(entry.entries).map((e, i) => (
+        <div
+          key={e}
+          className={`${i === ethymIndex ? 'inset-ring-1 inset-ring-gray-800 text-gray-800' : 'bg-gray-600 text-white cursor-pointer'} w-5 h-5 text-xs flex items-center justify-center select-none z-1`}
+          onClick={() => changeEthym(i)}
+        >{i + 1}</div>
+      ))}
+    </div>
+  ) : null;
 
-          <div>
-            <div className={`${textColor} ${bgLightColor} text-9xl rounded-xl p-2 h-40 w-40 flex justify-center items-center`}>
+  const multipleGlyphs = [...word].length > 1;
+
+  return (
+    <Page key={word} title={multipleGlyphs ? 'Word' : 'Character'}>
+      <div className="flex flex-col gap-6 items-center justify-center max-w-sm justify-self-center">
+        {multipleGlyphs ? (
+          <div className="flex flex-col gap-1 items-center">
+            {ethySelector}
+            <div className={`text-gray-900 bg-gray-200 text-7xl rounded-xl p-4 flex justify-center items-center`}>
               {word}
             </div>
+            <p className="text-3xl">{pinyin}</p>
           </div>
-          <div className="flex flex-col gap-1 min-w-40">
-            {pinyin ? (
-              <>
-                <div className="flex">
-                  <p className="flex-1 text-3xl">{pinyin}</p>
-                </div>
-                {phonetic ? (
-                  <p className="text-gray-800">/{phonetic}/</p>
-                ) : null}
-              </>
-            ) : null}
-            <span className="flex-1" />
-            {entry.index ? (
-              <>
-                <Attribute name="IDX" tooltip="Index">
-                  <Character character={entry.index[0]} handlePage={handlePage} />
-                  <span>{`${entry.index < 0 ? '-' : '+'}${entry.index[1]}`}</span>
-                </Attribute>
-                <Attribute name="STR" tooltip="Strokes">{entry.strokes}</Attribute>
-                {!entry.composition ? null : (
-                  <Attribute name="CMP" tooltip="Composition">
-                    <CharacterSequence sequence={entry.composition} handlePage={handlePage} />
+        ) : (
+          <div className="grid grid-cols-[auto_1fr] gap-4 gap-y-2">
+            {ethySelector}
+            {ethySelector && <div />}
+            <div>
+              <div className={`text-gray-900 bg-gray-200 text-9xl rounded-xl p-2 h-40 w-40 flex justify-center items-center`}>
+                {word}
+              </div>
+            </div>
+            <div className="flex flex-col gap-1 min-w-40">
+              {pinyin ? (
+                <>
+                  <div className="flex">
+                    <p className="flex-1 text-3xl">{pinyin}</p>
+                  </div>
+                  {phonetic ? (
+                    <p className="text-gray-800">/{phonetic}/</p>
+                  ) : null}
+                </>
+              ) : null}
+              <span className="flex-1" />
+              {entry.index ? (
+                <>
+                  <Attribute name="IDX" tooltip="Index">
+                    <Character character={entry.index[0]} handlePage={handlePage} />
+                    <span>{`${entry.index < 0 ? '-' : '+'}${entry.index[1]}`}</span>
                   </Attribute>
-                )}
-              </>
-            ) : null}
+                  <Attribute name="STR" tooltip="Strokes">{entry.strokes}</Attribute>
+                  {entry.composition ? (
+                    <Attribute name="CMP" tooltip="Composition">
+                      <CharacterSequence sequence={entry.composition} handlePage={handlePage} />
+                    </Attribute>
+                  ) : null}
+                </>
+              ) : null}
+            </div>
           </div>
-        </div>
+        )}
 
         <div className="text-sm self-stretch">
           {entry.origin ? (
-            <div className={`${bgHeavyColor} ${entry.percentile ? 'rounded-t-md' : 'rounded-md'} p-4 text-center`}>
+            <div className={`bg-gray-200 ${entry.percentile ? 'rounded-t-md' : 'rounded-md'} p-4 text-center`}>
               <div className="flex gap-2 items-center">
                 <span className="font-mashan text-4xl">
                   {word}
@@ -286,12 +348,14 @@ export function CharacterDetail({word, handlePage}) {
               </div>
             </div>
           ) : null}
-          {entry.percentile ? (
+          {entry.percentile || entry.hsk ? (
             <div className={`${entry.origin ? 'rounded-b-md' : 'rounded-md'} bg-gray-600 text-white flex p-2 px-4`}>
-              <div className="flex-auto">
-                <span className="text-xs font-semibold uppercase mr-2">Freq Perc</span>
-                {entry.percentile.toFixed(0)}%
-              </div>
+              {entry.percentile ? (
+                <div className="flex-auto">
+                  <span className="text-xs font-semibold uppercase mr-2">Freq Perc</span>
+                  {entry.percentile.toFixed(0)}%
+                </div>
+              ) : null}
               <div className="flex-auto text-right">
                 <span className="text-xs font-semibold uppercase mr-2">HSK Level</span>
                 {entry.hsk || <span>&ndash;</span>}
@@ -299,6 +363,12 @@ export function CharacterDetail({word, handlePage}) {
             </div>
           ) : null}
         </div>
+
+        {multipleGlyphs ? (
+          <Block title="Characters" className="flex gap-2">
+            <GlyphList word={word} handlePage={handlePage} />
+          </Block>
+        ) : null}
 
         {entry.variants?.length ? (
           <Block title="Variant forms">
@@ -324,9 +394,11 @@ export function CharacterDetail({word, handlePage}) {
           </Block>
         ) : null}
 
-        <Block title="Practice writing" padding={false}>
-          <Panel word={word} />
-        </Block>
+        {!multipleGlyphs ? (
+          <Block title="Practice writing" padding={false}>
+            <Panel word={word} />
+          </Block>
+        ) : null}
       </div>
     </Page>
   )

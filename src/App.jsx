@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import database from './data/database.js';
-import { CharacterList } from './list/CharacterList.jsx';
-import { CharacterDetail } from './list/CharacterDetail.jsx';
+import { List } from './list/List.jsx';
+import { Detail } from './list/Detail.jsx';
 import { Train } from './train/Train.jsx';
 
 const defaultPage = 'list';
@@ -75,13 +75,13 @@ export default function App() {
   let content = <p>No content</p>;
   switch (page) {
     case 'list':
-      content = <CharacterList handlePage={handlePage} />;
+      content = <List handlePage={handlePage} />;
       break;
     case 'words':
-      content = <CharacterList handlePage={handlePage} asWords />;
+      content = <List handlePage={handlePage} asWords />;
       break;
     case 'detail':
-      content = <CharacterDetail word={word} handlePage={handlePage} />;
+      content = <Detail word={word} handlePage={handlePage} />;
       break;
     case 'train':
       content = <Train />;
